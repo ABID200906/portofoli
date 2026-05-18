@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio | Abid Alaika</title>
+    <title>Portofolio | Abid</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -113,7 +113,7 @@
                         <div class="w-8 h-8 bg-[#FFC900] border-2 border-slate-900 rounded-full flex items-center justify-center text-sm shadow-[2px_2px_0px_0px_#0f172a]">
                             <i class="ph-bold ph-lightning"></i>
                         </div>
-                        Abid Alaika<span class="text-[#FF90E8]">.</span>
+                        Abid<span class="text-[#FF90E8]">.</span>
                     </a>
                 </div>
                 
@@ -534,58 +534,68 @@
         };
 
         function renderApp() {
-            document.getElementById('about-text').innerText = siteData.about || "";
+            // Update Teks Tentang
+            const aboutEl = document.getElementById('about-text');
+            if(aboutEl) aboutEl.innerText = siteData.about || "";
 
+            // Render Prestasi
             const achContainer = document.getElementById('achievements-container');
-            achContainer.innerHTML = '';
-            (siteData.achievements || []).forEach((ach, index) => {
-                const color = achColors[index % achColors.length];
-                const icon = achIcons[index % achIcons.length];
-                const rotate = index % 2 === 0 ? 'hover:-rotate-1' : 'hover:rotate-1';
-                achContainer.innerHTML += `
-                    <div class="brutal-shadow ${color} rounded-2xl p-6 sm:p-8 flex gap-6 items-start transform ${rotate} transition-transform">
-                        <div class="w-16 h-16 bg-white border-2 border-slate-900 rounded-xl flex items-center justify-center shadow-[4px_4px_0_0_#1e293b] flex-shrink-0">
-                            <i class="ph-fill ${icon} text-4xl"></i>
+            if(achContainer) {
+                achContainer.innerHTML = '';
+                (siteData.achievements || []).forEach((ach, index) => {
+                    const color = achColors[index % achColors.length];
+                    const icon = achIcons[index % achIcons.length];
+                    const rotate = index % 2 === 0 ? 'hover:-rotate-1' : 'hover:rotate-1';
+                    achContainer.innerHTML += `
+                        <div class="brutal-shadow ${color} rounded-2xl p-6 sm:p-8 flex gap-6 items-start transform ${rotate} transition-transform">
+                            <div class="w-16 h-16 bg-white border-2 border-slate-900 rounded-xl flex items-center justify-center shadow-[4px_4px_0_0_#1e293b] flex-shrink-0">
+                                <i class="ph-fill ${icon} text-4xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-heading text-2xl font-black text-slate-900 mb-2">${ach.title}</h3>
+                                <p class="text-slate-900 font-bold bg-white px-2 py-1 inline-block border-2 border-slate-900 text-xs mb-3 shadow-[2px_2px_0_0_#1e293b]">${ach.event}</p>
+                                <p class="text-slate-800 font-medium leading-relaxed">${ach.desc}</p>
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="font-heading text-2xl font-black text-slate-900 mb-2">${ach.title}</h3>
-                            <p class="text-slate-900 font-bold bg-white px-2 py-1 inline-block border-2 border-slate-900 text-xs mb-3 shadow-[2px_2px_0_0_#1e293b]">${ach.event}</p>
-                            <p class="text-slate-800 font-medium leading-relaxed">${ach.desc}</p>
-                        </div>
-                    </div>
-                `;
-            });
+                    `;
+                });
+            }
 
+            // Render Karya
             const projContainer = document.getElementById('projects-container');
-            projContainer.innerHTML = '';
-            (siteData.projects || []).forEach((proj, index) => {
-                const style = projStyles[index % projStyles.length];
-                const rotate = index % 2 === 0 ? 'group-hover:rotate-2' : 'group-hover:-rotate-2';
-                // Gunakan URL gambar dari data, jika kosong pakai placehold
-                const imageUrl = proj.image && proj.image.trim() !== '' ? proj.image : `https://placehold.co/600x400/ffffff/0f172a?font=montserrat&text=Karya+${index+1}`;
-                
-                projContainer.innerHTML += `
-                    <div class="brutal-shadow bg-[#fcfbf7] text-slate-900 rounded-2xl group flex flex-col h-full">
-                        <div class="h-60 border-b-4 border-slate-900 relative overflow-hidden ${style.bg}">
-                            <img src="${imageUrl}" alt="${proj.title}" class="w-full h-full object-cover group-hover:scale-110 ${rotate} transition-transform duration-500">
-                            <div class="absolute top-4 left-4 ${style.badge} text-slate-900 border-2 border-slate-900 shadow-[2px_2px_0_0_#1e293b] px-4 py-1 rounded-full text-sm font-bold">${proj.cat}</div>
+            if(projContainer) {
+                projContainer.innerHTML = '';
+                (siteData.projects || []).forEach((proj, index) => {
+                    const style = projStyles[index % projStyles.length];
+                    const rotate = index % 2 === 0 ? 'group-hover:rotate-2' : 'group-hover:-rotate-2';
+                    const imageUrl = proj.image && proj.image.trim() !== '' ? proj.image : `https://placehold.co/600x400/ffffff/0f172a?font=montserrat&text=Karya+${index+1}`;
+                    
+                    projContainer.innerHTML += `
+                        <div class="brutal-shadow bg-[#fcfbf7] text-slate-900 rounded-2xl group flex flex-col h-full">
+                            <div class="h-60 border-b-4 border-slate-900 relative overflow-hidden ${style.bg}">
+                                <img src="${imageUrl}" alt="${proj.title}" class="w-full h-full object-cover group-hover:scale-110 ${rotate} transition-transform duration-500">
+                                <div class="absolute top-4 left-4 ${style.badge} text-slate-900 border-2 border-slate-900 shadow-[2px_2px_0_0_#1e293b] px-4 py-1 rounded-full text-sm font-bold">${proj.cat}</div>
+                            </div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="font-heading text-2xl font-black mb-3">${proj.title}</h3>
+                                <p class="text-slate-600 font-medium mb-6 flex-grow">${proj.desc}</p>
+                                <a href="${proj.link}" target="_blank" class="inline-flex items-center gap-2 font-bold text-slate-900 border-b-2 border-slate-900 pb-1 ${style.hoverText} ${style.hoverBorder} transition-colors self-start">
+                                    Lihat Detail Web <i class="ph-bold ph-arrow-up-right"></i>
+                                </a>
+                            </div>
                         </div>
-                        <div class="p-6 flex flex-col flex-grow">
-                            <h3 class="font-heading text-2xl font-black mb-3">${proj.title}</h3>
-                            <p class="text-slate-600 font-medium mb-6 flex-grow">${proj.desc}</p>
-                            <a href="${proj.link}" target="_blank" class="inline-flex items-center gap-2 font-bold text-slate-900 border-b-2 border-slate-900 pb-1 ${style.hoverText} ${style.hoverBorder} transition-colors self-start">
-                                Lihat Detail Web <i class="ph-bold ph-arrow-up-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                `;
-            });
+                    `;
+                });
+            }
 
+            // Inisialisasi Ulang Animasi Scroll
             document.querySelectorAll('.pop-up:not(.visible)').forEach(el => observer.observe(el));
         }
 
         function renderAdminForm() {
             const adminBody = document.getElementById('admin-modal-body');
+            if(!adminBody) return;
+
             let html = `
                 <div class="space-y-4">
                     <h3 class="font-heading text-xl font-black text-slate-900 border-b-2 border-slate-900 pb-2 inline-block">1. Kenalan Lebih Dekat (Tentang)</h3>
@@ -596,7 +606,7 @@
                         <h3 class="font-heading text-xl font-black text-slate-900">2. Prestasi & Pencapaian</h3>
                         <button onclick="addAdminAch()" class="brutal-btn bg-[#FFC900] text-slate-900 px-3 py-1 rounded-lg font-bold text-sm flex items-center gap-1"><i class="ph-bold ph-plus"></i> Tambah</button>
                     </div>
-                    <div class="grid md:grid-cols-2 gap-4">
+                    <div class="grid md:grid-cols-2 gap-4" id="admin-achievements-list">
             `;
 
             (siteData.achievements || []).forEach((ach, i) => {
@@ -616,7 +626,7 @@
                         <h3 class="font-heading text-xl font-black text-slate-900">3. Karya Pilihan</h3>
                         <button onclick="addAdminProj()" class="brutal-btn bg-[#00E5FF] text-slate-900 px-3 py-1 rounded-lg font-bold text-sm flex items-center gap-1"><i class="ph-bold ph-plus"></i> Tambah</button>
                     </div>
-                    <div class="grid md:grid-cols-2 gap-4">`;
+                    <div class="grid md:grid-cols-2 gap-4" id="admin-projects-list">`;
 
             (siteData.projects || []).forEach((proj, i) => {
                 html += `
@@ -626,7 +636,6 @@
                         <input type="text" class="proj-title w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#22c55e] focus:outline-none" placeholder="Nama Karya" value="${proj.title}">
                         <input type="text" class="proj-cat w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#22c55e] focus:outline-none" placeholder="Kategori" value="${proj.cat}">
                         <input type="text" class="proj-link w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#22c55e] focus:outline-none" placeholder="Link Web (https://...)" value="${proj.link}">
-                        <!-- Tambahan: Input URL Gambar -->
                         <input type="text" class="proj-img w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#22c55e] focus:outline-none" placeholder="URL Gambar (misal: https://imgur.com/x.png)" value="${proj.image || ''}">
                         <textarea rows="3" class="proj-desc w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#22c55e] focus:outline-none resize-none" placeholder="Deskripsi">${proj.desc}</textarea>
                     </div>
@@ -637,9 +646,13 @@
             adminBody.innerHTML = html;
         }
 
+        // Fungsi Utama untuk Mengambil Nilai dari Form Admin ke Variabel Global (siteData)
         function syncAdminInputsToData() {
-            siteData.about = document.getElementById('admin-about').value;
+            // 1. Ambil nilai Tentang
+            const aboutInput = document.getElementById('admin-about');
+            if(aboutInput) siteData.about = aboutInput.value;
             
+            // 2. Ambil nilai Prestasi
             const achBlocks = document.querySelectorAll('.admin-ach-block');
             siteData.achievements = Array.from(achBlocks).map(b => ({
                 title: b.querySelector('.ach-title').value,
@@ -647,22 +660,45 @@
                 desc: b.querySelector('.ach-desc').value
             }));
 
+            // 3. Ambil nilai Karya Pilihan
             const projBlocks = document.querySelectorAll('.admin-proj-block');
             siteData.projects = Array.from(projBlocks).map(b => ({
                 title: b.querySelector('.proj-title').value,
                 cat: b.querySelector('.proj-cat').value,
                 link: b.querySelector('.proj-link').value,
-                image: b.querySelector('.proj-img').value, // Simpan input gambar
+                image: b.querySelector('.proj-img').value,
                 desc: b.querySelector('.proj-desc').value
             }));
         }
 
-        window.addAdminAch = () => { syncAdminInputsToData(); siteData.achievements.push({ title: "", event: "", desc: "" }); renderAdminForm(); };
-        window.removeAdminAch = (i) => { syncAdminInputsToData(); siteData.achievements.splice(i, 1); renderAdminForm(); };
-        window.addAdminProj = () => { syncAdminInputsToData(); siteData.projects.push({ title: "", cat: "", link: "", image: "", desc: "" }); renderAdminForm(); };
-        window.removeAdminProj = (i) => { syncAdminInputsToData(); siteData.projects.splice(i, 1); renderAdminForm(); };
+        // Pastikan fungsi ini terdaftar secara global agar bisa dipanggil oleh onclick di HTML
+        window.addAdminAch = () => { 
+            syncAdminInputsToData(); 
+            siteData.achievements.push({ title: "Prestasi Baru", event: "Tahun Baru", desc: "Deskripsi singkat mengenai prestasi baru Anda." }); 
+            renderAdminForm(); 
+        };
+        
+        window.removeAdminAch = (i) => { 
+            syncAdminInputsToData(); 
+            siteData.achievements.splice(i, 1); 
+            renderAdminForm(); 
+        };
+        
+        window.addAdminProj = () => { 
+            syncAdminInputsToData(); 
+            siteData.projects.push({ title: "Karya Baru", cat: "Kategori", link: "#", image: "", desc: "Deskripsi singkat mengenai karya baru Anda." }); 
+            renderAdminForm(); 
+        };
+        
+        window.removeAdminProj = (i) => { 
+            syncAdminInputsToData(); 
+            siteData.projects.splice(i, 1); 
+            renderAdminForm(); 
+        };
 
         const adminModal = document.getElementById('admin-modal');
+        
+        // Listener Shortcut Keyboard Ctrl+Alt+A
         document.addEventListener('keydown', (e) => {
             if (e.ctrlKey && e.altKey && e.key.toLowerCase() === 'a') {
                 e.preventDefault(); 
@@ -673,26 +709,36 @@
         window.openAdminModal = () => {
             renderAdminForm(); 
             adminModal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
+            document.body.style.overflow = 'hidden'; // Matikan scroll background
         };
 
         window.closeAdminModal = () => {
             adminModal.classList.add('hidden');
-            document.body.style.overflow = 'auto';
+            document.body.style.overflow = 'auto'; // Nyalakan scroll background
         };
 
         window.saveAdminData = async () => {
+            // SINKRONISASI DATANYA DULU SEBELUM DISIMPAN
             syncAdminInputsToData(); 
+            
             const btn = document.getElementById('save-admin-btn');
             const originalText = btn.innerHTML;
             
             // Simpan ke Firebase Database
             try {
                 btn.innerHTML = '<i class="ph-bold ph-spinner-gap animate-spin"></i> Menyimpan...';
+                
+                // Pastikan firebase berhasil inisialisasi dan ada referensi dokumen
                 if(docRef) {
                     await setDoc(docRef, siteData);
+                    console.log("Data berhasil disimpan ke cloud:", siteData);
+                } else {
+                    // Jika Firebase offline, setidaknya render perubahannya di memori browser
+                    console.warn("Sedang mode lokal (Firebase tidak terhubung), perubahan hanya disimpan di memori.");
+                    renderApp(); 
                 }
                 
+                // Efek sukses pada tombol
                 btn.innerHTML = '<i class="ph-bold ph-check"></i> Tersimpan!';
                 btn.classList.replace('bg-[#22c55e]', 'bg-[#FFC900]');
                 
@@ -701,6 +747,7 @@
                     btn.classList.replace('bg-[#FFC900]', 'bg-[#22c55e]');
                     window.closeAdminModal();
                 }, 1000); 
+                
             } catch (error) {
                 console.error("Gagal menyimpan ke cloud:", error);
                 btn.innerHTML = '<i class="ph-bold ph-x"></i> Gagal Simpan';
@@ -714,7 +761,8 @@
                     app = initializeApp(firebaseConfig);
                     auth = getAuth(app);
                     db = getFirestore(app);
-                    // Path penyimpanan aman (Public Portofolio)
+                    
+                    // Path penyimpanan aman (Public Portofolio) - pastikan AppID valid
                     docRef = doc(db, 'artifacts', appId, 'public', 'data', 'portfolioData', 'main');
 
                     if (typeof __initial_auth_token !== 'undefined') {
@@ -723,20 +771,24 @@
                         await signInAnonymously(auth);
                     }
 
-                    // Dengarkan perubahan data secara realtime (Bisa simpan walau di refresh)
+                    // Dengarkan perubahan data secara realtime
                     onSnapshot(docRef, (snapshot) => {
                         if (snapshot.exists()) {
+                            // Timpa siteData dengan data dari cloud
                             siteData = snapshot.data();
                         } else {
-                            // Jika data di cloud kosong, simpan data bawaan
-                            setDoc(docRef, siteData);
+                            // Jika data di cloud kosong (baru pertama kali buka), buat dokumen bawaan
+                            setDoc(docRef, siteData).catch(err => console.error("Gagal buat dokumen awal:", err));
                         }
+                        // Render ulang website dengan data terbaru
                         renderApp();
                     }, (error) => {
                         console.error("Gagal memuat data dari Cloud:", error);
+                        // Tetap render website dengan data bawaan jika cloud error
                         renderApp();
                     });
                 } else {
+                    console.log("Menjalankan Mode Offline (Konfigurasi Firebase Kosong)");
                     renderApp(); // Fallback jika tidak ada konfigurasi database
                 }
             } catch (e) {
@@ -745,6 +797,7 @@
             }
         }
 
+        // Jalankan Inisialisasi Firebase & Render Pertama
         initFirebase();
     </script>
 </body>
