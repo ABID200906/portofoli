@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio | Abid</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        :root {
+            --bg-color: #fcfbf7; /* Off-white hangat */
+            --text-main: #0f172a;
+            --border-dark: #1e293b;
+            --color-pink: #FF90E8;
+            --color-yellow: #FFC900;
+            --color-blue: #3B82F6;
+            --color-cyan: #00E5FF;
+            --color-green: #22c55e;
+            --color-orange: #FF5722;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            /* Pola titik-titik tebal */
+            background-image: radial-gradient(#cbd5e1 2px, transparent 2px);
+            background-size: 32px 32px;
+        }
+
+        h1, h2, h3, h4, h5, h6, .font-heading {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Shadow Blok Kasar khas Neo-brutalism */
+        .brutal-shadow {
+            box-shadow: 6px 6px 0px 0px var(--border-dark);
+            border: 3px solid var(--border-dark);
+            transition: all 0.2s ease-in-out;
+        }
+
+        .brutal-shadow:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 10px 10px 0px 0px var(--border-dark);
+        }
+
+        /* Tombol Spesial */
+        .brutal-btn {
+            box-shadow: 4px 4px 0px 0px var(--border-dark);
+            border: 3px solid var(--border-dark);
+            transition: all 0.15s ease;
+        }
+
+        .brutal-btn:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px 0px var(--border-dark);
+        }
+
+        .brutal-btn:active {
+            transform: translate(4px, 4px);
+            box-shadow: 0px 0px 0px 0px var(--border-dark);
+        }
+
+        /* Animasi Marquee / Teks Berjalan */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            display: flex;
+            background: var(--color-yellow);
+            border-top: 3px solid var(--border-dark);
+            border-bottom: 3px solid var(--border-dark);
+            padding: 12px 0;
+            transform: rotate(-2deg);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            width: 105vw;
+            margin-left: -2vw;
+        }
+
+        .marquee-content {
+            display: flex;
+            animation: marquee 15s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Animasi masuk */
+        .pop-up {
+            opacity: 0;
+            transform: scale(0.95) translateY(20px);
+            transition: opacity 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .pop-up.visible {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-pink-300 selection:text-slate-900">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-[#fcfbf7] border-b-4 border-[#1e293b]" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-3xl font-black font-heading tracking-tight text-slate-900 flex items-center gap-2">
+                        <div class="w-8 h-8 bg-[#FFC900] border-2 border-slate-900 rounded-full flex items-center justify-center text-sm shadow-[2px_2px_0px_0px_#0f172a]">
+                            <i class="ph-bold ph-lightning"></i>
+                        </div>
+                        Abid<span class="text-[#FF90E8]">.</span>
+                    </a>
+                </div>
+                
+                <!-- Menu Desktop -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-8">
+                        <a href="#home" class="text-slate-800 hover:text-[#3B82F6] font-bold text-lg transition-colors">Beranda</a>
+                        <a href="#about" class="text-slate-800 hover:text-[#FF90E8] font-bold text-lg transition-colors">Tentang</a>
+                        <a href="#achievements" class="text-slate-800 hover:text-[#00E5FF] font-bold text-lg transition-colors">Prestasi</a>
+                        <a href="#projects" class="text-slate-800 hover:text-[#FF5722] font-bold text-lg transition-colors">Karya</a>
+                        <a href="#contact" class="brutal-btn bg-[#FF90E8] text-slate-900 px-6 py-2 rounded-full text-base font-bold">
+                            Sapa Saya 👋
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Tombol Menu Mobile -->
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" id="mobile-menu-btn" class="brutal-btn bg-white w-10 h-10 rounded-lg flex items-center justify-center text-slate-900">
+                        <i class="ph-bold ph-list text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Mobile -->
+        <div class="md:hidden hidden bg-[#fcfbf7] border-b-4 border-slate-900 absolute w-full shadow-[0_10px_0_0_#1e293b]" id="mobile-menu">
+            <div class="px-4 pt-4 pb-6 space-y-3 text-center">
+                <a href="#home" class="block bg-white border-2 border-slate-900 shadow-[2px_2px_0_0_#1e293b] text-slate-800 px-4 py-3 rounded-xl font-bold">Beranda</a>
+                <a href="#about" class="block bg-white border-2 border-slate-900 shadow-[2px_2px_0_0_#1e293b] text-slate-800 px-4 py-3 rounded-xl font-bold">Tentang</a>
+                <a href="#achievements" class="block bg-white border-2 border-slate-900 shadow-[2px_2px_0_0_#1e293b] text-slate-800 px-4 py-3 rounded-xl font-bold">Prestasi</a>
+                <a href="#projects" class="block bg-white border-2 border-slate-900 shadow-[2px_2px_0_0_#1e293b] text-slate-800 px-4 py-3 rounded-xl font-bold">Karya</a>
+                <a href="#contact" class="block bg-[#FF90E8] border-2 border-slate-900 shadow-[2px_2px_0_0_#1e293b] text-slate-900 px-4 py-3 rounded-xl font-black mt-4">Sapa Saya</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Bagian Hero -->
+    <section id="home" class="min-h-screen pt-32 pb-12 overflow-hidden flex flex-col justify-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+            <div class="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-8">
+                
+                <!-- Teks Hero -->
+                <div class="flex-1 text-center lg:text-left pop-up relative z-10">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#00E5FF] border-2 border-slate-900 shadow-[3px_3px_0_0_#1e293b] text-slate-900 font-bold text-sm mb-8 transform -rotate-2">
+                        <i class="ph-fill ph-check-circle text-lg"></i> Tersedia untuk proyek
+                    </div>
+                    
+                    <h1 class="font-heading text-6xl sm:text-7xl md:text-8xl font-black mb-6 text-slate-900 tracking-tight leading-[1]">
+                        Bikin Web Jadi <br>
+                        <span class="inline-block bg-[#FFC900] px-4 py-2 mt-2 border-4 border-slate-900 shadow-[6px_6px_0_0_#1e293b] transform rotate-1">
+                            Menarik!
+                        </span>
+                    </h1>
+                    
+                    <p class="text-slate-700 text-lg sm:text-xl md:text-2xl mb-10 max-w-2xl mx-auto lg:mx-0 font-medium leading-relaxed border-l-4 border-[#FF90E8] pl-4">
+                        Hai, Saya Abid! Desainer & Developer yang bikin desain nyentrik, warna berani, dan interaksi seru. Bosan dengan web yang biasa aja? Mari berkreasi!
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">
+                        <a href="#projects" class="brutal-btn bg-[#3B82F6] text-white px-8 py-4 rounded-xl font-black text-lg flex items-center justify-center gap-2">
+                            Lihat Karya <i class="ph-bold ph-arrow-right"></i>
+                        </a>
+                        <a href="#contact" class="brutal-btn bg-white text-slate-900 px-8 py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2">
+                            <i class="ph-bold ph-download-simple"></i> Unduh CV
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Gambar Hero -->
+                <div class="flex-1 flex justify-center lg:justify-end pop-up relative z-0">
+                    <!-- Ornamen Belakang -->
+                    <div class="absolute w-72 h-72 bg-[#FF90E8] rounded-full border-4 border-slate-900 shadow-[8px_8px_0_0_#1e293b] transform translate-x-8 translate-y-8 z-0"></div>
+                    <div class="absolute w-40 h-40 bg-[#00E5FF] border-4 border-slate-900 shadow-[6px_6px_0_0_#1e293b] transform -translate-x-12 -translate-y-8 rotate-12 z-0"></div>
+                    
+                    <!-- Foto Utama -->
+                    <div class="relative z-10 w-64 h-80 sm:w-80 sm:h-[400px] bg-white border-4 border-slate-900 shadow-[12px_12px_0_0_#1e293b] rounded-2xl overflow-hidden transform -rotate-3 hover:rotate-0 transition-transform duration-300">
+                        <div class="h-10 bg-slate-900 w-full flex items-center px-4 gap-2 border-b-4 border-slate-900">
+                            <div class="w-3 h-3 rounded-full bg-[#FF5722]"></div>
+                            <div class="w-3 h-3 rounded-full bg-[#FFC900]"></div>
+                            <div class="w-3 h-3 rounded-full bg-[#22c55e]"></div>
+                        </div>
+                        <!-- Placeholder Foto Profil -->
+                        <img src="https://placehold.co/600x800/e2e8f0/0f172a?font=montserrat&text=Foto+Abid" alt="Abid" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Marquee Teks Berjalan -->
+        <div class="marquee-container shadow-[0_4px_0_0_#1e293b] z-20">
+            <div class="marquee-content font-heading text-3xl font-black text-slate-900 uppercase tracking-widest flex gap-8 items-center">
+                <span>🎨 UI/UX DESIGN</span>
+                <i class="ph-fill ph-star text-[#FF5722]"></i>
+                <span>💻 FRONTEND DEV</span>
+                <i class="ph-fill ph-star text-[#FF5722]"></i>
+                <span>✨ BRANDING</span>
+                <i class="ph-fill ph-star text-[#FF5722]"></i>
+                <span>🚀 WEB ANIMATION</span>
+                <i class="ph-fill ph-star text-[#FF5722]"></i>
+                <span>🎨 UI/UX DESIGN</span>
+                <i class="ph-fill ph-star text-[#FF5722]"></i>
+                <span>💻 FRONTEND DEV</span>
+                <i class="ph-fill ph-star text-[#FF5722]"></i>
+                <span>✨ BRANDING</span>
+                <i class="ph-fill ph-star text-[#FF5722]"></i>
+                <span>🚀 WEB ANIMATION</span>
+                <i class="ph-fill ph-star text-[#FF5722]"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bagian Tentang & Bento Grid -->
+    <section id="about" class="py-24 relative z-10 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 pop-up">
+                <h2 class="font-heading text-4xl md:text-6xl font-black text-slate-900 mb-6 inline-block relative">
+                    Kenalan Lebih Dekat
+                    <svg class="absolute w-full h-4 -bottom-2 left-0 text-[#FF5722]" viewBox="0 0 200 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.00031 7.00018C44.667 1.83352 136.6 -3.39982 198 7.00018" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+                </h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 auto-rows-[220px]">
+                
+                <!-- Card 1: Intro -->
+                <div class="brutal-shadow bg-white rounded-2xl md:col-span-2 md:row-span-2 p-8 flex flex-col justify-between pop-up">
+                    <div>
+                        <div class="w-16 h-16 bg-[#00E5FF] border-2 border-slate-900 rounded-xl flex items-center justify-center text-slate-900 shadow-[4px_4px_0_0_#1e293b] mb-6 transform -rotate-3">
+                            <i class="ph-bold ph-hand-waving text-3xl"></i>
+                        </div>
+                        <h3 class="font-heading text-3xl font-black text-slate-900 mb-4">Halo dari Tangerang!</h3>
+                        <p id="about-text" class="text-slate-700 font-medium text-lg leading-relaxed mb-6">
+                            Saya menggabungkan seni desain visual dengan logika coding. Tujuan saya? Membuat website yang tidak membosankan. Saya suka bermain dengan warna berani, animasi, dan tata letak di luar kebiasaan.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 bg-[#FF90E8] border-2 border-slate-900 text-slate-900 shadow-[2px_2px_0_0_#1e293b] rounded-full font-bold text-sm">Figma Master</span>
+                        <span class="px-4 py-2 bg-[#FFC900] border-2 border-slate-900 text-slate-900 shadow-[2px_2px_0_0_#1e293b] rounded-full font-bold text-sm">React JS</span>
+                        <span class="px-4 py-2 bg-[#22c55e] border-2 border-slate-900 text-slate-900 shadow-[2px_2px_0_0_#1e293b] rounded-full font-bold text-sm">Tailwind CSS</span>
+                    </div>
+                </div>
+
+                <!-- Card 2: Pengalaman -->
+                <div class="brutal-shadow bg-[#FF90E8] rounded-2xl p-6 flex flex-col items-center justify-center text-center pop-up relative overflow-hidden" style="transition-delay: 100ms;">
+                    <i class="ph-fill ph-sparkle text-white opacity-40 text-6xl absolute -top-4 -right-4"></i>
+                    <i class="ph-fill ph-sparkle text-white opacity-40 text-4xl absolute bottom-4 left-4"></i>
+                    
+                    <h4 class="font-heading text-6xl font-black text-slate-900 mb-2">2+</h4>
+                    <p class="text-slate-900 font-bold text-lg bg-white px-3 py-1 border-2 border-slate-900 rounded-lg transform rotate-2">Tahun Exp.</p>
+                </div>
+
+                <!-- Card 3: Soft Skills & AI -->
+                <div class="brutal-shadow bg-[#FFC900] rounded-2xl p-6 flex flex-col justify-center pop-up" style="transition-delay: 200ms;">
+                    <h4 class="font-heading text-2xl font-black text-slate-900 mb-4 border-b-2 border-slate-900 pb-2">Senjata</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 font-bold text-slate-900"><i class="ph-bold ph-check-square text-xl"></i> Prototyping Cepat</li>
+                        <li class="flex items-center gap-3 font-bold text-slate-900"><i class="ph-bold ph-check-square text-xl"></i> Animasi Mikro</li>
+                        <!-- Tambahan Gemini -->
+                        <li class="flex items-center gap-3 font-bold text-slate-900">
+                            <i class="ph-fill ph-sparkle text-xl text-[#3B82F6] animate-pulse"></i> Gemini AI Prompts
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Card 4: Tools -->
+                <div class="brutal-shadow bg-[#3B82F6] rounded-2xl p-6 md:col-span-2 flex flex-col justify-center pop-up">
+                    <h4 class="font-heading text-2xl font-black text-white mb-6">Tools Andalan</h4>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="w-14 h-14 bg-white border-2 border-slate-900 shadow-[3px_3px_0_0_#1e293b] rounded-xl flex items-center justify-center text-[#F24E1E] transform hover:-translate-y-2 transition-transform" title="Figma"><i class="ph-fill ph-figma-logo text-3xl"></i></div>
+                        
+                        <!-- Tambahan HTML -->
+                        <div class="w-14 h-14 bg-white border-2 border-slate-900 shadow-[3px_3px_0_0_#1e293b] rounded-xl flex items-center justify-center text-[#FF5722] transform hover:-translate-y-2 transition-transform hover:-rotate-12" title="HTML">
+                            <span class="font-black text-sm">HTML</span>
+                        </div>
+                        
+                        <div class="w-14 h-14 bg-white border-2 border-slate-900 shadow-[3px_3px_0_0_#1e293b] rounded-xl flex items-center justify-center text-blue-500 transform hover:-translate-y-2 transition-transform hover:rotate-12" title="React"><i class="ph-fill ph-atom text-3xl"></i></div>
+                        <div class="w-14 h-14 bg-white border-2 border-slate-900 shadow-[3px_3px_0_0_#1e293b] rounded-xl flex items-center justify-center text-teal-500 transform hover:-translate-y-2 transition-transform hover:-rotate-12" title="Tailwind"><i class="ph-fill ph-palette text-3xl"></i></div>
+                        <div class="w-14 h-14 bg-white border-2 border-slate-900 shadow-[3px_3px_0_0_#1e293b] rounded-xl flex items-center justify-center text-yellow-400 transform hover:-translate-y-2 transition-transform" title="JS"><i class="ph-fill ph-file-js text-3xl"></i></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Bagian Prestasi (Baru Ditambahkan) -->
+    <section id="achievements" class="py-24 bg-[#0f172a] text-white relative z-10 overflow-hidden border-t-4 border-slate-900">
+        <!-- Dekorasi Latar Belakang -->
+        <i class="ph-bold ph-trophy text-white opacity-5 text-[30rem] absolute -left-20 -bottom-20 transform -rotate-12"></i>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 pop-up">
+                <h2 class="font-heading text-4xl md:text-6xl font-black text-[#FFC900] mb-6 inline-block relative">
+                    Prestasi & Pencapaian
+                </h2>
+                <p class="text-slate-300 text-xl font-medium max-w-2xl mx-auto">
+                    Beberapa momen membanggakan selama perjalanan karir saya di dunia pengembangan web.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Achievement 1 -->
+                <div class="brutal-shadow bg-[#FF90E8] rounded-2xl p-6 sm:p-8 flex gap-6 pop-up items-start transform hover:-rotate-1 transition-transform">
+                    <div class="w-16 h-16 bg-white border-2 border-slate-900 rounded-xl flex items-center justify-center text-[#FF5722] shadow-[4px_4px_0_0_#1e293b] flex-shrink-0">
+                        <i class="ph-fill ph-trophy text-4xl"></i>
+                    </div>
+                    <div>
+                        <h3 id="ach1-title" class="font-heading text-2xl font-black text-slate-900 mb-2">Juara 1 Web Design</h3>
+                        <p id="ach1-event" class="text-slate-900 font-bold bg-white px-2 py-1 inline-block border-2 border-slate-900 text-xs mb-3 shadow-[2px_2px_0_0_#1e293b]">TechFest 2023</p>
+                        <p id="ach1-desc" class="text-slate-800 font-medium leading-relaxed">Meraih posisi pertama dalam kompetisi desain antarmuka, menciptakan tata letak paling responsif dan inovatif dalam waktu 24 jam.</p>
+                    </div>
+                </div>
+
+                <!-- Achievement 2 -->
+                <div class="brutal-shadow bg-[#00E5FF] rounded-2xl p-6 sm:p-8 flex gap-6 pop-up items-start transform hover:rotate-1 transition-transform" style="transition-delay: 100ms;">
+                    <div class="w-16 h-16 bg-white border-2 border-slate-900 rounded-xl flex items-center justify-center text-[#3B82F6] shadow-[4px_4px_0_0_#1e293b] flex-shrink-0">
+                        <i class="ph-fill ph-medal text-4xl"></i>
+                    </div>
+                    <div>
+                        <h3 id="ach2-title" class="font-heading text-2xl font-black text-slate-900 mb-2">Top 5 Frontend Hackathon</h3>
+                        <p id="ach2-event" class="text-slate-900 font-bold bg-white px-2 py-1 inline-block border-2 border-slate-900 text-xs mb-3 shadow-[2px_2px_0_0_#1e293b]">DevNusantara 2024</p>
+                        <p id="ach2-desc" class="text-slate-800 font-medium leading-relaxed">Berhasil masuk ke jajaran elit berkat optimalisasi kode yang membuat kecepatan muat website meningkat hingga 40%.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bagian Proyek (Karya) -->
+    <section id="projects" class="py-24 bg-white relative border-y-4 border-slate-900">
+        <!-- Dekorasi latar belakang SVG -->
+        <div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: repeating-linear-gradient(45deg, #0f172a 25%, transparent 25%, transparent 75%, #0f172a 75%, #0f172a), repeating-linear-gradient(45deg, #0f172a 25%, transparent 25%, transparent 75%, #0f172a 75%, #0f172a); background-position: 0 0, 20px 20px; background-size: 40px 40px;"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 pop-up">
+                <div>
+                    <h2 class="font-heading text-4xl md:text-6xl font-black text-slate-900 mb-4">Karya Pilihan</h2>
+                    <p class="text-slate-600 text-xl font-medium">Bukan sekadar desain, tapi pengalaman visual.</p>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Proyek 1 -->
+                <div class="brutal-shadow bg-[#fcfbf7] text-slate-900 rounded-2xl group pop-up">
+                    <div class="h-60 border-b-4 border-slate-900 relative overflow-hidden bg-[#FF90E8]">
+                        <img src="https://placehold.co/600x400/fdf4ff/c026d3?font=montserrat&text=E-Commerce" alt="Proyek 1" class="w-full h-full object-cover mix-blend-multiply group-hover:scale-110 group-hover:rotate-2 transition-transform duration-500">
+                        <div id="proj1-cat" class="absolute top-4 left-4 bg-[#FFC900] border-2 border-slate-900 shadow-[2px_2px_0_0_#1e293b] px-4 py-1 rounded-full text-sm font-bold">Toko Online</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 id="proj1-title" class="font-heading text-2xl font-black mb-3">TokoBaju "Warna"</h3>
+                        <p id="proj1-desc" class="text-slate-600 font-medium mb-6">Desain e-commerce yang ceria dengan filter pencarian warna interaktif.</p>
+                        <a href="#" class="inline-flex items-center gap-2 font-bold text-slate-900 border-b-2 border-slate-900 pb-1 hover:text-[#FF5722] hover:border-[#FF5722] transition-colors">
+                            Lihat Detail <i class="ph-bold ph-arrow-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Proyek 2 -->
+                <div class="brutal-shadow bg-[#fcfbf7] text-slate-900 rounded-2xl group pop-up" style="transition-delay: 100ms;">
+                    <div class="h-60 border-b-4 border-slate-900 relative overflow-hidden bg-[#00E5FF]">
+                        <img src="https://placehold.co/600x400/eff6ff/2563eb?font=montserrat&text=Fintech+App" alt="Proyek 2" class="w-full h-full object-cover mix-blend-multiply group-hover:scale-110 group-hover:-rotate-2 transition-transform duration-500">
+                        <div id="proj2-cat" class="absolute top-4 left-4 bg-[#FF90E8] border-2 border-slate-900 shadow-[2px_2px_0_0_#1e293b] px-4 py-1 rounded-full text-sm font-bold">Dashboard</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 id="proj2-title" class="font-heading text-2xl font-black mb-3">Sistem Kasir "Kring"</h3>
+                        <p id="proj2-desc" class="text-slate-600 font-medium mb-6">Dashboard point of sale (POS) yang menyederhanakan data angka menjadi warna.</p>
+                        <a href="#" class="inline-flex items-center gap-2 font-bold text-slate-900 border-b-2 border-slate-900 pb-1 hover:text-[#3B82F6] hover:border-[#3B82F6] transition-colors">
+                            Lihat Detail <i class="ph-bold ph-arrow-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Proyek 3 -->
+                <div class="brutal-shadow bg-[#fcfbf7] text-slate-900 rounded-2xl group pop-up" style="transition-delay: 200ms;">
+                    <div class="h-60 border-b-4 border-slate-900 relative overflow-hidden bg-[#22c55e]">
+                        <img src="https://placehold.co/600x400/ecfdf5/059669?font=montserrat&text=Travel+Blog" alt="Proyek 3" class="w-full h-full object-cover mix-blend-multiply group-hover:scale-110 group-hover:rotate-2 transition-transform duration-500">
+                        <div id="proj3-cat" class="absolute top-4 left-4 bg-[#FF5722] text-white border-2 border-slate-900 shadow-[2px_2px_0_0_#1e293b] px-4 py-1 rounded-full text-sm font-bold">Mobile App</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 id="proj3-title" class="font-heading text-2xl font-black mb-3">Jurnal "JalanKuy"</h3>
+                        <p id="proj3-desc" class="text-slate-600 font-medium mb-6">Aplikasi travel dengan peta interaktif dan jurnal foto bergaya polaroid.</p>
+                        <a href="#" class="inline-flex items-center gap-2 font-bold text-slate-900 border-b-2 border-slate-900 pb-1 hover:text-[#22c55e] hover:border-[#22c55e] transition-colors">
+                            Lihat Detail <i class="ph-bold ph-arrow-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center pop-up">
+                <a href="#" class="brutal-btn bg-[#FFC900] text-slate-900 px-8 py-4 rounded-xl font-black text-xl inline-flex items-center gap-2">
+                    Jelajahi Semua Portofolio <i class="ph-bold ph-folder-open"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bagian Kontak -->
+    <section id="contact" class="py-24 bg-[#FF5722] relative overflow-hidden">
+        <i class="ph-bold ph-asterisk text-white opacity-20 text-[20rem] absolute -right-20 -top-20 animate-spin" style="animation-duration: 20s;"></i>
+        
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="brutal-shadow bg-[#FFC900] rounded-3xl p-8 md:p-14 pop-up">
+                
+                <div class="text-center mb-10">
+                    <h2 class="font-heading text-5xl md:text-7xl font-black text-slate-900 mb-6 uppercase">Mari Kolaborasi!</h2>
+                    <p class="text-slate-800 text-xl font-bold max-w-lg mx-auto bg-white inline-block px-4 py-2 border-2 border-slate-900 shadow-[4px_4px_0_0_#1e293b] transform -rotate-1">
+                        Siap membuat sesuatu yang gila?
+                    </p>
+                </div>
+                
+                <!-- Form Submit akan memanggil sendToWhatsApp(event) -->
+                <form id="contactForm" class="mt-12 bg-white border-4 border-slate-900 shadow-[8px_8px_0_0_#1e293b] rounded-2xl p-6 md:p-8" onsubmit="sendToWhatsApp(event)">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label class="block text-lg font-black text-slate-900 mb-2">Nama Kamu</label>
+                            <input type="text" id="senderName" required class="w-full bg-[#fcfbf7] border-3 border-slate-900 rounded-xl px-4 py-3 text-slate-900 font-medium focus:outline-none focus:shadow-[4px_4px_0_0_#1e293b] focus:bg-[#00E5FF] transition-all" placeholder="Misal: Budi">
+                        </div>
+                        <div>
+                            <label class="block text-lg font-black text-slate-900 mb-2">Email Kamu</label>
+                            <input type="email" id="senderEmail" required class="w-full bg-[#fcfbf7] border-3 border-slate-900 rounded-xl px-4 py-3 text-slate-900 font-medium focus:outline-none focus:shadow-[4px_4px_0_0_#1e293b] focus:bg-[#FF90E8] transition-all" placeholder="budi@email.com">
+                        </div>
+                    </div>
+                    <div class="mb-8">
+                        <label class="block text-lg font-black text-slate-900 mb-2">Pesan Seru</label>
+                        <textarea id="senderMessage" rows="4" required class="w-full bg-[#fcfbf7] border-3 border-slate-900 rounded-xl px-4 py-3 text-slate-900 font-medium focus:outline-none focus:shadow-[4px_4px_0_0_#1e293b] focus:bg-[#FFC900] transition-all resize-none" placeholder="Ceritakan idemu di sini..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full brutal-btn bg-slate-900 text-white py-4 rounded-xl font-black text-xl flex items-center justify-center gap-2 hover:bg-[#22c55e] hover:text-slate-900 transition-colors duration-300">
+                        <i class="ph-bold ph-whatsapp-logo text-2xl"></i> Kirim ke WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t-4 border-slate-900 pt-16 pb-12 relative overflow-hidden text-white">
+        <div class="absolute top-0 left-0 w-full overflow-hidden leading-none transform rotate-180">
+            <svg class="relative block w-[calc(100%+1.3px)] h-[40px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="fill-[#FF5722]"></path>
+            </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 mt-8">
+            <h2 class="font-heading text-5xl font-black mb-8">
+                Abid<span class="text-[#FF90E8]">.</span>
+            </h2>
+            
+            <div class="flex justify-center gap-6 mb-12">
+                <a href="#" class="w-14 h-14 bg-white border-2 border-slate-900 shadow-[4px_4px_0_0_#FF90E8] rounded-xl text-slate-900 flex items-center justify-center hover:translate-y-1 hover:shadow-[2px_2px_0_0_#FF90E8] transition-all"><i class="ph-fill ph-dribbble-logo text-3xl"></i></a>
+                <a href="#" class="w-14 h-14 bg-white border-2 border-slate-900 shadow-[4px_4px_0_0_#00E5FF] rounded-xl text-slate-900 flex items-center justify-center hover:translate-y-1 hover:shadow-[2px_2px_0_0_#00E5FF] transition-all"><i class="ph-fill ph-linkedin-logo text-3xl"></i></a>
+                <a href="#" class="w-14 h-14 bg-white border-2 border-slate-900 shadow-[4px_4px_0_0_#FFC900] rounded-xl text-slate-900 flex items-center justify-center hover:translate-y-1 hover:shadow-[2px_2px_0_0_#FFC900] transition-all"><i class="ph-fill ph-github-logo text-3xl"></i></a>
+            </div>
+            
+            <div class="inline-block bg-[#1e293b] px-6 py-3 rounded-full border-2 border-slate-700">
+                <p class="text-slate-300 font-bold text-sm">
+                    &copy; 2026 Didesain oleh Abid. Berani tampil beda.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Admin Modal -->
+    <div id="admin-modal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-[#fcfbf7] border-4 border-slate-900 shadow-[8px_8px_0_0_#1e293b] rounded-2xl w-full max-w-4xl max-h-[90vh] flex flex-col relative mt-10 mb-10">
+            
+            <!-- Header Modal -->
+            <div class="p-6 border-b-4 border-slate-900 bg-[#FFC900] rounded-t-xl flex justify-between items-center sticky top-0 z-10">
+                <h2 class="font-heading text-3xl font-black text-slate-900 flex items-center gap-2">
+                    <i class="ph-bold ph-pencil-simple"></i> Mode Editor Admin
+                </h2>
+                <button onclick="closeAdminModal()" class="w-10 h-10 bg-white border-2 border-slate-900 shadow-[2px_2px_0_0_#1e293b] rounded-lg flex items-center justify-center hover:bg-[#FF90E8] transition-colors brutal-btn">
+                    <i class="ph-bold ph-x text-xl text-slate-900"></i>
+                </button>
+            </div>
+
+            <!-- Body Modal (Scrollable) -->
+            <div class="p-6 overflow-y-auto flex-1 space-y-8 custom-scrollbar">
+                <!-- Tentang -->
+                <div class="space-y-4">
+                    <h3 class="font-heading text-xl font-black text-slate-900 border-b-2 border-slate-900 pb-2 inline-block">1. Kenalan Lebih Dekat (Tentang)</h3>
+                    <textarea id="edit-about-text" rows="4" class="w-full bg-white border-2 border-slate-900 rounded-xl px-4 py-3 text-slate-900 font-medium focus:outline-none focus:shadow-[4px_4px_0_0_#1e293b] focus:bg-[#00E5FF] transition-all resize-y"></textarea>
+                </div>
+
+                <!-- Prestasi -->
+                <div class="space-y-4">
+                    <h3 class="font-heading text-xl font-black text-slate-900 border-b-2 border-slate-900 pb-2 inline-block">2. Prestasi & Pencapaian</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <!-- P1 -->
+                        <div class="bg-white p-4 border-2 border-slate-900 rounded-xl space-y-3 shadow-[4px_4px_0_0_#1e293b]">
+                            <h4 class="font-bold text-slate-900 flex items-center gap-2"><i class="ph-fill ph-trophy text-[#FF5722]"></i> Prestasi 1</h4>
+                            <input type="text" id="edit-ach1-title" class="w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#FF90E8] focus:outline-none" placeholder="Judul Prestasi">
+                            <input type="text" id="edit-ach1-event" class="w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#FF90E8] focus:outline-none" placeholder="Event / Tahun">
+                            <textarea id="edit-ach1-desc" rows="3" class="w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#FF90E8] focus:outline-none resize-none" placeholder="Deskripsi"></textarea>
+                        </div>
+                        <!-- P2 -->
+                        <div class="bg-white p-4 border-2 border-slate-900 rounded-xl space-y-3 shadow-[4px_4px_0_0_#1e293b]">
+                            <h4 class="font-bold text-slate-900 flex items-center gap-2"><i class="ph-fill ph-medal text-[#3B82F6]"></i> Prestasi 2</h4>
+                            <input type="text" id="edit-ach2-title" class="w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#00E5FF] focus:outline-none" placeholder="Judul Prestasi">
+                            <input type="text" id="edit-ach2-event" class="w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#00E5FF] focus:outline-none" placeholder="Event / Tahun">
+                            <textarea id="edit-ach2-desc" rows="3" class="w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#00E5FF] focus:outline-none resize-none" placeholder="Deskripsi"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Karya Pilihan -->
+                <div class="space-y-4">
+                    <h3 class="font-heading text-xl font-black text-slate-900 border-b-2 border-slate-900 pb-2 inline-block">3. Karya Pilihan</h3>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <!-- K1 -->
+                        <div class="bg-white p-4 border-2 border-slate-900 rounded-xl space-y-3 shadow-[4px_4px_0_0_#1e293b]">
+                            <h4 class="font-bold text-slate-900">Karya 1</h4>
+                            <input type="text" id="edit-proj1-title" class="w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#FFC900] focus:outline-none" placeholder="Nama Karya">
+                            <input type="text" id="edit-proj1-cat" class="w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#FFC900] focus:outline-none" placeholder="Kategori">
+                            <textarea id="edit-proj1-desc" rows="3" class="w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#FFC900] focus:outline-none resize-none" placeholder="Deskripsi"></textarea>
+                        </div>
+                        <!-- K2 -->
+                        <div class="bg-white p-4 border-2 border-slate-900 rounded-xl space-y-3 shadow-[4px_4px_0_0_#1e293b]">
+                            <h4 class="font-bold text-slate-900">Karya 2</h4>
+                            <input type="text" id="edit-proj2-title" class="w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#FF5722] focus:text-white focus:outline-none" placeholder="Nama Karya">
+                            <input type="text" id="edit-proj2-cat" class="w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#FF5722] focus:text-white focus:outline-none" placeholder="Kategori">
+                            <textarea id="edit-proj2-desc" rows="3" class="w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#FF5722] focus:text-white focus:outline-none resize-none" placeholder="Deskripsi"></textarea>
+                        </div>
+                        <!-- K3 -->
+                        <div class="bg-white p-4 border-2 border-slate-900 rounded-xl space-y-3 shadow-[4px_4px_0_0_#1e293b]">
+                            <h4 class="font-bold text-slate-900">Karya 3</h4>
+                            <input type="text" id="edit-proj3-title" class="w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#22c55e] focus:outline-none" placeholder="Nama Karya">
+                            <input type="text" id="edit-proj3-cat" class="w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#22c55e] focus:outline-none" placeholder="Kategori">
+                            <textarea id="edit-proj3-desc" rows="3" class="w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#22c55e] focus:outline-none resize-none" placeholder="Deskripsi"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Modal -->
+            <div class="p-6 border-t-4 border-slate-900 bg-white rounded-b-xl flex justify-end gap-4 sticky bottom-0 z-10">
+                <button onclick="closeAdminModal()" class="brutal-btn bg-white text-slate-900 px-6 py-3 rounded-xl font-bold border-2 border-slate-900 hover:bg-slate-100 transition-colors">Batal</button>
+                <button id="save-admin-btn" onclick="saveAdminData()" class="brutal-btn bg-[#22c55e] text-slate-900 px-8 py-3 rounded-xl font-black flex items-center gap-2 hover:bg-[#16a34a] transition-colors">
+                    <i class="ph-bold ph-floppy-disk"></i> Simpan Perubahan
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Logika Menu Mobile (Hamburger)
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const icon = btn.querySelector('i');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) {
+                icon.classList.remove('ph-x');
+                icon.classList.add('ph-list');
+                btn.classList.remove('bg-[#FFC900]');
+            } else {
+                icon.classList.remove('ph-list');
+                icon.classList.add('ph-x');
+                btn.classList.add('bg-[#FFC900]');
+            }
+        });
+
+        // Menutup menu mobile otomatis saat link diklik
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+                icon.classList.remove('ph-x');
+                icon.classList.add('ph-list');
+                btn.classList.remove('bg-[#FFC900]');
+            });
+        });
+
+        // Logika Integrasi WhatsApp
+        function sendToWhatsApp(e) {
+            e.preventDefault();
+            
+            const form = document.getElementById('contactForm');
+            const btn = form.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            
+            // Animasi Loading
+            btn.innerHTML = '<i class="ph-bold ph-spinner-gap animate-spin text-2xl"></i> Membuka WhatsApp...';
+            btn.classList.add('opacity-90', 'cursor-not-allowed');
+            
+            setTimeout(() => {
+                // Ambil nilai dari input
+                const name = document.getElementById('senderName').value;
+                const email = document.getElementById('senderEmail').value;
+                const message = document.getElementById('senderMessage').value;
+                
+                // PENTING: Ganti nomor di bawah dengan nomor WhatsApp Abid! (Gunakan kode negara, misal 62)
+                const phoneNumber = "6281234567890"; 
+                
+                // Format pesan dengan Encode URI agar enter dan spasi terbaca di URL
+                const textMessage = `Halo Abid!👋%0A%0APerkenalkan saya *${name}* (${email}).%0A%0A${message}`;
+                
+                // Membuka tab baru ke WhatsApp
+                window.open(`https://wa.me/${phoneNumber}?text=${textMessage}`, '_blank');
+                
+                // Reset form & tombol kembali seperti semula
+                btn.innerHTML = originalText;
+                btn.classList.remove('opacity-90', 'cursor-not-allowed');
+                form.reset();
+            }, 1000);
+        }
+
+        // Animasi Scroll (Pop Up element saat terlihat di layar)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15 
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); 
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.pop-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ==========================================
+        // FITUR ADMIN (CTRL + ALT + A)
+        // ==========================================
+        const adminModal = document.getElementById('admin-modal');
+
+        // Daftar ID yang akan di-mapping antara tampilan halaman dan form di panel admin
+        const fieldMappings = [
+            { display: 'about-text', input: 'edit-about-text' },
+            { display: 'ach1-title', input: 'edit-ach1-title' },
+            { display: 'ach1-event', input: 'edit-ach1-event' },
+            { display: 'ach1-desc', input: 'edit-ach1-desc' },
+            { display: 'ach2-title', input: 'edit-ach2-title' },
+            { display: 'ach2-event', input: 'edit-ach2-event' },
+            { display: 'ach2-desc', input: 'edit-ach2-desc' },
+            { display: 'proj1-title', input: 'edit-proj1-title' },
+            { display: 'proj1-cat', input: 'edit-proj1-cat' },
+            { display: 'proj1-desc', input: 'edit-proj1-desc' },
+            { display: 'proj2-title', input: 'edit-proj2-title' },
+            { display: 'proj2-cat', input: 'edit-proj2-cat' },
+            { display: 'proj2-desc', input: 'edit-proj2-desc' },
+            { display: 'proj3-title', input: 'edit-proj3-title' },
+            { display: 'proj3-cat', input: 'edit-proj3-cat' },
+            { display: 'proj3-desc', input: 'edit-proj3-desc' },
+        ];
+
+        // 1. Deteksi Shortcut Keyboard (Ctrl + Alt + A)
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && e.altKey && e.key.toLowerCase() === 'a') {
+                e.preventDefault(); // Mencegah fungsi bawaan browser
+                openAdminModal();
+            }
+        });
+
+        // 2. Fungsi Buka Modal & Memuat Data saat ini
+        function openAdminModal() {
+            // Tarik data dari elemen HTML saat ini lalu masukkan ke dalam input form
+            fieldMappings.forEach(mapping => {
+                const displayEl = document.getElementById(mapping.display);
+                const inputEl = document.getElementById(mapping.input);
+                if (displayEl && inputEl) {
+                    inputEl.value = displayEl.innerText;
+                }
+            });
+            adminModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Mengunci scroll halaman di latar belakang
+        }
+
+        // 3. Fungsi Tutup Modal
+        function closeAdminModal() {
+            adminModal.classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Mengembalikan scroll halaman
+        }
+
+        // 4. Fungsi Simpan Data (Sementara/In-Memory)
+        function saveAdminData() {
+            // Ambil data dari form input lalu timpa ke elemen teks di HTML
+            fieldMappings.forEach(mapping => {
+                const displayEl = document.getElementById(mapping.display);
+                const inputEl = document.getElementById(mapping.input);
+                if (displayEl && inputEl) {
+                    displayEl.innerText = inputEl.value;
+                }
+            });
+            
+            // Animasi Notifikasi Berhasil
+            const btn = document.getElementById('save-admin-btn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="ph-bold ph-check"></i> Berhasil Disimpan!';
+            btn.classList.replace('bg-[#22c55e]', 'bg-[#FFC900]');
+            
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.classList.replace('bg-[#FFC900]', 'bg-[#22c55e]');
+                closeAdminModal();
+            }, 1000); // Tutup modal setelah 1 detik
+        }
+    </script>
+</body>
+</html>
