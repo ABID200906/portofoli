@@ -99,9 +99,25 @@
             opacity: 1;
             transform: scale(1) translateY(0);
         }
+        
+        /* Custom Scrollbar for Admin Modal */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
     </style>
 </head>
-<body class="antialiased selection:bg-pink-300 selection:text-slate-900">
+<body class="antialiased selection:bg-pink-300 selection:text-slate-900 overflow-x-hidden">
 
     <!-- Navbar -->
     <nav class="fixed w-full z-50 bg-[#fcfbf7] border-b-4 border-[#1e293b]" id="navbar">
@@ -109,7 +125,7 @@
             <div class="flex items-center justify-between h-20">
                 <!-- Logo -->
                 <div class="flex-shrink-0">
-                    <a href="#" class="text-3xl font-black font-heading tracking-tight text-slate-900 flex items-center gap-2">
+                    <a href="#" class="text-2xl sm:text-3xl font-black font-heading tracking-tight text-slate-900 flex items-center gap-2">
                         <div class="w-8 h-8 bg-[#FFC900] border-2 border-slate-900 rounded-full flex items-center justify-center text-sm shadow-[2px_2px_0px_0px_#0f172a]">
                             <i class="ph-bold ph-lightning"></i>
                         </div>
@@ -158,22 +174,22 @@
                 
                 <!-- Teks Hero -->
                 <div class="flex-1 text-center lg:text-left pop-up relative z-10">
-                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#00E5FF] border-2 border-slate-900 shadow-[3px_3px_0_0_#1e293b] text-slate-900 font-bold text-sm mb-8 transform -rotate-2">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#00E5FF] border-2 border-slate-900 shadow-[3px_3px_0_0_#1e293b] text-slate-900 font-bold text-xs sm:text-sm mb-8 transform -rotate-2">
                         <i class="ph-fill ph-check-circle text-lg"></i> Tersedia untuk proyek
                     </div>
                     
-                    <h1 class="font-heading text-6xl sm:text-7xl md:text-8xl font-black mb-6 text-slate-900 tracking-tight leading-[1]">
+                    <h1 class="font-heading text-5xl sm:text-7xl md:text-8xl font-black mb-6 text-slate-900 tracking-tight leading-[1.1] sm:leading-[1]">
                         Bikin Web Jadi <br>
-                        <span class="inline-block bg-[#FFC900] px-4 py-2 mt-2 border-4 border-slate-900 shadow-[6px_6px_0_0_#1e293b] transform rotate-1">
+                        <span class="inline-block bg-[#FFC900] px-4 py-2 mt-2 border-4 border-slate-900 shadow-[4px_4px_0_0_#1e293b] sm:shadow-[6px_6px_0_0_#1e293b] transform rotate-1">
                             Menarik!
                         </span>
                     </h1>
                     
-                    <p class="text-slate-700 text-lg sm:text-xl md:text-2xl mb-10 max-w-2xl mx-auto lg:mx-0 font-medium leading-relaxed border-l-4 border-[#FF90E8] pl-4">
+                    <p class="text-slate-700 text-base sm:text-xl md:text-2xl mb-10 max-w-2xl mx-auto lg:mx-0 font-medium leading-relaxed border-l-4 border-[#FF90E8] pl-4 text-left">
                         Hai, Saya Abid! Desainer & Developer yang bikin desain nyentrik, warna berani, dan interaksi seru. Bosan dengan web yang biasa aja? Mari berkreasi!
                     </p>
                     
-                    <div class="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">
+                    <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start">
                         <a href="#projects" class="brutal-btn bg-[#3B82F6] text-white px-8 py-4 rounded-xl font-black text-lg flex items-center justify-center gap-2">
                             Lihat Karya <i class="ph-bold ph-arrow-right"></i>
                         </a>
@@ -184,28 +200,28 @@
                 </div>
                 
                 <!-- Gambar Hero -->
-                <div class="flex-1 flex justify-center lg:justify-end pop-up relative z-0">
+                <div class="flex-1 flex justify-center lg:justify-end pop-up relative z-0 mt-8 lg:mt-0">
                     <!-- Ornamen Belakang -->
-                    <div class="absolute w-72 h-72 bg-[#FF90E8] rounded-full border-4 border-slate-900 shadow-[8px_8px_0_0_#1e293b] transform translate-x-8 translate-y-8 z-0"></div>
-                    <div class="absolute w-40 h-40 bg-[#00E5FF] border-4 border-slate-900 shadow-[6px_6px_0_0_#1e293b] transform -translate-x-12 -translate-y-8 rotate-12 z-0"></div>
+                    <div class="absolute w-56 h-56 sm:w-72 sm:h-72 bg-[#FF90E8] rounded-full border-4 border-slate-900 shadow-[6px_6px_0_0_#1e293b] sm:shadow-[8px_8px_0_0_#1e293b] transform translate-x-4 translate-y-4 sm:translate-x-8 sm:translate-y-8 z-0"></div>
+                    <div class="absolute w-32 h-32 sm:w-40 sm:h-40 bg-[#00E5FF] border-4 border-slate-900 shadow-[4px_4px_0_0_#1e293b] sm:shadow-[6px_6px_0_0_#1e293b] transform -translate-x-8 -translate-y-4 sm:-translate-x-12 sm:-translate-y-8 rotate-12 z-0"></div>
                     
                     <!-- Foto Utama -->
-                    <div class="relative z-10 w-64 h-80 sm:w-80 sm:h-[400px] bg-white border-4 border-slate-900 shadow-[12px_12px_0_0_#1e293b] rounded-2xl overflow-hidden transform -rotate-3 hover:rotate-0 transition-transform duration-300">
-                        <div class="h-10 bg-slate-900 w-full flex items-center px-4 gap-2 border-b-4 border-slate-900">
-                            <div class="w-3 h-3 rounded-full bg-[#FF5722]"></div>
-                            <div class="w-3 h-3 rounded-full bg-[#FFC900]"></div>
-                            <div class="w-3 h-3 rounded-full bg-[#22c55e]"></div>
+                    <div class="relative z-10 w-56 h-72 sm:w-80 sm:h-[400px] bg-white border-4 border-slate-900 shadow-[8px_8px_0_0_#1e293b] sm:shadow-[12px_12px_0_0_#1e293b] rounded-2xl overflow-hidden transform -rotate-3 hover:rotate-0 transition-transform duration-300">
+                        <div class="h-8 sm:h-10 bg-slate-900 w-full flex items-center px-3 sm:px-4 gap-2 border-b-4 border-slate-900">
+                            <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FF5722]"></div>
+                            <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FFC900]"></div>
+                            <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#22c55e]"></div>
                         </div>
                         <!-- Placeholder Foto Profil -->
-                        <img src="abid.jpeg" alt="Abid" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500">
+                        <img src="abid.jpeg" alt="Abid" onerror="this.src='https://placehold.co/400x500/FF90E8/0f172a?font=montserrat&text=Foto+Abid'" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500">
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Marquee Teks Berjalan -->
-        <div class="marquee-container shadow-[0_4px_0_0_#1e293b] z-20">
-            <div class="marquee-content font-heading text-3xl font-black text-slate-900 uppercase tracking-widest flex gap-8 items-center">
+        <div class="marquee-container shadow-[0_4px_0_0_#1e293b] z-20 mt-16 sm:mt-8">
+            <div class="marquee-content font-heading text-xl sm:text-3xl font-black text-slate-900 uppercase tracking-widest flex gap-4 sm:gap-8 items-center">
                 <span> UI/UX DESIGN</span>
                 <i class="ph-fill ph-star text-[#FF5722]"></i>
                 <span> FRONTEND DEV</span>
@@ -227,71 +243,72 @@
     </section>
 
     <!-- Bagian Tentang & Bento Grid -->
-    <section id="about" class="py-24 relative z-10 overflow-hidden">
+    <section id="about" class="py-16 sm:py-24 relative z-10 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 pop-up">
-                <h2 class="font-heading text-4xl md:text-6xl font-black text-slate-900 mb-6 inline-block relative">
+            <div class="text-center mb-12 sm:mb-16 pop-up">
+                <h2 class="font-heading text-3xl sm:text-4xl md:text-6xl font-black text-slate-900 mb-6 inline-block relative">
                     Kenalan Lebih Dekat
-                    <svg class="absolute w-full h-4 -bottom-2 left-0 text-[#FF5722]" viewBox="0 0 200 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.00031 7.00018C44.667 1.83352 136.6 -3.39982 198 7.00018" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+                    <svg class="absolute w-full h-3 sm:h-4 -bottom-1 sm:-bottom-2 left-0 text-[#FF5722]" viewBox="0 0 200 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.00031 7.00018C44.667 1.83352 136.6 -3.39982 198 7.00018" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
                 </h2>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 auto-rows-[220px]">
+            <!-- PERBAIKAN BUG MOBILE: Mengubah auto-rows menjadi auto pada mobile dan fixed 220px pada desktop -->
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 auto-rows-auto md:auto-rows-[220px]">
                 
                 <!-- Card 1: Intro -->
-                <div class="brutal-shadow bg-white rounded-2xl md:col-span-2 md:row-span-2 p-8 flex flex-col justify-between pop-up">
+                <!-- Menambahkan padding lebih responsif p-6 sm:p-8 -->
+                <div class="brutal-shadow bg-white rounded-2xl md:col-span-2 md:row-span-2 p-6 sm:p-8 flex flex-col justify-between pop-up">
                     <div>
-                        <div class="w-16 h-16 bg-[#00E5FF] border-2 border-slate-900 rounded-xl flex items-center justify-center text-slate-900 shadow-[4px_4px_0_0_#1e293b] mb-6 transform -rotate-3">
-                            <i class="ph-bold ph-hand-waving text-3xl"></i>
+                        <div class="w-14 h-14 sm:w-16 sm:h-16 bg-[#00E5FF] border-2 border-slate-900 rounded-xl flex items-center justify-center text-slate-900 shadow-[4px_4px_0_0_#1e293b] mb-4 sm:mb-6 transform -rotate-3">
+                            <i class="ph-bold ph-hand-waving text-2xl sm:text-3xl"></i>
                         </div>
-                        <h3 class="font-heading text-3xl font-black text-slate-900 mb-4">Halo dari Tangerang!</h3>
-                        <p id="about-text" class="text-slate-700 font-medium text-lg leading-relaxed mb-6">
+                        <h3 class="font-heading text-2xl sm:text-3xl font-black text-slate-900 mb-3 sm:mb-4">Halo dari Tangerang!</h3>
+                        <p id="about-text" class="text-slate-700 font-medium text-base sm:text-lg leading-relaxed mb-6">
                             Saya menggabungkan seni desain visual dengan logika coding. Tujuan saya? Membuat website yang tidak membosankan. Saya suka bermain dengan warna berani, animasi, dan tata letak di luar kebiasaan.
                         </p>
                     </div>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-4 py-2 bg-[#FF90E8] border-2 border-slate-900 text-slate-900 shadow-[2px_2px_0_0_#1e293b] rounded-full font-bold text-sm">Figma Master</span>
-                        <span class="px-4 py-2 bg-[#FFC900] border-2 border-slate-900 text-slate-900 shadow-[2px_2px_0_0_#1e293b] rounded-full font-bold text-sm">React JS</span>
-                        <span class="px-4 py-2 bg-[#22c55e] border-2 border-slate-900 text-slate-900 shadow-[2px_2px_0_0_#1e293b] rounded-full font-bold text-sm">Tailwind CSS</span>
+                    <div class="flex flex-wrap gap-2 sm:gap-3">
+                        <span class="px-3 sm:px-4 py-1.5 sm:py-2 bg-[#FF90E8] border-2 border-slate-900 text-slate-900 shadow-[2px_2px_0_0_#1e293b] rounded-full font-bold text-xs sm:text-sm">Figma Master</span>
+                        <span class="px-3 sm:px-4 py-1.5 sm:py-2 bg-[#FFC900] border-2 border-slate-900 text-slate-900 shadow-[2px_2px_0_0_#1e293b] rounded-full font-bold text-xs sm:text-sm">React JS</span>
+                        <span class="px-3 sm:px-4 py-1.5 sm:py-2 bg-[#22c55e] border-2 border-slate-900 text-slate-900 shadow-[2px_2px_0_0_#1e293b] rounded-full font-bold text-xs sm:text-sm">Tailwind CSS</span>
                     </div>
                 </div>
 
                 <!-- Card 2: Pengalaman -->
-                <div class="brutal-shadow bg-[#FF90E8] rounded-2xl p-6 flex flex-col items-center justify-center text-center pop-up relative overflow-hidden" style="transition-delay: 100ms;">
+                <!-- Menambahkan min-h-[200px] agar tetap terlihat proporsional di mobile -->
+                <div class="brutal-shadow bg-[#FF90E8] rounded-2xl p-6 flex flex-col items-center justify-center text-center pop-up relative overflow-hidden min-h-[200px] md:min-h-0" style="transition-delay: 100ms;">
                     <i class="ph-fill ph-sparkle text-white opacity-40 text-6xl absolute -top-4 -right-4"></i>
                     <i class="ph-fill ph-sparkle text-white opacity-40 text-4xl absolute bottom-4 left-4"></i>
                     
-                    <h4 class="font-heading text-6xl font-black text-slate-900 mb-2">2+</h4>
-                    <p class="text-slate-900 font-bold text-lg bg-white px-3 py-1 border-2 border-slate-900 rounded-lg transform rotate-2">Tahun Exp.</p>
+                    <h4 class="font-heading text-5xl sm:text-6xl font-black text-slate-900 mb-2">2+</h4>
+                    <p class="text-slate-900 font-bold text-base sm:text-lg bg-white px-3 py-1 border-2 border-slate-900 rounded-lg transform rotate-2">Tahun Exp.</p>
                 </div>
 
                 <!-- Card 3: Soft Skills & AI -->
-                <div class="brutal-shadow bg-[#FFC900] rounded-2xl p-6 flex flex-col justify-center pop-up" style="transition-delay: 200ms;">
-                    <h4 class="font-heading text-2xl font-black text-slate-900 mb-4 border-b-2 border-slate-900 pb-2">Senjata</h4>
-                    <ul class="space-y-3">
-                        <li class="flex items-center gap-3 font-bold text-slate-900"><i class="ph-bold ph-check-square text-xl"></i> Prototyping Cepat</li>
-                        <li class="flex items-center gap-3 font-bold text-slate-900"><i class="ph-bold ph-check-square text-xl"></i> Animasi Mikro</li>
-                        <!-- Tambahan Gemini -->
-                        <li class="flex items-center gap-3 font-bold text-slate-900">
-                            <i class="ph-fill ph-sparkle text-xl text-[#3B82F6] animate-pulse"></i> Gemini AI Prompts
+                <div class="brutal-shadow bg-[#FFC900] rounded-2xl p-6 flex flex-col justify-center pop-up min-h-[200px] md:min-h-0" style="transition-delay: 200ms;">
+                    <h4 class="font-heading text-xl sm:text-2xl font-black text-slate-900 mb-4 border-b-2 border-slate-900 pb-2">Senjata</h4>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li class="flex items-center gap-2 sm:gap-3 font-bold text-slate-900 text-sm sm:text-base"><i class="ph-bold ph-check-square text-lg sm:text-xl"></i> Prototyping Cepat</li>
+                        <li class="flex items-center gap-2 sm:gap-3 font-bold text-slate-900 text-sm sm:text-base"><i class="ph-bold ph-check-square text-lg sm:text-xl"></i> Animasi Mikro</li>
+                        <li class="flex items-center gap-2 sm:gap-3 font-bold text-slate-900 text-sm sm:text-base">
+                            <i class="ph-fill ph-sparkle text-lg sm:text-xl text-[#3B82F6] animate-pulse"></i> Gemini AI Prompts
                         </li>
                     </ul>
                 </div>
 
                 <!-- Card 4: Tools -->
-                <div class="brutal-shadow bg-[#3B82F6] rounded-2xl p-6 md:col-span-2 flex flex-col justify-center pop-up">
-                    <h4 class="font-heading text-2xl font-black text-white mb-6">Tools Andalan</h4>
-                    <div class="flex flex-wrap gap-4">
-                        <div class="w-14 h-14 bg-white border-2 border-slate-900 shadow-[3px_3px_0_0_#1e293b] rounded-xl flex items-center justify-center text-[#F24E1E] transform hover:-translate-y-2 transition-transform" title="Figma"><i class="ph-fill ph-figma-logo text-3xl"></i></div>
+                <div class="brutal-shadow bg-[#3B82F6] rounded-2xl p-6 md:col-span-2 flex flex-col justify-center pop-up min-h-[200px] md:min-h-0">
+                    <h4 class="font-heading text-xl sm:text-2xl font-black text-white mb-4 sm:mb-6">Tools Andalan</h4>
+                    <div class="flex flex-wrap gap-3 sm:gap-4">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 bg-white border-2 border-slate-900 shadow-[3px_3px_0_0_#1e293b] rounded-xl flex items-center justify-center text-[#F24E1E] transform hover:-translate-y-2 transition-transform" title="Figma"><i class="ph-fill ph-figma-logo text-2xl sm:text-3xl"></i></div>
                         
-                        <!-- Tambahan HTML -->
-                        <div class="w-14 h-14 bg-white border-2 border-slate-900 shadow-[3px_3px_0_0_#1e293b] rounded-xl flex items-center justify-center text-[#FF5722] transform hover:-translate-y-2 transition-transform hover:-rotate-12" title="HTML">
-                            <span class="font-black text-sm">HTML</span>
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 bg-white border-2 border-slate-900 shadow-[3px_3px_0_0_#1e293b] rounded-xl flex items-center justify-center text-[#FF5722] transform hover:-translate-y-2 transition-transform hover:-rotate-12" title="HTML">
+                            <span class="font-black text-xs sm:text-sm">HTML</span>
                         </div>
                         
-                        <div class="w-14 h-14 bg-white border-2 border-slate-900 shadow-[3px_3px_0_0_#1e293b] rounded-xl flex items-center justify-center text-blue-500 transform hover:-translate-y-2 transition-transform hover:rotate-12" title="React"><i class="ph-fill ph-atom text-3xl"></i></div>
-                        <div class="w-14 h-14 bg-white border-2 border-slate-900 shadow-[3px_3px_0_0_#1e293b] rounded-xl flex items-center justify-center text-teal-500 transform hover:-translate-y-2 transition-transform hover:-rotate-12" title="Tailwind"><i class="ph-fill ph-palette text-3xl"></i></div>
-                        <div class="w-14 h-14 bg-white border-2 border-slate-900 shadow-[3px_3px_0_0_#1e293b] rounded-xl flex items-center justify-center text-yellow-400 transform hover:-translate-y-2 transition-transform" title="JS"><i class="ph-fill ph-file-js text-3xl"></i></div>
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 bg-white border-2 border-slate-900 shadow-[3px_3px_0_0_#1e293b] rounded-xl flex items-center justify-center text-blue-500 transform hover:-translate-y-2 transition-transform hover:rotate-12" title="React"><i class="ph-fill ph-atom text-2xl sm:text-3xl"></i></div>
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 bg-white border-2 border-slate-900 shadow-[3px_3px_0_0_#1e293b] rounded-xl flex items-center justify-center text-teal-500 transform hover:-translate-y-2 transition-transform hover:-rotate-12" title="Tailwind"><i class="ph-fill ph-palette text-2xl sm:text-3xl"></i></div>
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 bg-white border-2 border-slate-900 shadow-[3px_3px_0_0_#1e293b] rounded-xl flex items-center justify-center text-yellow-400 transform hover:-translate-y-2 transition-transform" title="JS"><i class="ph-fill ph-file-js text-2xl sm:text-3xl"></i></div>
                     </div>
                 </div>
 
@@ -299,46 +316,46 @@
         </div>
     </section>
 
-    <!-- Bagian Prestasi (Baru Ditambahkan) -->
-    <section id="achievements" class="py-24 bg-[#0f172a] text-white relative z-10 overflow-hidden border-t-4 border-slate-900">
+    <!-- Bagian Prestasi -->
+    <section id="achievements" class="py-16 sm:py-24 bg-[#0f172a] text-white relative z-10 overflow-hidden border-t-4 border-slate-900">
         <!-- Dekorasi Latar Belakang -->
-        <i class="ph-bold ph-trophy text-white opacity-5 text-[30rem] absolute -left-20 -bottom-20 transform -rotate-12"></i>
+        <i class="ph-bold ph-trophy text-white opacity-5 text-[20rem] sm:text-[30rem] absolute -left-10 sm:-left-20 -bottom-10 sm:-bottom-20 transform -rotate-12 pointer-events-none"></i>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-16 pop-up">
-                <h2 class="font-heading text-4xl md:text-6xl font-black text-[#FFC900] mb-6 inline-block relative">
+            <div class="text-center mb-12 sm:mb-16 pop-up">
+                <h2 class="font-heading text-3xl sm:text-4xl md:text-6xl font-black text-[#FFC900] mb-4 sm:mb-6 inline-block relative">
                     Prestasi & Pencapaian
                 </h2>
-                <p class="text-slate-300 text-xl font-medium max-w-2xl mx-auto">
+                <p class="text-slate-300 text-lg sm:text-xl font-medium max-w-2xl mx-auto px-4">
                     Beberapa momen membanggakan selama perjalanan hidup saya.
                 </p>
             </div>
             
             <!-- Tempat kartu prestasi akan dimuat secara dinamis -->
-            <div id="achievements-container" class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div id="achievements-container" class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
             </div>
         </div>
     </section>
 
     <!-- Bagian Proyek (Karya) -->
-    <section id="projects" class="py-24 bg-white relative border-y-4 border-slate-900">
+    <section id="projects" class="py-16 sm:py-24 bg-white relative border-y-4 border-slate-900 overflow-hidden">
         <!-- Dekorasi latar belakang SVG -->
         <div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: repeating-linear-gradient(45deg, #0f172a 25%, transparent 25%, transparent 75%, #0f172a 75%, #0f172a), repeating-linear-gradient(45deg, #0f172a 25%, transparent 25%, transparent 75%, #0f172a 75%, #0f172a); background-position: 0 0, 20px 20px; background-size: 40px 40px;"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 pop-up">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 pop-up text-center md:text-left">
                 <div>
-                    <h2 class="font-heading text-4xl md:text-6xl font-black text-slate-900 mb-4">Karya Pilihan</h2>
-                    <p class="text-slate-600 text-xl font-medium">Bukan sekadar desain, tapi pengalaman visual.</p>
+                    <h2 class="font-heading text-3xl sm:text-4xl md:text-6xl font-black text-slate-900 mb-2 sm:mb-4">Karya Pilihan</h2>
+                    <p class="text-slate-600 text-lg sm:text-xl font-medium">Bukan sekadar desain, tapi pengalaman visual.</p>
                 </div>
             </div>
             
             <!-- Tempat kartu proyek akan dimuat secara dinamis -->
-            <div id="projects-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             </div>
             
-            <div class="mt-16 text-center pop-up">
-                <a href="#" class="brutal-btn bg-[#FFC900] text-slate-900 px-8 py-4 rounded-xl font-black text-xl inline-flex items-center gap-2">
+            <div class="mt-12 sm:mt-16 text-center pop-up">
+                <a href="#" class="brutal-btn bg-[#FFC900] text-slate-900 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-black text-lg sm:text-xl inline-flex items-center gap-2">
                     Jelajahi Semua Portofolio <i class="ph-bold ph-folder-open"></i>
                 </a>
             </div>
@@ -346,38 +363,38 @@
     </section>
 
     <!-- Bagian Kontak -->
-    <section id="contact" class="py-24 bg-[#FF5722] relative overflow-hidden">
-        <i class="ph-bold ph-asterisk text-white opacity-20 text-[20rem] absolute -right-20 -top-20 animate-spin" style="animation-duration: 20s;"></i>
+    <section id="contact" class="py-16 sm:py-24 bg-[#FF5722] relative overflow-hidden">
+        <i class="ph-bold ph-asterisk text-white opacity-20 text-[15rem] sm:text-[20rem] absolute -right-10 sm:-right-20 -top-10 sm:-top-20 animate-spin pointer-events-none" style="animation-duration: 20s;"></i>
         
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="brutal-shadow bg-[#FFC900] rounded-3xl p-8 md:p-14 pop-up">
+            <div class="brutal-shadow bg-[#FFC900] rounded-3xl p-6 sm:p-8 md:p-14 pop-up">
                 
-                <div class="text-center mb-10">
-                    <h2 class="font-heading text-5xl md:text-7xl font-black text-slate-900 mb-6 uppercase">Mari Kolaborasi!</h2>
-                    <p class="text-slate-800 text-xl font-bold max-w-lg mx-auto bg-white inline-block px-4 py-2 border-2 border-slate-900 shadow-[4px_4px_0_0_#1e293b] transform -rotate-1">
+                <div class="text-center mb-8 sm:mb-10">
+                    <h2 class="font-heading text-4xl sm:text-5xl md:text-7xl font-black text-slate-900 mb-4 sm:mb-6 uppercase tracking-tight">Mari Kolaborasi!</h2>
+                    <p class="text-slate-800 text-lg sm:text-xl font-bold max-w-lg mx-auto bg-white inline-block px-4 py-2 border-2 border-slate-900 shadow-[4px_4px_0_0_#1e293b] transform -rotate-1">
                         Siap membuat sesuatu yang gila?
                     </p>
                 </div>
                 
                 <!-- Form Submit akan memanggil sendToWhatsApp(event) -->
-                <form id="contactForm" class="mt-12 bg-white border-4 border-slate-900 shadow-[8px_8px_0_0_#1e293b] rounded-2xl p-6 md:p-8" onsubmit="sendToWhatsApp(event)">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                <form id="contactForm" class="mt-8 sm:mt-12 bg-white border-4 border-slate-900 shadow-[6px_6px_0_0_#1e293b] sm:shadow-[8px_8px_0_0_#1e293b] rounded-2xl p-5 sm:p-6 md:p-8" onsubmit="sendToWhatsApp(event)">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
                         <div>
-                            <label class="block text-lg font-black text-slate-900 mb-2">Nama Kamu</label>
-                            <input type="text" id="senderName" required class="w-full bg-[#fcfbf7] border-3 border-slate-900 rounded-xl px-4 py-3 text-slate-900 font-medium focus:outline-none focus:shadow-[4px_4px_0_0_#1e293b] focus:bg-[#00E5FF] transition-all" placeholder="Misal: Budi">
+                            <label class="block text-base sm:text-lg font-black text-slate-900 mb-2">Nama Kamu</label>
+                            <input type="text" id="senderName" required class="w-full bg-[#fcfbf7] border-2 sm:border-3 border-slate-900 rounded-xl px-4 py-3 text-slate-900 font-medium focus:outline-none focus:shadow-[4px_4px_0_0_#1e293b] focus:bg-[#00E5FF] transition-all" placeholder="Misal: Budi">
                         </div>
                         <div>
-                            <label class="block text-lg font-black text-slate-900 mb-2">Email Kamu</label>
-                            <input type="email" id="senderEmail" required class="w-full bg-[#fcfbf7] border-3 border-slate-900 rounded-xl px-4 py-3 text-slate-900 font-medium focus:outline-none focus:shadow-[4px_4px_0_0_#1e293b] focus:bg-[#FF90E8] transition-all" placeholder="budi@email.com">
+                            <label class="block text-base sm:text-lg font-black text-slate-900 mb-2">Email Kamu</label>
+                            <input type="email" id="senderEmail" required class="w-full bg-[#fcfbf7] border-2 sm:border-3 border-slate-900 rounded-xl px-4 py-3 text-slate-900 font-medium focus:outline-none focus:shadow-[4px_4px_0_0_#1e293b] focus:bg-[#FF90E8] transition-all" placeholder="budi@email.com">
                         </div>
                     </div>
-                    <div class="mb-8">
-                        <label class="block text-lg font-black text-slate-900 mb-2">Pesan Seru</label>
-                        <textarea id="senderMessage" rows="4" required class="w-full bg-[#fcfbf7] border-3 border-slate-900 rounded-xl px-4 py-3 text-slate-900 font-medium focus:outline-none focus:shadow-[4px_4px_0_0_#1e293b] focus:bg-[#FFC900] transition-all resize-none" placeholder="Ceritakan idemu di sini..."></textarea>
+                    <div class="mb-6 sm:mb-8">
+                        <label class="block text-base sm:text-lg font-black text-slate-900 mb-2">Pesan Seru</label>
+                        <textarea id="senderMessage" rows="4" required class="w-full bg-[#fcfbf7] border-2 sm:border-3 border-slate-900 rounded-xl px-4 py-3 text-slate-900 font-medium focus:outline-none focus:shadow-[4px_4px_0_0_#1e293b] focus:bg-[#FFC900] transition-all resize-none" placeholder="Ceritakan idemu di sini..."></textarea>
                     </div>
                     
-                    <button type="submit" class="w-full brutal-btn bg-slate-900 text-white py-4 rounded-xl font-black text-xl flex items-center justify-center gap-2 hover:bg-[#22c55e] hover:text-slate-900 transition-colors duration-300">
-                        <i class="ph-bold ph-whatsapp-logo text-2xl"></i> Kirim ke WhatsApp
+                    <button type="submit" class="w-full brutal-btn bg-slate-900 text-white py-3 sm:py-4 rounded-xl font-black text-lg sm:text-xl flex items-center justify-center gap-2 hover:bg-[#22c55e] hover:text-slate-900 transition-colors duration-300">
+                        <i class="ph-bold ph-whatsapp-logo text-xl sm:text-2xl"></i> Kirim ke WhatsApp
                     </button>
                 </form>
             </div>
@@ -385,26 +402,26 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 border-t-4 border-slate-900 pt-16 pb-12 relative overflow-hidden text-white">
+    <footer class="bg-slate-900 border-t-4 border-slate-900 pt-12 sm:pt-16 pb-8 sm:pb-12 relative overflow-hidden text-white">
         <div class="absolute top-0 left-0 w-full overflow-hidden leading-none transform rotate-180">
-            <svg class="relative block w-[calc(100%+1.3px)] h-[40px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <svg class="relative block w-[calc(100%+1.3px)] h-[30px] sm:h-[40px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                 <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="fill-[#FF5722]"></path>
             </svg>
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 mt-8">
-            <h2 class="font-heading text-5xl font-black mb-8">
+            <h2 class="font-heading text-4xl sm:text-5xl font-black mb-6 sm:mb-8">
                 Abid Alaika<span class="text-[#FF90E8]">.</span>
             </h2>
             
-            <div class="flex justify-center gap-6 mb-12">
-                <a href="#" class="w-14 h-14 bg-white border-2 border-slate-900 shadow-[4px_4px_0_0_#FF90E8] rounded-xl text-slate-900 flex items-center justify-center hover:translate-y-1 hover:shadow-[2px_2px_0_0_#FF90E8] transition-all"><i class="ph-fill ph-dribbble-logo text-3xl"></i></a>
-                <a href="#" class="w-14 h-14 bg-white border-2 border-slate-900 shadow-[4px_4px_0_0_#00E5FF] rounded-xl text-slate-900 flex items-center justify-center hover:translate-y-1 hover:shadow-[2px_2px_0_0_#00E5FF] transition-all"><i class="ph-fill ph-linkedin-logo text-3xl"></i></a>
-                <a href="#" class="w-14 h-14 bg-white border-2 border-slate-900 shadow-[4px_4px_0_0_#FFC900] rounded-xl text-slate-900 flex items-center justify-center hover:translate-y-1 hover:shadow-[2px_2px_0_0_#FFC900] transition-all"><i class="ph-fill ph-github-logo text-3xl"></i></a>
+            <div class="flex justify-center gap-4 sm:gap-6 mb-10 sm:mb-12">
+                <a href="#" class="w-12 h-12 sm:w-14 sm:h-14 bg-white border-2 border-slate-900 shadow-[4px_4px_0_0_#FF90E8] rounded-xl text-slate-900 flex items-center justify-center hover:translate-y-1 hover:shadow-[2px_2px_0_0_#FF90E8] transition-all"><i class="ph-fill ph-dribbble-logo text-2xl sm:text-3xl"></i></a>
+                <a href="#" class="w-12 h-12 sm:w-14 sm:h-14 bg-white border-2 border-slate-900 shadow-[4px_4px_0_0_#00E5FF] rounded-xl text-slate-900 flex items-center justify-center hover:translate-y-1 hover:shadow-[2px_2px_0_0_#00E5FF] transition-all"><i class="ph-fill ph-linkedin-logo text-2xl sm:text-3xl"></i></a>
+                <a href="#" class="w-12 h-12 sm:w-14 sm:h-14 bg-white border-2 border-slate-900 shadow-[4px_4px_0_0_#FFC900] rounded-xl text-slate-900 flex items-center justify-center hover:translate-y-1 hover:shadow-[2px_2px_0_0_#FFC900] transition-all"><i class="ph-fill ph-github-logo text-2xl sm:text-3xl"></i></a>
             </div>
             
-            <div class="inline-block bg-[#1e293b] px-6 py-3 rounded-full border-2 border-slate-700">
-                <p class="text-slate-300 font-bold text-sm">
+            <div class="inline-block bg-[#1e293b] px-4 sm:px-6 py-2 sm:py-3 rounded-full border-2 border-slate-700">
+                <p class="text-slate-300 font-bold text-xs sm:text-sm">
                     &copy; 2026 Didesain oleh Abid. Berani tampil beda.
                 </p>
             </div>
@@ -412,29 +429,29 @@
     </footer>
 
     <!-- Admin Modal -->
-    <div id="admin-modal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4 overflow-y-auto">
-        <div class="bg-[#fcfbf7] border-4 border-slate-900 shadow-[8px_8px_0_0_#1e293b] rounded-2xl w-full max-w-4xl max-h-[90vh] flex flex-col relative mt-10 mb-10">
+    <div id="admin-modal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-2 sm:p-4 overflow-hidden">
+        <div class="bg-[#fcfbf7] border-4 border-slate-900 shadow-[8px_8px_0_0_#1e293b] rounded-2xl w-full max-w-4xl h-[95vh] sm:h-auto sm:max-h-[90vh] flex flex-col relative">
             
             <!-- Header Modal -->
-            <div class="p-6 border-b-4 border-slate-900 bg-[#FFC900] rounded-t-xl flex justify-between items-center sticky top-0 z-10">
-                <h2 class="font-heading text-3xl font-black text-slate-900 flex items-center gap-2">
+            <div class="p-4 sm:p-6 border-b-4 border-slate-900 bg-[#FFC900] rounded-t-xl flex justify-between items-center shrink-0">
+                <h2 class="font-heading text-xl sm:text-3xl font-black text-slate-900 flex items-center gap-2">
                     <i class="ph-bold ph-pencil-simple"></i> Mode Editor Admin
                 </h2>
-                <button onclick="closeAdminModal()" class="w-10 h-10 bg-white border-2 border-slate-900 shadow-[2px_2px_0_0_#1e293b] rounded-lg flex items-center justify-center hover:bg-[#FF90E8] transition-colors brutal-btn">
-                    <i class="ph-bold ph-x text-xl text-slate-900"></i>
+                <button onclick="closeAdminModal()" class="w-8 h-8 sm:w-10 sm:h-10 bg-white border-2 border-slate-900 shadow-[2px_2px_0_0_#1e293b] rounded-lg flex items-center justify-center hover:bg-[#FF90E8] transition-colors brutal-btn">
+                    <i class="ph-bold ph-x text-lg sm:text-xl text-slate-900"></i>
                 </button>
             </div>
 
             <!-- Body Modal (Scrollable) -->
-            <div id="admin-modal-body" class="p-6 overflow-y-auto flex-1 space-y-8 custom-scrollbar">
+            <div id="admin-modal-body" class="p-4 sm:p-6 overflow-y-auto flex-1 space-y-6 sm:space-y-8 custom-scrollbar">
                 <!-- Form Admin akan digenerate otomatis lewat Javascript -->
             </div>
 
             <!-- Footer Modal -->
-            <div class="p-6 border-t-4 border-slate-900 bg-white rounded-b-xl flex justify-end gap-4 sticky bottom-0 z-10">
-                <button onclick="closeAdminModal()" class="brutal-btn bg-white text-slate-900 px-6 py-3 rounded-xl font-bold border-2 border-slate-900 hover:bg-slate-100 transition-colors">Batal</button>
-                <button id="save-admin-btn" onclick="saveAdminData()" class="brutal-btn bg-[#22c55e] text-slate-900 px-8 py-3 rounded-xl font-black flex items-center gap-2 hover:bg-[#16a34a] transition-colors">
-                    <i class="ph-bold ph-floppy-disk"></i> Simpan Perubahan
+            <div class="p-4 sm:p-6 border-t-4 border-slate-900 bg-white rounded-b-xl flex justify-end gap-3 sm:gap-4 shrink-0">
+                <button onclick="closeAdminModal()" class="brutal-btn bg-white text-slate-900 px-4 sm:px-6 py-2 sm:py-3 rounded-xl font-bold border-2 border-slate-900 hover:bg-slate-100 transition-colors text-sm sm:text-base">Batal</button>
+                <button id="save-admin-btn" onclick="saveAdminData()" class="brutal-btn bg-[#22c55e] text-slate-900 px-4 sm:px-8 py-2 sm:py-3 rounded-xl font-black flex items-center gap-2 hover:bg-[#16a34a] transition-colors text-sm sm:text-base">
+                    <i class="ph-bold ph-floppy-disk"></i> Simpan
                 </button>
             </div>
         </div>
@@ -527,7 +544,7 @@
             const btn = form.querySelector('button[type="submit"]');
             const originalText = btn.innerHTML;
             
-            btn.innerHTML = '<i class="ph-bold ph-spinner-gap animate-spin text-2xl"></i> Membuka WhatsApp...';
+            btn.innerHTML = '<i class="ph-bold ph-spinner-gap animate-spin text-xl sm:text-2xl"></i> Membuka WA...';
             btn.classList.add('opacity-90', 'cursor-not-allowed');
             
             setTimeout(() => {
@@ -557,14 +574,14 @@
                     const icon = achIcons[index % achIcons.length];
                     const rotate = index % 2 === 0 ? 'hover:-rotate-1' : 'hover:rotate-1';
                     achContainer.innerHTML += `
-                        <div class="brutal-shadow ${color} rounded-2xl p-6 sm:p-8 flex gap-6 items-start transform ${rotate} transition-transform">
-                            <div class="w-16 h-16 bg-white border-2 border-slate-900 rounded-xl flex items-center justify-center shadow-[4px_4px_0_0_#1e293b] flex-shrink-0">
-                                <i class="ph-fill ${icon} text-4xl"></i>
+                        <div class="brutal-shadow ${color} rounded-2xl p-5 sm:p-8 flex flex-col sm:flex-row gap-4 sm:gap-6 items-start transform ${rotate} transition-transform">
+                            <div class="w-14 h-14 sm:w-16 sm:h-16 bg-white border-2 border-slate-900 rounded-xl flex items-center justify-center shadow-[4px_4px_0_0_#1e293b] flex-shrink-0">
+                                <i class="ph-fill ${icon} text-3xl sm:text-4xl"></i>
                             </div>
                             <div>
-                                <h3 class="font-heading text-2xl font-black text-slate-900 mb-2">${ach.title}</h3>
+                                <h3 class="font-heading text-xl sm:text-2xl font-black text-slate-900 mb-2">${ach.title}</h3>
                                 <p class="text-slate-900 font-bold bg-white px-2 py-1 inline-block border-2 border-slate-900 text-xs mb-3 shadow-[2px_2px_0_0_#1e293b]">${ach.event}</p>
-                                <p class="text-slate-800 font-medium leading-relaxed">${ach.desc}</p>
+                                <p class="text-slate-800 font-medium leading-relaxed text-sm sm:text-base">${ach.desc}</p>
                             </div>
                         </div>
                     `;
@@ -581,14 +598,14 @@
                     
                     projContainer.innerHTML += `
                         <div class="brutal-shadow bg-[#fcfbf7] text-slate-900 rounded-2xl group flex flex-col h-full">
-                            <div class="h-60 border-b-4 border-slate-900 relative overflow-hidden ${style.bg}">
+                            <div class="h-48 sm:h-60 border-b-4 border-slate-900 relative overflow-hidden ${style.bg}">
                                 <img src="${imageUrl}" alt="${proj.title}" class="w-full h-full object-cover group-hover:scale-110 ${rotate} transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/ffffff/0f172a?font=montserrat&text=Gambar+Gagal'">
-                                <div class="absolute top-4 left-4 ${style.badge} text-slate-900 border-2 border-slate-900 shadow-[2px_2px_0_0_#1e293b] px-4 py-1 rounded-full text-sm font-bold">${proj.cat}</div>
+                                <div class="absolute top-3 left-3 sm:top-4 sm:left-4 ${style.badge} text-slate-900 border-2 border-slate-900 shadow-[2px_2px_0_0_#1e293b] px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm font-bold">${proj.cat}</div>
                             </div>
-                            <div class="p-6 flex flex-col flex-grow">
-                                <h3 class="font-heading text-2xl font-black mb-3">${proj.title}</h3>
-                                <p class="text-slate-600 font-medium mb-6 flex-grow">${proj.desc}</p>
-                                <a href="${proj.link || '#'}" target="_blank" class="inline-flex items-center gap-2 font-bold text-slate-900 border-b-2 border-slate-900 pb-1 ${style.hoverText} ${style.hoverBorder} transition-colors self-start">
+                            <div class="p-5 sm:p-6 flex flex-col flex-grow">
+                                <h3 class="font-heading text-xl sm:text-2xl font-black mb-2 sm:mb-3">${proj.title}</h3>
+                                <p class="text-slate-600 font-medium mb-4 sm:mb-6 flex-grow text-sm sm:text-base">${proj.desc}</p>
+                                <a href="${proj.link || '#'}" target="_blank" class="inline-flex items-center gap-2 font-bold text-slate-900 border-b-2 border-slate-900 pb-1 ${style.hoverText} ${style.hoverBorder} transition-colors self-start text-sm sm:text-base">
                                     Lihat Detail Web <i class="ph-bold ph-arrow-up-right"></i>
                                 </a>
                             </div>
@@ -606,47 +623,47 @@
             if(!adminBody) return;
             
             let html = `
-                <div class="space-y-4">
-                    <h3 class="font-heading text-xl font-black text-slate-900 border-b-2 border-slate-900 pb-2 inline-block">1. Kenalan Lebih Dekat (Tentang)</h3>
-                    <textarea id="admin-about" rows="4" class="w-full bg-white border-2 border-slate-900 rounded-xl px-4 py-3 text-slate-900 font-medium focus:outline-none focus:shadow-[4px_4px_0_0_#1e293b] focus:bg-[#00E5FF] transition-all resize-y">${siteData.about || ""}</textarea>
+                <div class="space-y-3 sm:space-y-4">
+                    <h3 class="font-heading text-lg sm:text-xl font-black text-slate-900 border-b-2 border-slate-900 pb-2 inline-block">1. Kenalan Lebih Dekat (Tentang)</h3>
+                    <textarea id="admin-about" rows="4" class="w-full bg-white border-2 border-slate-900 rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-slate-900 font-medium focus:outline-none focus:shadow-[4px_4px_0_0_#1e293b] focus:bg-[#00E5FF] transition-all resize-y text-sm sm:text-base">${siteData.about || ""}</textarea>
                 </div>
-                <div class="space-y-4">
+                <div class="space-y-3 sm:space-y-4">
                     <div class="flex justify-between items-center border-b-2 border-slate-900 pb-2">
-                        <h3 class="font-heading text-xl font-black text-slate-900">2. Prestasi & Pencapaian</h3>
-                        <button onclick="addAdminAch()" class="brutal-btn bg-[#FFC900] text-slate-900 px-3 py-1 rounded-lg font-bold text-sm flex items-center gap-1"><i class="ph-bold ph-plus"></i> Tambah</button>
+                        <h3 class="font-heading text-lg sm:text-xl font-black text-slate-900">2. Prestasi & Pencapaian</h3>
+                        <button onclick="addAdminAch()" class="brutal-btn bg-[#FFC900] text-slate-900 px-3 py-1 rounded-lg font-bold text-xs sm:text-sm flex items-center gap-1"><i class="ph-bold ph-plus"></i> Tambah</button>
                     </div>
                     <div class="grid md:grid-cols-2 gap-4">
             `;
 
             (siteData.achievements || []).forEach((ach, i) => {
                 html += `
-                    <div class="admin-ach-block bg-white p-4 border-2 border-slate-900 rounded-xl space-y-3 shadow-[4px_4px_0_0_#1e293b] relative">
-                        <button onclick="removeAdminAch(${i})" class="absolute -top-3 -right-3 w-8 h-8 bg-[#FF5722] text-white border-2 border-slate-900 rounded-full flex items-center justify-center hover:scale-110 transition-transform"><i class="ph-bold ph-trash"></i></button>
-                        <h4 class="font-bold text-slate-900 flex items-center gap-2">Prestasi ${i+1}</h4>
-                        <input type="text" class="ach-title w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#FF90E8] focus:outline-none" placeholder="Judul" value="${ach.title}">
-                        <input type="text" class="ach-event w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#FF90E8] focus:outline-none" placeholder="Event / Tahun" value="${ach.event}">
-                        <textarea rows="3" class="ach-desc w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#FF90E8] focus:outline-none resize-none" placeholder="Deskripsi">${ach.desc}</textarea>
+                    <div class="admin-ach-block bg-white p-3 sm:p-4 border-2 border-slate-900 rounded-xl space-y-2 sm:space-y-3 shadow-[4px_4px_0_0_#1e293b] relative mt-2 sm:mt-0">
+                        <button onclick="removeAdminAch(${i})" class="absolute -top-3 -right-3 w-7 h-7 sm:w-8 sm:h-8 bg-[#FF5722] text-white border-2 border-slate-900 rounded-full flex items-center justify-center hover:scale-110 transition-transform"><i class="ph-bold ph-trash text-sm sm:text-base"></i></button>
+                        <h4 class="font-bold text-slate-900 flex items-center gap-2 text-sm sm:text-base">Prestasi ${i+1}</h4>
+                        <input type="text" class="ach-title w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 focus:bg-[#FF90E8] focus:outline-none text-sm sm:text-base" placeholder="Judul" value="${ach.title}">
+                        <input type="text" class="ach-event w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 focus:bg-[#FF90E8] focus:outline-none text-sm sm:text-base" placeholder="Event / Tahun" value="${ach.event}">
+                        <textarea rows="3" class="ach-desc w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 focus:bg-[#FF90E8] focus:outline-none resize-none text-sm sm:text-base" placeholder="Deskripsi">${ach.desc}</textarea>
                     </div>
                 `;
             });
 
-            html += `</div></div><div class="space-y-4">
+            html += `</div></div><div class="space-y-3 sm:space-y-4 mt-6">
                     <div class="flex justify-between items-center border-b-2 border-slate-900 pb-2">
-                        <h3 class="font-heading text-xl font-black text-slate-900">3. Karya Pilihan</h3>
-                        <button onclick="addAdminProj()" class="brutal-btn bg-[#00E5FF] text-slate-900 px-3 py-1 rounded-lg font-bold text-sm flex items-center gap-1"><i class="ph-bold ph-plus"></i> Tambah</button>
+                        <h3 class="font-heading text-lg sm:text-xl font-black text-slate-900">3. Karya Pilihan</h3>
+                        <button onclick="addAdminProj()" class="brutal-btn bg-[#00E5FF] text-slate-900 px-3 py-1 rounded-lg font-bold text-xs sm:text-sm flex items-center gap-1"><i class="ph-bold ph-plus"></i> Tambah</button>
                     </div>
                     <div class="grid md:grid-cols-2 gap-4">`;
 
             (siteData.projects || []).forEach((proj, i) => {
                 html += `
-                    <div class="admin-proj-block bg-white p-4 border-2 border-slate-900 rounded-xl space-y-3 shadow-[4px_4px_0_0_#1e293b] relative">
-                        <button onclick="removeAdminProj(${i})" class="absolute -top-3 -right-3 w-8 h-8 bg-[#FF5722] text-white border-2 border-slate-900 rounded-full flex items-center justify-center hover:scale-110 transition-transform"><i class="ph-bold ph-trash"></i></button>
-                        <h4 class="font-bold text-slate-900">Karya ${i+1}</h4>
-                        <input type="text" class="proj-title w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#22c55e] focus:outline-none" placeholder="Nama Karya" value="${proj.title}">
-                        <input type="text" class="proj-cat w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#22c55e] focus:outline-none" placeholder="Kategori" value="${proj.cat}">
-                        <input type="text" class="proj-link w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#22c55e] focus:outline-none" placeholder="Link Web (https://...)" value="${proj.link}">
-                        <input type="text" class="proj-img w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#22c55e] focus:outline-none" placeholder="URL Gambar (misal: https://imgur.com/x.png)" value="${proj.image || ''}">
-                        <textarea rows="3" class="proj-desc w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#22c55e] focus:outline-none resize-none" placeholder="Deskripsi">${proj.desc}</textarea>
+                    <div class="admin-proj-block bg-white p-3 sm:p-4 border-2 border-slate-900 rounded-xl space-y-2 sm:space-y-3 shadow-[4px_4px_0_0_#1e293b] relative mt-2 sm:mt-0">
+                        <button onclick="removeAdminProj(${i})" class="absolute -top-3 -right-3 w-7 h-7 sm:w-8 sm:h-8 bg-[#FF5722] text-white border-2 border-slate-900 rounded-full flex items-center justify-center hover:scale-110 transition-transform"><i class="ph-bold ph-trash text-sm sm:text-base"></i></button>
+                        <h4 class="font-bold text-slate-900 text-sm sm:text-base">Karya ${i+1}</h4>
+                        <input type="text" class="proj-title w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 focus:bg-[#22c55e] focus:outline-none text-sm sm:text-base" placeholder="Nama Karya" value="${proj.title}">
+                        <input type="text" class="proj-cat w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 focus:bg-[#22c55e] focus:outline-none text-sm sm:text-base" placeholder="Kategori" value="${proj.cat}">
+                        <input type="text" class="proj-link w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 focus:bg-[#22c55e] focus:outline-none text-sm sm:text-base" placeholder="Link Web (https://...)" value="${proj.link}">
+                        <input type="text" class="proj-img w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 focus:bg-[#22c55e] focus:outline-none text-sm sm:text-base" placeholder="URL Gambar (misal: https://imgur.com/x.png)" value="${proj.image || ''}">
+                        <textarea rows="3" class="proj-desc w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 focus:bg-[#22c55e] focus:outline-none resize-none text-sm sm:text-base" placeholder="Deskripsi">${proj.desc}</textarea>
                     </div>
                 `;
             });
