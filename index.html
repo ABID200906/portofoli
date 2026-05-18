@@ -314,30 +314,8 @@
                 </p>
             </div>
             
-            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <!-- Achievement 1 -->
-                <div class="brutal-shadow bg-[#FF90E8] rounded-2xl p-6 sm:p-8 flex gap-6 pop-up items-start transform hover:-rotate-1 transition-transform">
-                    <div class="w-16 h-16 bg-white border-2 border-slate-900 rounded-xl flex items-center justify-center text-[#FF5722] shadow-[4px_4px_0_0_#1e293b] flex-shrink-0">
-                        <i class="ph-fill ph-trophy text-4xl"></i>
-                    </div>
-                    <div>
-                        <h3 id="ach1-title" class="font-heading text-2xl font-black text-slate-900 mb-2">Juara 1 Web Design</h3>
-                        <p id="ach1-event" class="text-slate-900 font-bold bg-white px-2 py-1 inline-block border-2 border-slate-900 text-xs mb-3 shadow-[2px_2px_0_0_#1e293b]">TechFest 2023</p>
-                        <p id="ach1-desc" class="text-slate-800 font-medium leading-relaxed">Meraih posisi pertama dalam kompetisi desain antarmuka, menciptakan tata letak paling responsif dan inovatif dalam waktu 24 jam.</p>
-                    </div>
-                </div>
-
-                <!-- Achievement 2 -->
-                <div class="brutal-shadow bg-[#00E5FF] rounded-2xl p-6 sm:p-8 flex gap-6 pop-up items-start transform hover:rotate-1 transition-transform" style="transition-delay: 100ms;">
-                    <div class="w-16 h-16 bg-white border-2 border-slate-900 rounded-xl flex items-center justify-center text-[#3B82F6] shadow-[4px_4px_0_0_#1e293b] flex-shrink-0">
-                        <i class="ph-fill ph-medal text-4xl"></i>
-                    </div>
-                    <div>
-                        <h3 id="ach2-title" class="font-heading text-2xl font-black text-slate-900 mb-2">Top 5 Frontend Hackathon</h3>
-                        <p id="ach2-event" class="text-slate-900 font-bold bg-white px-2 py-1 inline-block border-2 border-slate-900 text-xs mb-3 shadow-[2px_2px_0_0_#1e293b]">DevNusantara 2024</p>
-                        <p id="ach2-desc" class="text-slate-800 font-medium leading-relaxed">Berhasil masuk ke jajaran elit berkat optimalisasi kode yang membuat kecepatan muat website meningkat hingga 40%.</p>
-                    </div>
-                </div>
+            <!-- Tempat kartu prestasi akan dimuat secara dinamis -->
+            <div id="achievements-container" class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             </div>
         </div>
     </section>
@@ -355,51 +333,8 @@
                 </div>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Proyek 1 -->
-                <div class="brutal-shadow bg-[#fcfbf7] text-slate-900 rounded-2xl group pop-up">
-                    <div class="h-60 border-b-4 border-slate-900 relative overflow-hidden bg-[#FF90E8]">
-                        <img src="https://placehold.co/600x400/fdf4ff/c026d3?font=montserrat&text=E-Commerce" alt="Proyek 1" class="w-full h-full object-cover mix-blend-multiply group-hover:scale-110 group-hover:rotate-2 transition-transform duration-500">
-                        <div id="proj1-cat" class="absolute top-4 left-4 bg-[#FFC900] border-2 border-slate-900 shadow-[2px_2px_0_0_#1e293b] px-4 py-1 rounded-full text-sm font-bold">Toko Online</div>
-                    </div>
-                    <div class="p-6">
-                        <h3 id="proj1-title" class="font-heading text-2xl font-black mb-3">TokoBaju "Warna"</h3>
-                        <p id="proj1-desc" class="text-slate-600 font-medium mb-6">Desain e-commerce yang ceria dengan filter pencarian warna interaktif.</p>
-                        <a href="#" class="inline-flex items-center gap-2 font-bold text-slate-900 border-b-2 border-slate-900 pb-1 hover:text-[#FF5722] hover:border-[#FF5722] transition-colors">
-                            Lihat Detail <i class="ph-bold ph-arrow-up-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Proyek 2 -->
-                <div class="brutal-shadow bg-[#fcfbf7] text-slate-900 rounded-2xl group pop-up" style="transition-delay: 100ms;">
-                    <div class="h-60 border-b-4 border-slate-900 relative overflow-hidden bg-[#00E5FF]">
-                        <img src="https://placehold.co/600x400/eff6ff/2563eb?font=montserrat&text=Fintech+App" alt="Proyek 2" class="w-full h-full object-cover mix-blend-multiply group-hover:scale-110 group-hover:-rotate-2 transition-transform duration-500">
-                        <div id="proj2-cat" class="absolute top-4 left-4 bg-[#FF90E8] border-2 border-slate-900 shadow-[2px_2px_0_0_#1e293b] px-4 py-1 rounded-full text-sm font-bold">Dashboard</div>
-                    </div>
-                    <div class="p-6">
-                        <h3 id="proj2-title" class="font-heading text-2xl font-black mb-3">Sistem Kasir "Kring"</h3>
-                        <p id="proj2-desc" class="text-slate-600 font-medium mb-6">Dashboard point of sale (POS) yang menyederhanakan data angka menjadi warna.</p>
-                        <a href="#" class="inline-flex items-center gap-2 font-bold text-slate-900 border-b-2 border-slate-900 pb-1 hover:text-[#3B82F6] hover:border-[#3B82F6] transition-colors">
-                            Lihat Detail <i class="ph-bold ph-arrow-up-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Proyek 3 -->
-                <div class="brutal-shadow bg-[#fcfbf7] text-slate-900 rounded-2xl group pop-up" style="transition-delay: 200ms;">
-                    <div class="h-60 border-b-4 border-slate-900 relative overflow-hidden bg-[#22c55e]">
-                        <img src="https://placehold.co/600x400/ecfdf5/059669?font=montserrat&text=Travel+Blog" alt="Proyek 3" class="w-full h-full object-cover mix-blend-multiply group-hover:scale-110 group-hover:rotate-2 transition-transform duration-500">
-                        <div id="proj3-cat" class="absolute top-4 left-4 bg-[#FF5722] text-white border-2 border-slate-900 shadow-[2px_2px_0_0_#1e293b] px-4 py-1 rounded-full text-sm font-bold">Mobile App</div>
-                    </div>
-                    <div class="p-6">
-                        <h3 id="proj3-title" class="font-heading text-2xl font-black mb-3">Jurnal "JalanKuy"</h3>
-                        <p id="proj3-desc" class="text-slate-600 font-medium mb-6">Aplikasi travel dengan peta interaktif dan jurnal foto bergaya polaroid.</p>
-                        <a href="#" class="inline-flex items-center gap-2 font-bold text-slate-900 border-b-2 border-slate-900 pb-1 hover:text-[#22c55e] hover:border-[#22c55e] transition-colors">
-                            Lihat Detail <i class="ph-bold ph-arrow-up-right"></i>
-                        </a>
-                    </div>
-                </div>
+            <!-- Tempat kartu proyek akan dimuat secara dinamis -->
+            <div id="projects-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             </div>
             
             <div class="mt-16 text-center pop-up">
@@ -491,61 +426,8 @@
             </div>
 
             <!-- Body Modal (Scrollable) -->
-            <div class="p-6 overflow-y-auto flex-1 space-y-8 custom-scrollbar">
-                <!-- Tentang -->
-                <div class="space-y-4">
-                    <h3 class="font-heading text-xl font-black text-slate-900 border-b-2 border-slate-900 pb-2 inline-block">1. Kenalan Lebih Dekat (Tentang)</h3>
-                    <textarea id="edit-about-text" rows="4" class="w-full bg-white border-2 border-slate-900 rounded-xl px-4 py-3 text-slate-900 font-medium focus:outline-none focus:shadow-[4px_4px_0_0_#1e293b] focus:bg-[#00E5FF] transition-all resize-y"></textarea>
-                </div>
-
-                <!-- Prestasi -->
-                <div class="space-y-4">
-                    <h3 class="font-heading text-xl font-black text-slate-900 border-b-2 border-slate-900 pb-2 inline-block">2. Prestasi & Pencapaian</h3>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <!-- P1 -->
-                        <div class="bg-white p-4 border-2 border-slate-900 rounded-xl space-y-3 shadow-[4px_4px_0_0_#1e293b]">
-                            <h4 class="font-bold text-slate-900 flex items-center gap-2"><i class="ph-fill ph-trophy text-[#FF5722]"></i> Prestasi 1</h4>
-                            <input type="text" id="edit-ach1-title" class="w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#FF90E8] focus:outline-none" placeholder="Judul Prestasi">
-                            <input type="text" id="edit-ach1-event" class="w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#FF90E8] focus:outline-none" placeholder="Event / Tahun">
-                            <textarea id="edit-ach1-desc" rows="3" class="w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#FF90E8] focus:outline-none resize-none" placeholder="Deskripsi"></textarea>
-                        </div>
-                        <!-- P2 -->
-                        <div class="bg-white p-4 border-2 border-slate-900 rounded-xl space-y-3 shadow-[4px_4px_0_0_#1e293b]">
-                            <h4 class="font-bold text-slate-900 flex items-center gap-2"><i class="ph-fill ph-medal text-[#3B82F6]"></i> Prestasi 2</h4>
-                            <input type="text" id="edit-ach2-title" class="w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#00E5FF] focus:outline-none" placeholder="Judul Prestasi">
-                            <input type="text" id="edit-ach2-event" class="w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#00E5FF] focus:outline-none" placeholder="Event / Tahun">
-                            <textarea id="edit-ach2-desc" rows="3" class="w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#00E5FF] focus:outline-none resize-none" placeholder="Deskripsi"></textarea>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Karya Pilihan -->
-                <div class="space-y-4">
-                    <h3 class="font-heading text-xl font-black text-slate-900 border-b-2 border-slate-900 pb-2 inline-block">3. Karya Pilihan</h3>
-                    <div class="grid md:grid-cols-3 gap-4">
-                        <!-- K1 -->
-                        <div class="bg-white p-4 border-2 border-slate-900 rounded-xl space-y-3 shadow-[4px_4px_0_0_#1e293b]">
-                            <h4 class="font-bold text-slate-900">Karya 1</h4>
-                            <input type="text" id="edit-proj1-title" class="w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#FFC900] focus:outline-none" placeholder="Nama Karya">
-                            <input type="text" id="edit-proj1-cat" class="w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#FFC900] focus:outline-none" placeholder="Kategori">
-                            <textarea id="edit-proj1-desc" rows="3" class="w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#FFC900] focus:outline-none resize-none" placeholder="Deskripsi"></textarea>
-                        </div>
-                        <!-- K2 -->
-                        <div class="bg-white p-4 border-2 border-slate-900 rounded-xl space-y-3 shadow-[4px_4px_0_0_#1e293b]">
-                            <h4 class="font-bold text-slate-900">Karya 2</h4>
-                            <input type="text" id="edit-proj2-title" class="w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#FF5722] focus:text-white focus:outline-none" placeholder="Nama Karya">
-                            <input type="text" id="edit-proj2-cat" class="w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#FF5722] focus:text-white focus:outline-none" placeholder="Kategori">
-                            <textarea id="edit-proj2-desc" rows="3" class="w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#FF5722] focus:text-white focus:outline-none resize-none" placeholder="Deskripsi"></textarea>
-                        </div>
-                        <!-- K3 -->
-                        <div class="bg-white p-4 border-2 border-slate-900 rounded-xl space-y-3 shadow-[4px_4px_0_0_#1e293b]">
-                            <h4 class="font-bold text-slate-900">Karya 3</h4>
-                            <input type="text" id="edit-proj3-title" class="w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#22c55e] focus:outline-none" placeholder="Nama Karya">
-                            <input type="text" id="edit-proj3-cat" class="w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#22c55e] focus:outline-none" placeholder="Kategori">
-                            <textarea id="edit-proj3-desc" rows="3" class="w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#22c55e] focus:outline-none resize-none" placeholder="Deskripsi"></textarea>
-                        </div>
-                    </div>
-                </div>
+            <div id="admin-modal-body" class="p-6 overflow-y-auto flex-1 space-y-8 custom-scrollbar">
+                <!-- Form Admin akan digenerate otomatis lewat Javascript -->
             </div>
 
             <!-- Footer Modal -->
@@ -607,7 +489,7 @@
                 const message = document.getElementById('senderMessage').value;
                 
                 // PENTING: Ganti nomor di bawah dengan nomor WhatsApp Abid! (Gunakan kode negara, misal 62)
-                const phoneNumber = "6281234567890"; 
+                const phoneNumber = "6285147252322"; 
                 
                 // Format pesan dengan Encode URI agar enter dan spasi terbaca di URL
                 const textMessage = `Halo Abid!👋%0A%0APerkenalkan saya *${name}* (${email}).%0A%0A${message}`;
@@ -643,68 +525,216 @@
         });
 
         // ==========================================
-        // FITUR ADMIN (CTRL + ALT + A)
+        // FITUR DATA DINAMIS & ADMIN (CTRL + ALT + A)
         // ==========================================
-        const adminModal = document.getElementById('admin-modal');
+        
+        // Data Global Website (Sekarang disimpan di variabel)
+        let siteData = {
+            about: "Saya menggabungkan seni desain visual dengan logika coding. Tujuan saya? Membuat website yang tidak membosankan. Saya suka bermain dengan warna berani, animasi, dan tata letak di luar kebiasaan.",
+            achievements: [
+                { title: "Juara 1 Web Design", event: "TechFest 2023", desc: "Meraih posisi pertama dalam kompetisi desain antarmuka, menciptakan tata letak paling responsif dan inovatif dalam waktu 24 jam." },
+                { title: "Top 5 Frontend Hackathon", event: "DevNusantara 2024", desc: "Berhasil masuk ke jajaran elit berkat optimalisasi kode yang membuat kecepatan muat website meningkat hingga 40%." }
+            ],
+            projects: [
+                { title: "TokoBaju \"Warna\"", cat: "Toko Online", desc: "Desain e-commerce yang ceria dengan filter pencarian warna interaktif.", link: "https://www.google.com" },
+                { title: "Sistem Kasir \"Kring\"", cat: "Dashboard", desc: "Dashboard point of sale (POS) yang menyederhanakan data angka menjadi warna.", link: "https://www.google.com" },
+                { title: "Jurnal \"JalanKuy\"", cat: "Mobile App", desc: "Aplikasi travel dengan peta interaktif dan jurnal foto bergaya polaroid.", link: "https://www.google.com" }
+            ]
+        };
 
-        // Daftar ID yang akan di-mapping antara tampilan halaman dan form di panel admin
-        const fieldMappings = [
-            { display: 'about-text', input: 'edit-about-text' },
-            { display: 'ach1-title', input: 'edit-ach1-title' },
-            { display: 'ach1-event', input: 'edit-ach1-event' },
-            { display: 'ach1-desc', input: 'edit-ach1-desc' },
-            { display: 'ach2-title', input: 'edit-ach2-title' },
-            { display: 'ach2-event', input: 'edit-ach2-event' },
-            { display: 'ach2-desc', input: 'edit-ach2-desc' },
-            { display: 'proj1-title', input: 'edit-proj1-title' },
-            { display: 'proj1-cat', input: 'edit-proj1-cat' },
-            { display: 'proj1-desc', input: 'edit-proj1-desc' },
-            { display: 'proj2-title', input: 'edit-proj2-title' },
-            { display: 'proj2-cat', input: 'edit-proj2-cat' },
-            { display: 'proj2-desc', input: 'edit-proj2-desc' },
-            { display: 'proj3-title', input: 'edit-proj3-title' },
-            { display: 'proj3-cat', input: 'edit-proj3-cat' },
-            { display: 'proj3-desc', input: 'edit-proj3-desc' },
+        // Kumpulan style untuk memberikan warna-warni acak pada kartu
+        const achColors = ['bg-[#FF90E8]', 'bg-[#00E5FF]', 'bg-[#FFC900]', 'bg-[#22c55e]'];
+        const achIcons = ['ph-trophy text-[#FF5722]', 'ph-medal text-[#3B82F6]', 'ph-star text-[#FF90E8]', 'ph-certificate text-[#00E5FF]'];
+        
+        const projStyles = [
+            { bg: 'bg-[#FF90E8]', badge: 'bg-[#FFC900]', hoverText: 'hover:text-[#FF5722]', hoverBorder: 'hover:border-[#FF5722]' },
+            { bg: 'bg-[#00E5FF]', badge: 'bg-[#FF90E8]', hoverText: 'hover:text-[#3B82F6]', hoverBorder: 'hover:border-[#3B82F6]' },
+            { bg: 'bg-[#22c55e]', badge: 'bg-[#FF5722]', hoverText: 'hover:text-[#22c55e]', hoverBorder: 'hover:border-[#22c55e]' },
+            { bg: 'bg-[#FFC900]', badge: 'bg-[#00E5FF]', hoverText: 'hover:text-[#FF90E8]', hoverBorder: 'hover:border-[#FF90E8]' }
         ];
 
-        // 1. Deteksi Shortcut Keyboard (Ctrl + Alt + A)
+        // 1. Fungsi merender (mencetak) data ke halaman utama
+        function renderApp() {
+            // Render Tentang
+            document.getElementById('about-text').innerText = siteData.about;
+
+            // Render Prestasi
+            const achContainer = document.getElementById('achievements-container');
+            achContainer.innerHTML = '';
+            siteData.achievements.forEach((ach, index) => {
+                const color = achColors[index % achColors.length];
+                const icon = achIcons[index % achIcons.length];
+                const rotate = index % 2 === 0 ? 'hover:-rotate-1' : 'hover:rotate-1';
+                
+                achContainer.innerHTML += `
+                    <div class="brutal-shadow ${color} rounded-2xl p-6 sm:p-8 flex gap-6 items-start transform ${rotate} transition-transform">
+                        <div class="w-16 h-16 bg-white border-2 border-slate-900 rounded-xl flex items-center justify-center shadow-[4px_4px_0_0_#1e293b] flex-shrink-0">
+                            <i class="ph-fill ${icon} text-4xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-heading text-2xl font-black text-slate-900 mb-2">${ach.title}</h3>
+                            <p class="text-slate-900 font-bold bg-white px-2 py-1 inline-block border-2 border-slate-900 text-xs mb-3 shadow-[2px_2px_0_0_#1e293b]">${ach.event}</p>
+                            <p class="text-slate-800 font-medium leading-relaxed">${ach.desc}</p>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // Render Karya Pilihan
+            const projContainer = document.getElementById('projects-container');
+            projContainer.innerHTML = '';
+            siteData.projects.forEach((proj, index) => {
+                const style = projStyles[index % projStyles.length];
+                const rotate = index % 2 === 0 ? 'group-hover:rotate-2' : 'group-hover:-rotate-2';
+                
+                projContainer.innerHTML += `
+                    <div class="brutal-shadow bg-[#fcfbf7] text-slate-900 rounded-2xl group flex flex-col h-full">
+                        <div class="h-60 border-b-4 border-slate-900 relative overflow-hidden ${style.bg}">
+                            <img src="https://placehold.co/600x400/ffffff/0f172a?font=montserrat&text=Karya+${index+1}" alt="${proj.title}" class="w-full h-full object-cover mix-blend-multiply group-hover:scale-110 ${rotate} transition-transform duration-500">
+                            <div class="absolute top-4 left-4 ${style.badge} text-slate-900 border-2 border-slate-900 shadow-[2px_2px_0_0_#1e293b] px-4 py-1 rounded-full text-sm font-bold">${proj.cat}</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="font-heading text-2xl font-black mb-3">${proj.title}</h3>
+                            <p class="text-slate-600 font-medium mb-6 flex-grow">${proj.desc}</p>
+                            <a href="${proj.link}" target="_blank" class="inline-flex items-center gap-2 font-bold text-slate-900 border-b-2 border-slate-900 pb-1 ${style.hoverText} ${style.hoverBorder} transition-colors self-start">
+                                Lihat Detail Web <i class="ph-bold ph-arrow-up-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // 2. Fungsi merender form di Modal Admin
+        function renderAdminForm() {
+            const adminBody = document.getElementById('admin-modal-body');
+            
+            let html = `
+                <!-- Tentang -->
+                <div class="space-y-4">
+                    <h3 class="font-heading text-xl font-black text-slate-900 border-b-2 border-slate-900 pb-2 inline-block">1. Kenalan Lebih Dekat (Tentang)</h3>
+                    <textarea id="admin-about" rows="4" class="w-full bg-white border-2 border-slate-900 rounded-xl px-4 py-3 text-slate-900 font-medium focus:outline-none focus:shadow-[4px_4px_0_0_#1e293b] focus:bg-[#00E5FF] transition-all resize-y">${siteData.about}</textarea>
+                </div>
+
+                <!-- Prestasi -->
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center border-b-2 border-slate-900 pb-2">
+                        <h3 class="font-heading text-xl font-black text-slate-900">2. Prestasi & Pencapaian</h3>
+                        <button onclick="addAdminAch()" class="brutal-btn bg-[#FFC900] text-slate-900 px-3 py-1 rounded-lg font-bold text-sm flex items-center gap-1"><i class="ph-bold ph-plus"></i> Tambah</button>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4">
+            `;
+
+            // Cetak Input Prestasi
+            siteData.achievements.forEach((ach, i) => {
+                html += `
+                    <div class="admin-ach-block bg-white p-4 border-2 border-slate-900 rounded-xl space-y-3 shadow-[4px_4px_0_0_#1e293b] relative">
+                        <button onclick="removeAdminAch(${i})" class="absolute -top-3 -right-3 w-8 h-8 bg-[#FF5722] text-white border-2 border-slate-900 rounded-full flex items-center justify-center hover:scale-110 transition-transform"><i class="ph-bold ph-trash"></i></button>
+                        <h4 class="font-bold text-slate-900 flex items-center gap-2">Prestasi ${i+1}</h4>
+                        <input type="text" class="ach-title w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#FF90E8] focus:outline-none" placeholder="Judul" value="${ach.title}">
+                        <input type="text" class="ach-event w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#FF90E8] focus:outline-none" placeholder="Event / Tahun" value="${ach.event}">
+                        <textarea rows="3" class="ach-desc w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#FF90E8] focus:outline-none resize-none" placeholder="Deskripsi">${ach.desc}</textarea>
+                    </div>
+                `;
+            });
+
+            html += `
+                    </div>
+                </div>
+                
+                <!-- Karya -->
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center border-b-2 border-slate-900 pb-2">
+                        <h3 class="font-heading text-xl font-black text-slate-900">3. Karya Pilihan</h3>
+                        <button onclick="addAdminProj()" class="brutal-btn bg-[#00E5FF] text-slate-900 px-3 py-1 rounded-lg font-bold text-sm flex items-center gap-1"><i class="ph-bold ph-plus"></i> Tambah</button>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4">
+            `;
+
+            // Cetak Input Karya
+            siteData.projects.forEach((proj, i) => {
+                html += `
+                    <div class="admin-proj-block bg-white p-4 border-2 border-slate-900 rounded-xl space-y-3 shadow-[4px_4px_0_0_#1e293b] relative">
+                        <button onclick="removeAdminProj(${i})" class="absolute -top-3 -right-3 w-8 h-8 bg-[#FF5722] text-white border-2 border-slate-900 rounded-full flex items-center justify-center hover:scale-110 transition-transform"><i class="ph-bold ph-trash"></i></button>
+                        <h4 class="font-bold text-slate-900">Karya ${i+1}</h4>
+                        <input type="text" class="proj-title w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#22c55e] focus:outline-none" placeholder="Nama Karya" value="${proj.title}">
+                        <input type="text" class="proj-cat w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#22c55e] focus:outline-none" placeholder="Kategori" value="${proj.cat}">
+                        <input type="text" class="proj-link w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#22c55e] focus:outline-none" placeholder="Link / URL Web (Misal: https://web.com)" value="${proj.link}">
+                        <textarea rows="3" class="proj-desc w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-3 py-2 focus:bg-[#22c55e] focus:outline-none resize-none" placeholder="Deskripsi">${proj.desc}</textarea>
+                    </div>
+                `;
+            });
+
+            html += `</div></div>`;
+            adminBody.innerHTML = html;
+        }
+
+        // 3. Fungsi Sinkronisasi: Menyimpan inputan saat ini ke variabel sebelum re-render form
+        function syncAdminInputsToData() {
+            siteData.about = document.getElementById('admin-about').value;
+            
+            const achBlocks = document.querySelectorAll('.admin-ach-block');
+            siteData.achievements = Array.from(achBlocks).map(b => ({
+                title: b.querySelector('.ach-title').value,
+                event: b.querySelector('.ach-event').value,
+                desc: b.querySelector('.ach-desc').value
+            }));
+
+            const projBlocks = document.querySelectorAll('.admin-proj-block');
+            siteData.projects = Array.from(projBlocks).map(b => ({
+                title: b.querySelector('.proj-title').value,
+                cat: b.querySelector('.proj-cat').value,
+                link: b.querySelector('.proj-link').value,
+                desc: b.querySelector('.proj-desc').value
+            }));
+        }
+
+        // Fungsi Tambah & Hapus untuk Admin
+        function addAdminAch() {
+            syncAdminInputsToData(); // Simpan yang sudah diketik
+            siteData.achievements.push({ title: "", event: "", desc: "" }); // Tambah kosong
+            renderAdminForm(); // Cetak ulang form
+        }
+        function removeAdminAch(index) {
+            syncAdminInputsToData();
+            siteData.achievements.splice(index, 1);
+            renderAdminForm();
+        }
+        function addAdminProj() {
+            syncAdminInputsToData();
+            siteData.projects.push({ title: "", cat: "", link: "", desc: "" });
+            renderAdminForm();
+        }
+        function removeAdminProj(index) {
+            syncAdminInputsToData();
+            siteData.projects.splice(index, 1);
+            renderAdminForm();
+        }
+
+        // 4. Deteksi Shortcut Keyboard (Ctrl + Alt + A)
+        const adminModal = document.getElementById('admin-modal');
         document.addEventListener('keydown', (e) => {
             if (e.ctrlKey && e.altKey && e.key.toLowerCase() === 'a') {
-                e.preventDefault(); // Mencegah fungsi bawaan browser
+                e.preventDefault(); 
                 openAdminModal();
             }
         });
 
-        // 2. Fungsi Buka Modal & Memuat Data saat ini
+        // 5. Buka / Tutup / Simpan Modal
         function openAdminModal() {
-            // Tarik data dari elemen HTML saat ini lalu masukkan ke dalam input form
-            fieldMappings.forEach(mapping => {
-                const displayEl = document.getElementById(mapping.display);
-                const inputEl = document.getElementById(mapping.input);
-                if (displayEl && inputEl) {
-                    inputEl.value = displayEl.innerText;
-                }
-            });
+            renderAdminForm(); // Muat data terbaru ke form
             adminModal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden'; // Mengunci scroll halaman di latar belakang
+            document.body.style.overflow = 'hidden';
         }
 
-        // 3. Fungsi Tutup Modal
         function closeAdminModal() {
             adminModal.classList.add('hidden');
-            document.body.style.overflow = 'auto'; // Mengembalikan scroll halaman
+            document.body.style.overflow = 'auto';
         }
 
-        // 4. Fungsi Simpan Data (Sementara/In-Memory)
         function saveAdminData() {
-            // Ambil data dari form input lalu timpa ke elemen teks di HTML
-            fieldMappings.forEach(mapping => {
-                const displayEl = document.getElementById(mapping.display);
-                const inputEl = document.getElementById(mapping.input);
-                if (displayEl && inputEl) {
-                    displayEl.innerText = inputEl.value;
-                }
-            });
+            syncAdminInputsToData(); // Ambil data terakhir dari form
+            renderApp(); // Cetak (terapkan) perubahannya ke tampilan utama website
             
             // Animasi Notifikasi Berhasil
             const btn = document.getElementById('save-admin-btn');
@@ -716,8 +746,13 @@
                 btn.innerHTML = originalText;
                 btn.classList.replace('bg-[#FFC900]', 'bg-[#22c55e]');
                 closeAdminModal();
-            }, 1000); // Tutup modal setelah 1 detik
+            }, 1000); 
         }
+
+        // 6. Saat pertama kali web dimuat
+        window.onload = () => {
+            renderApp();
+        };
     </script>
 </body>
 </html>
