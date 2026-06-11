@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LihatKebunku | Startup IoT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        :root {
+            --bg-color: #fcfbf7; /* Off-white hangat */
+            --text-main: #0f172a;
+            --border-dark: #1e293b;
+            --color-pink: #FF90E8;
+            --color-yellow: #FFC900;
+            --color-blue: #3B82F6;
+            --color-cyan: #00E5FF;
+            --color-green: #22c55e;
+            --color-orange: #FF5722;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            background-image: radial-gradient(#cbd5e1 2px, transparent 2px);
+            background-size: 32px 32px;
+        }
+
+        h1, h2, h3, h4, h5, h6, .font-heading {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Shadow Blok Kasar khas Neo-brutalism */
+        .brutal-shadow {
+            box-shadow: 6px 6px 0px 0px var(--border-dark);
+            border: 3px solid var(--border-dark);
+            transition: all 0.2s ease-in-out;
+        }
+
+        .brutal-shadow:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 10px 10px 0px 0px var(--border-dark);
+        }
+
+        /* Tombol Spesial */
+        .brutal-btn {
+            box-shadow: 4px 4px 0px 0px var(--border-dark);
+            border: 3px solid var(--border-dark);
+            transition: all 0.15s ease;
+        }
+
+        .brutal-btn:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px 0px var(--border-dark);
+        }
+
+        .brutal-btn:active {
+            transform: translate(4px, 4px);
+            box-shadow: 0px 0px 0px 0px var(--border-dark);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-green-300 selection:text-slate-900 overflow-x-hidden">
+
+    <nav class="fixed w-full z-50 bg-[#fcfbf7] border-b-4 border-[#1e293b]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="text-2xl sm:text-3xl font-black font-heading tracking-tight text-slate-900 flex items-center gap-2">
+                        <div class="w-8 h-8 bg-[#22c55e] border-2 border-slate-900 rounded-full flex items-center justify-center text-sm shadow-[2px_2px_0px_0px_#0f172a]">
+                            <i class="ph-bold ph-plant"></i>
+                        </div>
+                        LihatKebunku<span class="text-[#FFC900]">.</span>
+                    </a>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-8">
+                        <a href="index.html" class="text-slate-800 hover:text-[#3B82F6] font-bold text-lg transition-colors">← Kembali ke Portofolio</a>
+                        <a href="https://wa.me/6285147252322?text=Halo%20Abid!%20Saya%20ingin%20tanya%20lebih%20lanjut%20mengenai%20LihatKebunku" target="_blank" class="brutal-btn bg-[#22c55e] text-slate-900 px-6 py-2 rounded-full text-base font-bold">
+                            Tanya Info 👋
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" id="mobile-menu-btn" class="brutal-btn bg-white w-10 h-10 rounded-lg flex items-center justify-center text-slate-900">
+                        <i class="ph-bold ph-list text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="md:hidden hidden bg-[#fcfbf7] border-b-4 border-slate-900 absolute w-full shadow-[0_10px_0_0_#1e293b]" id="mobile-menu">
+            <div class="px-4 pt-4 pb-6 space-y-3 text-center">
+                <a href="index.html" class="block bg-white border-2 border-slate-900 shadow-[2px_2px_0_0_#1e293b] text-slate-800 px-4 py-3 rounded-xl font-bold">← Portofolio Utama</a>
+                <a href="https://wa.me/6285147252322" target="_blank" class="block bg-[#22c55e] border-2 border-slate-900 shadow-[2px_2px_0_0_#1e293b] text-slate-900 px-4 py-3 rounded-xl font-black mt-4">Hubungi via WA</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="min-h-screen pt-32 pb-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="text-center mb-12 sm:mb-16">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#22c55e] border-2 border-slate-900 shadow-[3px_3px_0_0_#1e293b] text-slate-900 font-bold text-xs sm:text-sm mb-6 transform rotate-2">
+                    <i class="ph-bold ph-rocket-launch text-lg"></i> Startup IoT Project
+                </div>
+                <h1 class="font-heading text-5xl sm:text-6xl md:text-8xl font-black text-slate-900 mb-6 tracking-tight leading-none">
+                    Lihat<span class="bg-[#22c55e] text-white px-4 py-1 border-4 border-slate-900 shadow-[6px_6px_0_0_#1e293b] inline-block ml-2 transform -rotate-1">Kebunku</span>
+                </h1>
+                <p class="text-slate-700 text-xl sm:text-2xl font-medium max-w-3xl mx-auto mt-8 border-l-4 border-[#22c55e] pl-4 text-left leading-relaxed">
+                    Ucapkan selamat tinggal pada tanaman layu. Solusi pintar berbasis Internet of Things (IoT) untuk memantau, menganalisis, dan menjaga kesehatan kebun Anda secara real-time langsung dari smartphone.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-stretch mt-12">
+                
+                <div class="brutal-shadow bg-white rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-[#FFC900] border-2 border-slate-900 rounded-xl shadow-[3px_3px_0_0_#1e293b] flex items-center justify-center transform -rotate-3 mb-6">
+                            <i class="ph-bold ph-cpu text-2xl text-slate-900"></i>
+                        </div>
+                        <h3 class="font-heading text-2xl sm:text-3xl font-black text-slate-900 mb-4">Teknologi Pintar untuk Kebun Anda</h3>
+                        <p class="text-slate-600 font-medium text-base sm:text-lg mb-6 leading-relaxed">
+                            LihatKebunku menggunakan perangkat keras sensor tancap otomatis yang mendeteksi parameter kritikal tanah. Data dikirim menggunakan jaringan awan sehingga kebun bisa dipantau dari mana saja dan kapan saja.
+                        </p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-4">
+                                <div class="bg-[#00E5FF] p-2 border-2 border-slate-900 rounded-lg shadow-[2px_2px_0_0_#1e293b] shrink-0"><i class="ph-bold ph-drop text-xl text-slate-900"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-lg">Kelembaban & Nutrisi Tanah</h4>
+                                    <p class="text-sm text-slate-600 font-medium">Membaca kadar air dan kondisi keasaman tanah secara akurat.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="bg-[#FF90E8] p-2 border-2 border-slate-900 rounded-lg shadow-[2px_2px_0_0_#1e293b] shrink-0"><i class="ph-bold ph-thermometer text-xl text-slate-900"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-lg">Suhu Lingkungan & Cahaya</h4>
+                                    <p class="text-sm text-slate-600 font-medium">Memastikan tanaman mendapatkan intensitas matahari dan suhu ideal.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="bg-[#FFC900] p-2 border-2 border-slate-900 rounded-lg shadow-[2px_2px_0_0_#1e293b] shrink-0"><i class="ph-bold ph-bell-ringing text-xl text-slate-900"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-lg">Sistem Peringatan Dini</h4>
+                                    <p class="text-sm text-slate-600 font-medium">Notifikasi instan jika tanaman Anda membutuhkan penyiraman segera.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t-2 border-dashed border-slate-200">
+                        <a href="index.html" class="text-sm font-bold text-slate-500 hover:text-slate-900 flex items-center gap-1 transition-colors">
+                            <i class="ph-bold ph-arrow-left"></i> Kembali ke Halaman Utama
+                        </a>
+                    </div>
+                </div>
+
+                <div class="brutal-shadow bg-[#22c55e] rounded-2xl p-6 sm:p-8 flex flex-col justify-between transform md:rotate-1">
+                    <div>
+                        <div class="bg-white border-4 border-slate-900 rounded-xl p-6 mb-6 shadow-[4px_4px_0_0_#0f172a] text-center relative overflow-hidden">
+                            <div class="absolute top-0 right-0 bg-[#FF5722] text-white font-black text-xs px-6 py-1 transform rotate-45 translate-x-5 translate-y-2 border-b-2 border-l-2 border-slate-900">PROMO</div>
+                            <h4 class="font-heading text-xl font-black text-slate-400 uppercase tracking-widest mb-1">Smart Kit IoT v1.0</h4>
+                            <div class="flex justify-center items-start text-slate-900">
+                                <span class="text-2xl font-black mt-2 mr-1">Rp</span>
+                                <span class="text-5xl sm:text-6xl font-black tracking-tight">299</span>
+                                <span class="text-xl font-bold mt-2">.000</span>
+                            </div>
+                            <p class="text-xs font-bold text-slate-400 mt-1 line-through">Harga Normal: Rp 450.000</p>
+                        </div>
+
+                        <h4 class="font-heading text-lg font-black text-slate-900 mb-3 uppercase tracking-wider">Apa yang Anda Dapatkan:</h4>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-3 font-bold text-slate-900 text-sm sm:text-base"><i class="ph-bold ph-check-square text-xl"></i> 1x Modul Sensor Utama (Waterproof)</li>
+                            <li class="flex items-center gap-3 font-bold text-slate-900 text-sm sm:text-base"><i class="ph-bold ph-check-square text-xl"></i> Integrasi Aplikasi Web/Mobile Dashboard</li>
+                            <li class="flex items-center gap-3 font-bold text-slate-900 text-sm sm:text-base"><i class="ph-bold ph-check-square text-xl"></i> Baterai Tahan Lama & Hemat Energi</li>
+                            <li class="flex items-center gap-3 font-bold text-slate-900 text-sm sm:text-base"><i class="ph-bold ph-check-square text-xl"></i> Buku Panduan Pemasangan & Garansi 3 Bulan</li>
+                        </ul>
+                    </div>
+
+                    <a href="https://wa.me/6285147252322?text=Halo%20Abid!%20Saya%20tertarik%20dengan%20produk%20LihatKebunku.%20Boleh%20tahu%20cara%20pemesanannya?" target="_blank" class="w-full brutal-btn bg-slate-900 text-white py-4 rounded-xl font-black text-lg sm:text-xl flex items-center justify-center gap-2 hover:bg-[#FFC900] hover:text-slate-900 transition-all duration-300">
+                        <i class="ph-bold ph-whatsapp-logo text-2xl"></i> Amankan Promo via WhatsApp
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-slate-900 text-white py-8 border-t-4 border-slate-900 text-center">
+        <p class="font-heading font-bold text-sm text-slate-400">
+            &copy; 2026 LihatKebunku. Dikembangkan oleh Abid Alaika.
+        </p>
+    </footer>
+
+    <script>
+        const btnMenu = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const icon = btnMenu.querySelector('i');
+
+        btnMenu.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) {
+                icon.classList.replace('ph-x', 'ph-list');
+                btnMenu.classList.remove('bg-[#FFC900]');
+            } else {
+                icon.classList.replace('ph-list', 'ph-x');
+                btnMenu.classList.add('bg-[#FFC900]');
+            }
+        });
+    </script>
+</body>
+</html>
