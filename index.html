@@ -3,16 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LihatKebunku | Smart Aquaponik IoT</title>
-    
-    <link rel="icon" type="image/png" href="logo.png">
-    
+    <title>Portofolio | Abid Alaika</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
         :root {
-            --bg-color: #fcfbf7;
+            --bg-color: #fcfbf7; /* Off-white hangat */
             --text-main: #0f172a;
             --border-dark: #1e293b;
             --color-pink: #FF90E8;
@@ -27,6 +24,7 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
+            /* Pola titik-titik tebal */
             background-image: radial-gradient(#cbd5e1 2px, transparent 2px);
             background-size: 32px 32px;
         }
@@ -35,6 +33,7 @@
             font-family: 'Outfit', sans-serif;
         }
 
+        /* Shadow Blok Kasar khas Neo-brutalism */
         .brutal-shadow {
             box-shadow: 6px 6px 0px 0px var(--border-dark);
             border: 3px solid var(--border-dark);
@@ -46,6 +45,7 @@
             box-shadow: 10px 10px 0px 0px var(--border-dark);
         }
 
+        /* Tombol Spesial */
         .brutal-btn {
             box-shadow: 4px 4px 0px 0px var(--border-dark);
             border: 3px solid var(--border-dark);
@@ -61,30 +61,93 @@
             transform: translate(4px, 4px);
             box-shadow: 0px 0px 0px 0px var(--border-dark);
         }
+
+        /* Animasi Marquee / Teks Berjalan */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            display: flex;
+            background: var(--color-yellow);
+            border-top: 3px solid var(--border-dark);
+            border-bottom: 3px solid var(--border-dark);
+            padding: 12px 0;
+            transform: rotate(-2deg);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            width: 105vw;
+            margin-left: -2vw;
+        }
+
+        .marquee-content {
+            display: flex;
+            animation: marquee 15s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Animasi masuk */
+        .pop-up {
+            opacity: 0;
+            transform: scale(0.95) translateY(20px);
+            transition: opacity 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .pop-up.visible {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+        
+        /* Custom Scrollbar for Admin Modal */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
     </style>
 </head>
-<body class="antialiased selection:bg-green-300 selection:text-slate-900 overflow-x-hidden">
+<body class="antialiased selection:bg-pink-300 selection:text-slate-900 overflow-x-hidden">
 
-    <nav class="fixed w-full z-50 bg-[#fcfbf7] border-b-4 border-[#1e293b]">
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-[#fcfbf7] border-b-4 border-[#1e293b]" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                
+                <!-- Logo -->
                 <div class="flex-shrink-0">
-                    <a href="index.html" class="text-2xl sm:text-3xl font-black font-heading tracking-tight text-slate-900 flex items-center gap-3">
-                        <img src="logo.png" alt="Logo LihatKebunku" class="w-10 h-10 sm:w-12 sm:h-12 object-cover border-2 border-slate-900 rounded-full shadow-[2px_2px_0px_0px_#0f172a] bg-white" onerror="this.src='https://placehold.co/100x100/22c55e/0f172a?font=montserrat&text=Logo'">
-                        LihatKebunku<span class="text-[#FFC900]">.</span>
+                    <a href="#" class="text-2xl sm:text-3xl font-black font-heading tracking-tight text-slate-900 flex items-center gap-2">
+                        <div class="w-8 h-8 bg-[#FFC900] border-2 border-slate-900 rounded-full flex items-center justify-center text-sm shadow-[2px_2px_0px_0px_#0f172a]">
+                            <i class="ph-bold ph-lightning"></i>
+                        </div>
+                        Abid Alaika<span class="text-[#FF90E8]">.</span>
                     </a>
                 </div>
                 
+                <!-- Menu Desktop -->
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-center space-x-8">
-                        <a href="index.html" class="text-slate-800 hover:text-[#3B82F6] font-bold text-lg transition-colors">← Kembali ke Portofolio</a>
-                        <a href="#paket" class="brutal-btn bg-[#FFC900] text-slate-900 px-6 py-2 rounded-full text-base font-bold">
-                            Lihat Paket
+                        <a href="#home" class="text-slate-800 hover:text-[#3B82F6] font-bold text-lg transition-colors">Beranda</a>
+                        <a href="#about" class="text-slate-800 hover:text-[#FF90E8] font-bold text-lg transition-colors">Tentang</a>
+                        <a href="#achievements" class="text-slate-800 hover:text-[#00E5FF] font-bold text-lg transition-colors">Prestasi</a>
+                        <a href="#projects" class="text-slate-800 hover:text-[#FF5722] font-bold text-lg transition-colors">Karya</a>
+                        <a href="lihat.html" class="text-slate-800 hover:text-[#22c55e] font-bold text-lg transition-colors">Startup</a>
+                        <a href="#contact" class="brutal-btn bg-[#FF90E8] text-slate-900 px-6 py-2 rounded-full text-base font-bold">
+                            Sapa Saya 👋
                         </a>
                     </div>
                 </div>
                 
+                <!-- Tombol Menu Mobile -->
                 <div class="-mr-2 flex md:hidden">
                     <button type="button" id="mobile-menu-btn" class="brutal-btn bg-white w-10 h-10 rounded-lg flex items-center justify-center text-slate-900">
                         <i class="ph-bold ph-list text-2xl"></i>
@@ -93,162 +156,358 @@
             </div>
         </div>
 
+        <!-- Menu Mobile -->
         <div class="md:hidden hidden bg-[#fcfbf7] border-b-4 border-slate-900 absolute w-full shadow-[0_10px_0_0_#1e293b]" id="mobile-menu">
             <div class="px-4 pt-4 pb-6 space-y-3 text-center">
-                <a href="index.html" class="block bg-white border-2 border-slate-900 shadow-[2px_2px_0_0_#1e293b] text-slate-800 px-4 py-3 rounded-xl font-bold">← Portofolio Utama</a>
-                <a href="#paket" class="block bg-[#FFC900] border-2 border-slate-900 shadow-[2px_2px_0_0_#1e293b] text-slate-900 px-4 py-3 rounded-xl font-black mt-4">Lihat Paket</a>
+                <a href="#home" class="block bg-white border-2 border-slate-900 shadow-[2px_2px_0_0_#1e293b] text-slate-800 px-4 py-3 rounded-xl font-bold">Beranda</a>
+                <a href="#about" class="block bg-white border-2 border-slate-900 shadow-[2px_2px_0_0_#1e293b] text-slate-800 px-4 py-3 rounded-xl font-bold">Tentang</a>
+                <a href="#achievements" class="block bg-white border-2 border-slate-900 shadow-[2px_2px_0_0_#1e293b] text-slate-800 px-4 py-3 rounded-xl font-bold">Prestasi</a>
+                <a href="#projects" class="block bg-white border-2 border-slate-900 shadow-[2px_2px_0_0_#1e293b] text-slate-800 px-4 py-3 rounded-xl font-bold">Karya</a>
+                <a href="lihat.html" class="block bg-white border-2 border-slate-900 shadow-[2px_2px_0_0_#1e293b] text-slate-800 px-4 py-3 rounded-xl font-bold">Startup</a>
+                <a href="#contact" class="block bg-[#FF90E8] border-2 border-slate-900 shadow-[2px_2px_0_0_#1e293b] text-slate-900 px-4 py-3 rounded-xl font-black mt-4">Sapa Saya</a>
             </div>
         </div>
     </nav>
 
-    <main class="min-h-screen pt-32 pb-24">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            
-            <div class="text-center mb-16">
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#22c55e] border-2 border-slate-900 shadow-[3px_3px_0_0_#1e293b] text-slate-900 font-bold text-xs sm:text-sm mb-6 transform rotate-2">
-                    <i class="ph-bold ph-robot"></i> Inovasi Smart Aquaponik
-                </div>
-                <h1 class="font-heading text-5xl sm:text-6xl md:text-7xl font-black text-slate-900 mb-6 tracking-tight leading-none">
-                    Ubah Lahan Terbengkalai Jadi <br>
-                    <span class="bg-[#22c55e] text-white px-4 py-1 border-4 border-slate-900 shadow-[6px_6px_0_0_#1e293b] inline-block mt-4 transform -rotate-1">Sentra Pangan Cerdas</span>
-                </h1>
-                <p class="text-slate-700 text-xl font-medium max-w-3xl mx-auto mt-8 border-l-4 border-[#22c55e] pl-4 text-left leading-relaxed">
-                    Solusi inovatif untuk mengatasi lahan terbengkalai bekas industri di Kabupaten Tangerang. Sistem ini mengintegrasikan akuakultur dan hidroponik berbasis teknologi Internet of Things (IoT) untuk mendukung ketahanan pangan lokal dan program Makan Bergizi Gratis (MBG) secara berkelanjutan.
-                </p>
+    <!-- Bagian Hero -->
+    <section id="home" class="min-h-screen pt-32 pb-12 overflow-hidden flex flex-col justify-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+            <div class="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-8">
                 
-                <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
-                    <a href="https://wa.me/6285147252322?text=Halo%20Abid!%20Saya%20tertarik%20dengan%20LihatKebunku%20dan%20ingin%20Konsultasi%20Gratis." target="_blank" class="brutal-btn bg-[#FFC900] text-slate-900 px-8 py-4 rounded-xl font-black text-lg flex items-center justify-center gap-2 hover:bg-[#FF90E8] transition-colors transform hover:-rotate-2">
-                        <i class="ph-bold ph-chats-teardrop text-2xl"></i> Konsultasi Gratis
-                    </a>
-                    <a href="#paket" class="brutal-btn bg-white text-slate-900 px-8 py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 hover:bg-slate-100 transition-colors">
-                        Lihat Paket <i class="ph-bold ph-arrow-down"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 mb-20">
-                <div class="brutal-shadow bg-white rounded-2xl p-6 relative">
-                    <div class="w-12 h-12 bg-[#00E5FF] border-2 border-slate-900 rounded-xl shadow-[3px_3px_0_0_#1e293b] flex items-center justify-center transform -rotate-3 mb-4">
-                        <i class="ph-bold ph-thermometer text-2xl text-slate-900"></i>
+                <!-- Teks Hero -->
+                <div class="flex-1 text-center lg:text-left pop-up relative z-10">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#00E5FF] border-2 border-slate-900 shadow-[3px_3px_0_0_#1e293b] text-slate-900 font-bold text-xs sm:text-sm mb-8 transform -rotate-2">
+                        <i class="ph-fill ph-check-circle text-lg"></i> Tersedia untuk proyek
                     </div>
-                    <h3 class="font-heading text-xl font-black text-slate-900 mb-3">Sensor Multi-Parameter Terpadu</h3>
-                    <p class="text-slate-600 font-medium text-sm">
-                        Dilengkapi pembacaan setiap 1 detik oleh sensor pH, TDS untuk kualitas nutrisi, sensor suhu dan kelembapan udara DHT22, serta sensor suhu air DS18B20 untuk memantau ekosistem secara lengkap.
-                    </p>
-                </div>
-
-                <div class="brutal-shadow bg-[#FF90E8] rounded-2xl p-6 relative">
-                    <div class="w-12 h-12 bg-white border-2 border-slate-900 rounded-xl shadow-[3px_3px_0_0_#1e293b] flex items-center justify-center transform rotate-3 mb-4">
-                        <i class="ph-bold ph-cpu text-2xl text-slate-900"></i>
-                    </div>
-                    <h3 class="font-heading text-xl font-black text-slate-900 mb-3">Kendali ESP32 & Cloud IoT</h3>
-                    <p class="text-slate-900 font-medium text-sm">
-                        Menggunakan otak mikrokontroler ESP32 WROOM-32 yang terhubung ke Firebase Realtime Database. Data dikirimkan dan divisualisasikan langsung melalui Web Dashboard LihatKebunku.
-                    </p>
-                </div>
-
-                <div class="brutal-shadow bg-[#FFC900] rounded-2xl p-6 relative">
-                    <div class="w-12 h-12 bg-white border-2 border-slate-900 rounded-xl shadow-[3px_3px_0_0_#1e293b] flex items-center justify-center transform -rotate-3 mb-4">
-                        <i class="ph-bold ph-fish text-2xl text-slate-900"></i>
-                    </div>
-                    <h3 class="font-heading text-xl font-black text-slate-900 mb-3">Sistem Otomatisasi Pintar</h3>
-                    <p class="text-slate-900 font-medium text-sm">
-                        Terdapat pemberi pakan ikan otomatis berservo, penyesuaian daya pompa air jika suhu tinggi, serta aktivasi lampu UV secara mandiri jika kualitas air (TDS) memburuk.
-                    </p>
-                </div>
-            </div>
-
-            <div id="paket" class="pt-10 border-t-4 border-slate-900 border-dashed">
-                <h2 class="font-heading text-4xl sm:text-5xl font-black text-center text-slate-900 mb-12">Pilihan Paket LihatKebunku</h2>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
                     
-                    <div class="brutal-shadow bg-white rounded-2xl flex flex-col overflow-hidden">
-                        <div class="bg-[#3B82F6] p-4 border-b-4 border-slate-900 text-center">
-                            <h3 class="font-heading text-2xl font-black text-white">Basic</h3>
-                            <p class="text-white font-bold text-sm">Edukasi / Individu (< 1 m²)</p>
-                        </div>
-                        <div class="p-6 flex flex-col flex-grow">
-                            <div class="text-center mb-6">
-                                <span class="text-lg font-bold">Rp</span>
-                                <span class="text-4xl font-black">1.181.850</span>
-                            </div>
-                            <ul class="space-y-3 mb-8 flex-grow">
-                                <li class="flex items-center gap-2 text-sm font-bold"><i class="ph-bold ph-check text-green-500"></i> Monitoring Dasar</li>
-                                <li class="flex items-center gap-2 text-sm font-bold"><i class="ph-bold ph-check text-green-500"></i> Otomasi Sederhana</li>
-                            </ul>
-                            <a href="https://wa.me/6285147252322?text=Halo%20Abid!%20Saya%20tertarik%20dengan%20Paket%20Basic%20LihatKebunku." class="brutal-btn w-full bg-slate-900 text-white text-center py-3 rounded-xl font-bold hover:bg-[#3B82F6] transition-colors">Pilih Paket</a>
-                        </div>
-                    </div>
-
-                    <div class="brutal-shadow bg-[#FFC900] rounded-2xl flex flex-col overflow-hidden transform md:-translate-y-4">
-                        <div class="bg-slate-900 p-4 border-b-4 border-slate-900 text-center relative">
-                            <div class="absolute top-0 right-0 bg-[#FF5722] text-white font-black text-xs px-4 py-1 border-b-2 border-l-2 border-slate-900">POPULER</div>
-                            <h3 class="font-heading text-2xl font-black text-white">Standard</h3>
-                            <p class="text-slate-300 font-bold text-sm">Komunitas / Rumah Tangga (2 - 5 m²)</p>
-                        </div>
-                        <div class="p-6 flex flex-col flex-grow bg-[#FFC900]">
-                            <div class="text-center mb-6">
-                                <span class="text-lg font-bold">Rp</span>
-                                <span class="text-4xl font-black">3,5 Juta</span>
-                                <span class="text-sm font-bold">- 5 Juta</span>
-                            </div>
-                            <ul class="space-y-3 mb-8 flex-grow">
-                                <li class="flex items-center gap-2 text-sm font-bold"><i class="ph-bold ph-check text-slate-900"></i> Monitoring Lengkap</li>
-                                <li class="flex items-center gap-2 text-sm font-bold"><i class="ph-bold ph-check text-slate-900"></i> Otomasi Penuh</li>
-                                <li class="flex items-center gap-2 text-sm font-bold"><i class="ph-bold ph-check text-slate-900"></i> Ideal untuk Program MBG</li>
-                            </ul>
-                            <a href="https://wa.me/6285147252322?text=Halo%20Abid!%20Saya%20tertarik%20dengan%20Paket%20Standard%20LihatKebunku." class="brutal-btn w-full bg-white text-slate-900 border-2 border-slate-900 text-center py-3 rounded-xl font-black hover:bg-slate-900 hover:text-white transition-colors">Pilih Paket</a>
-                        </div>
-                    </div>
-
-                    <div class="brutal-shadow bg-white rounded-2xl flex flex-col overflow-hidden">
-                        <div class="bg-[#22c55e] p-4 border-b-4 border-slate-900 text-center">
-                            <h3 class="font-heading text-2xl font-black text-slate-900">Pro</h3>
-                            <p class="text-slate-900 font-bold text-sm">Sekolah / Industri (> 10 m²)</p>
-                        </div>
-                        <div class="p-6 flex flex-col flex-grow">
-                            <div class="text-center mb-6">
-                                <span class="text-lg font-bold">> Rp</span>
-                                <span class="text-4xl font-black">10 Juta</span>
-                            </div>
-                            <ul class="space-y-3 mb-8 flex-grow">
-                                <li class="flex items-center gap-2 text-sm font-bold"><i class="ph-bold ph-check text-green-500"></i> Skala Kustomisasi Luas</li>
-                                <li class="flex items-center gap-2 text-sm font-bold"><i class="ph-bold ph-check text-green-500"></i> Full Automation + Analytics</li>
-                            </ul>
-                            <a href="https://wa.me/6285147252322?text=Halo%20Abid!%20Saya%20ingin%20berkonsultasi%20mengenai%20Paket%20Pro%20LihatKebunku." class="brutal-btn w-full bg-slate-900 text-white text-center py-3 rounded-xl font-bold hover:bg-[#22c55e] hover:text-slate-900 transition-colors">Konsultasi Gratis</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-20 brutal-shadow bg-slate-900 rounded-2xl p-8 sm:p-12 text-white relative overflow-hidden">
-                <div class="absolute -right-10 -top-10 opacity-20 transform rotate-12">
-                    <i class="ph-fill ph-plant text-[15rem] text-[#22c55e]"></i>
-                </div>
-                <div class="relative z-10 md:w-2/3">
-                    <h2 class="font-heading text-3xl sm:text-4xl font-black mb-4">
-                        Dukungan Program <span class="text-[#FFC900]">Makan Bergizi Gratis (MBG)</span>
-                    </h2>
-                    <p class="text-slate-300 mb-6 text-lg">
-                        Kami menyediakan skema "LihatKebunku School Kit" yang menggabungkan Paket Standard dengan Pelatihan Kurikulum Teknologi Pertanian. Melalui Model Lisensi Sistem (SaaS) dan Kemitraan Franchise, sekolah dapat membangun kemandirian bahan baku untuk menyajikan produk segar dan higienis secara langsung dari laboratorium hidup lingkungan sekolah.
+                    <h1 class="font-heading text-5xl sm:text-7xl md:text-8xl font-black mb-6 text-slate-900 tracking-tight leading-[1.1] sm:leading-[1]">
+                        Bikin Web Jadi <br>
+                        <span class="inline-block bg-[#FFC900] px-4 py-2 mt-2 border-4 border-slate-900 shadow-[4px_4px_0_0_#1e293b] sm:shadow-[6px_6px_0_0_#1e293b] transform rotate-1">
+                            Menarik!
+                        </span>
+                    </h1>
+                    
+                    <p class="text-slate-700 text-base sm:text-xl md:text-2xl mb-10 max-w-2xl mx-auto lg:mx-0 font-medium leading-relaxed border-l-4 border-[#FF90E8] pl-4 text-left">
+                        Hai, Saya Abid! Desainer & Developer yang bikin desain nyentrik, warna berani, dan interaksi seru. Bosan dengan web yang biasa aja? Mari berkreasi!
                     </p>
-                    <a href="https://wa.me/6285147252322?text=Halo%20Abid!%20Saya%20ingin%20berdiskusi%20lebih%20lanjut%20tentang%20LihatKebunku%20School%20Kit%20untuk%20program%20MBG%20di%20sekolah%20saya." class="brutal-btn inline-block bg-[#22c55e] text-slate-900 px-6 py-3 rounded-xl font-black text-lg">
-                        Kemitraan Sekolah
-                    </a>
+                    
+                    <div class="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-6 justify-center lg:justify-start">
+                        <a href="#projects" class="brutal-btn bg-[#3B82F6] text-white px-8 py-4 rounded-xl font-black text-lg flex items-center justify-center gap-2">
+                            Lihat Karya <i class="ph-bold ph-arrow-right"></i>
+                        </a>
+                        <a href="lihat.html" class="brutal-btn bg-[#22c55e] text-slate-900 px-8 py-4 rounded-xl font-black text-lg flex items-center justify-center gap-2">
+                            LihatKebunku <i class="ph-bold ph-plant"></i>
+                        </a>
+                        <a href="https://drive.google.com/file/d/1H_Qt_-SqtNrfl_E8U0IpXbaYT8fVghvn/view?usp=drive_link" class="brutal-btn bg-white text-slate-900 px-8 py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2">
+                            <i class="ph-bold ph-download-simple"></i> Unduh CV
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Gambar Hero -->
+                <div class="flex-1 flex justify-center lg:justify-end pop-up relative z-0 mt-8 lg:mt-0">
+                    <!-- Ornamen Belakang -->
+                    <div class="absolute w-56 h-56 sm:w-72 sm:h-72 bg-[#FF90E8] rounded-full border-4 border-slate-900 shadow-[6px_6px_0_0_#1e293b] sm:shadow-[8px_8px_0_0_#1e293b] transform translate-x-4 translate-y-4 sm:translate-x-8 sm:translate-y-8 z-0"></div>
+                    <div class="absolute w-32 h-32 sm:w-40 sm:h-40 bg-[#00E5FF] border-4 border-slate-900 shadow-[4px_4px_0_0_#1e293b] sm:shadow-[6px_6px_0_0_#1e293b] transform -translate-x-8 -translate-y-4 sm:-translate-x-12 sm:-translate-y-8 rotate-12 z-0"></div>
+                    
+                    <!-- Foto Utama -->
+                    <div class="relative z-10 w-56 h-72 sm:w-80 sm:h-[400px] bg-white border-4 border-slate-900 shadow-[8px_8px_0_0_#1e293b] sm:shadow-[12px_12px_0_0_#1e293b] rounded-2xl overflow-hidden transform -rotate-3 hover:rotate-0 transition-transform duration-300">
+                        <div class="h-8 sm:h-10 bg-slate-900 w-full flex items-center px-3 sm:px-4 gap-2 border-b-4 border-slate-900">
+                            <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FF5722]"></div>
+                            <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FFC900]"></div>
+                            <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#22c55e]"></div>
+                        </div>
+                        <!-- Placeholder Foto Profil -->
+                        <img src="abid.jpeg" alt="Abid" onerror="this.src='https://placehold.co/400x500/FF90E8/0f172a?font=montserrat&text=Foto+Abid'" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500">
+                    </div>
                 </div>
             </div>
-
         </div>
-    </main>
 
-    <footer class="bg-[#fcfbf7] border-t-4 border-slate-900 py-8 text-center relative z-10">
-        <p class="font-bold text-slate-600">
-            &copy; 2026 LihatKebunku. Dikembangkan oleh Abid Alaika.
-        </p>
+        <!-- Marquee Teks Berjalan -->
+        <div class="marquee-container shadow-[0_4px_0_0_#1e293b] z-20 mt-16 sm:mt-8">
+            <div class="marquee-content font-heading text-xl sm:text-3xl font-black text-slate-900 uppercase tracking-widest flex gap-4 sm:gap-8 items-center">
+                <span> UI/UX DESIGN</span>
+                <i class="ph-fill ph-star text-[#FF5722]"></i>
+                <span> FRONTEND DEV</span>
+                <i class="ph-fill ph-star text-[#FF5722]"></i>
+                <span> BRANDING</span>
+                <i class="ph-fill ph-star text-[#FF5722]"></i>
+                <span> WEB ANIMATION</span>
+                <i class="ph-fill ph-star text-[#FF5722]"></i>
+                <span> UI/UX DESIGN</span>
+                <i class="ph-fill ph-star text-[#FF5722]"></i>
+                <span> FRONTEND DEV</span>
+                <i class="ph-fill ph-star text-[#FF5722]"></i>
+                <span> BRANDING</span>
+                <i class="ph-fill ph-star text-[#FF5722]"></i>
+                <span> WEB ANIMATION</span>
+                <i class="ph-fill ph-star text-[#FF5722]"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bagian Tentang & Bento Grid -->
+    <section id="about" class="py-16 sm:py-24 relative z-10 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 sm:mb-16 pop-up">
+                <h2 class="font-heading text-3xl sm:text-4xl md:text-6xl font-black text-slate-900 mb-6 inline-block relative">
+                    Kenalan Lebih Dekat
+                    <svg class="absolute w-full h-3 sm:h-4 -bottom-1 sm:-bottom-2 left-0 text-[#FF5722]" viewBox="0 0 200 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.00031 7.00018C44.667 1.83352 136.6 -3.39982 198 7.00018" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+                </h2>
+            </div>
+            
+            <!-- PERBAIKAN BUG MOBILE: Mengubah auto-rows menjadi auto pada mobile dan fixed 220px pada desktop -->
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 auto-rows-auto md:auto-rows-[220px]">
+                
+                <!-- Card 1: Intro -->
+                <!-- Menambahkan padding lebih responsif p-6 sm:p-8 -->
+                <div class="brutal-shadow bg-white rounded-2xl md:col-span-2 md:row-span-2 p-6 sm:p-8 flex flex-col justify-between pop-up">
+                    <div>
+                        <div class="w-14 h-14 sm:w-16 sm:h-16 bg-[#00E5FF] border-2 border-slate-900 rounded-xl flex items-center justify-center text-slate-900 shadow-[4px_4px_0_0_#1e293b] mb-4 sm:mb-6 transform -rotate-3">
+                            <i class="ph-bold ph-hand-waving text-2xl sm:text-3xl"></i>
+                        </div>
+                        <h3 class="font-heading text-2xl sm:text-3xl font-black text-slate-900 mb-3 sm:mb-4">Halo dari Tangerang!</h3>
+                        <p id="about-text" class="text-slate-700 font-medium text-base sm:text-lg leading-relaxed mb-6">
+                            Saya menggabungkan seni desain visual dengan logika coding. Tujuan saya? Membuat website yang tidak membosankan. Saya suka bermain dengan warna berani, animasi, dan tata letak di luar kebiasaan.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 sm:gap-3">
+                        <span class="px-3 sm:px-4 py-1.5 sm:py-2 bg-[#FF90E8] border-2 border-slate-900 text-slate-900 shadow-[2px_2px_0_0_#1e293b] rounded-full font-bold text-xs sm:text-sm">Figma Master</span>
+                        <span class="px-3 sm:px-4 py-1.5 sm:py-2 bg-[#FFC900] border-2 border-slate-900 text-slate-900 shadow-[2px_2px_0_0_#1e293b] rounded-full font-bold text-xs sm:text-sm">React JS</span>
+                        <span class="px-3 sm:px-4 py-1.5 sm:py-2 bg-[#22c55e] border-2 border-slate-900 text-slate-900 shadow-[2px_2px_0_0_#1e293b] rounded-full font-bold text-xs sm:text-sm">Tailwind CSS</span>
+                    </div>
+                </div>
+
+                <!-- Card 2: Pengalaman -->
+                <!-- Menambahkan min-h-[200px] agar tetap terlihat proporsional di mobile -->
+                <div class="brutal-shadow bg-[#FF90E8] rounded-2xl p-6 flex flex-col items-center justify-center text-center pop-up relative overflow-hidden min-h-[200px] md:min-h-0" style="transition-delay: 100ms;">
+                    <i class="ph-fill ph-sparkle text-white opacity-40 text-6xl absolute -top-4 -right-4"></i>
+                    <i class="ph-fill ph-sparkle text-white opacity-40 text-4xl absolute bottom-4 left-4"></i>
+                    
+                    <h4 class="font-heading text-5xl sm:text-6xl font-black text-slate-900 mb-2">2+</h4>
+                    <p class="text-slate-900 font-bold text-base sm:text-lg bg-white px-3 py-1 border-2 border-slate-900 rounded-lg transform rotate-2">Tahun Exp.</p>
+                </div>
+
+                <!-- Card 3: Soft Skills & AI -->
+                <div class="brutal-shadow bg-[#FFC900] rounded-2xl p-6 flex flex-col justify-center pop-up min-h-[200px] md:min-h-0" style="transition-delay: 200ms;">
+                    <h4 class="font-heading text-xl sm:text-2xl font-black text-slate-900 mb-4 border-b-2 border-slate-900 pb-2">Senjata</h4>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li class="flex items-center gap-2 sm:gap-3 font-bold text-slate-900 text-sm sm:text-base"><i class="ph-bold ph-check-square text-lg sm:text-xl"></i> Prototyping Cepat</li>
+                        <li class="flex items-center gap-2 sm:gap-3 font-bold text-slate-900 text-sm sm:text-base"><i class="ph-bold ph-check-square text-lg sm:text-xl"></i> Animasi Mikro</li>
+                        <li class="flex items-center gap-2 sm:gap-3 font-bold text-slate-900 text-sm sm:text-base">
+                            <i class="ph-fill ph-sparkle text-lg sm:text-xl text-[#3B82F6] animate-pulse"></i> Gemini AI Prompts
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Card 4: Tools -->
+                <div class="brutal-shadow bg-[#3B82F6] rounded-2xl p-6 md:col-span-2 flex flex-col justify-center pop-up min-h-[200px] md:min-h-0">
+                    <h4 class="font-heading text-xl sm:text-2xl font-black text-white mb-4 sm:mb-6">Tools Andalan</h4>
+                    <div class="flex flex-wrap gap-3 sm:gap-4">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 bg-white border-2 border-slate-900 shadow-[3px_3px_0_0_#1e293b] rounded-xl flex items-center justify-center text-[#F24E1E] transform hover:-translate-y-2 transition-transform" title="Figma"><i class="ph-fill ph-figma-logo text-2xl sm:text-3xl"></i></div>
+                        
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 bg-white border-2 border-slate-900 shadow-[3px_3px_0_0_#1e293b] rounded-xl flex items-center justify-center text-[#FF5722] transform hover:-translate-y-2 transition-transform hover:-rotate-12" title="HTML">
+                            <span class="font-black text-xs sm:text-sm">HTML</span>
+                        </div>
+                        
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 bg-white border-2 border-slate-900 shadow-[3px_3px_0_0_#1e293b] rounded-xl flex items-center justify-center text-blue-500 transform hover:-translate-y-2 transition-transform hover:rotate-12" title="React"><i class="ph-fill ph-atom text-2xl sm:text-3xl"></i></div>
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 bg-white border-2 border-slate-900 shadow-[3px_3px_0_0_#1e293b] rounded-xl flex items-center justify-center text-teal-500 transform hover:-translate-y-2 transition-transform hover:-rotate-12" title="Tailwind"><i class="ph-fill ph-palette text-2xl sm:text-3xl"></i></div>
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 bg-white border-2 border-slate-900 shadow-[3px_3px_0_0_#1e293b] rounded-xl flex items-center justify-center text-yellow-400 transform hover:-translate-y-2 transition-transform" title="JS"><i class="ph-fill ph-file-js text-2xl sm:text-3xl"></i></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Bagian Prestasi -->
+    <section id="achievements" class="py-16 sm:py-24 bg-[#0f172a] text-white relative z-10 overflow-hidden border-t-4 border-slate-900">
+        <!-- Dekorasi Latar Belakang -->
+        <i class="ph-bold ph-trophy text-white opacity-5 text-[20rem] sm:text-[30rem] absolute -left-10 sm:-left-20 -bottom-10 sm:-bottom-20 transform -rotate-12 pointer-events-none"></i>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12 sm:mb-16 pop-up">
+                <h2 class="font-heading text-3xl sm:text-4xl md:text-6xl font-black text-[#FFC900] mb-4 sm:mb-6 inline-block relative">
+                    Prestasi & Pencapaian
+                </h2>
+                <p class="text-slate-300 text-lg sm:text-xl font-medium max-w-2xl mx-auto px-4">
+                    Beberapa momen membanggakan selama perjalanan hidup saya.
+                </p>
+            </div>
+            
+            <!-- Tempat kartu prestasi akan dimuat secara dinamis -->
+            <div id="achievements-container" class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
+            </div>
+        </div>
+    </section>
+
+    <!-- Bagian Proyek (Karya) -->
+    <section id="projects" class="py-16 sm:py-24 bg-white relative border-y-4 border-slate-900 overflow-hidden">
+        <!-- Dekorasi latar belakang SVG -->
+        <div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: repeating-linear-gradient(45deg, #0f172a 25%, transparent 25%, transparent 75%, #0f172a 75%, #0f172a), repeating-linear-gradient(45deg, #0f172a 25%, transparent 25%, transparent 75%, #0f172a 75%, #0f172a); background-position: 0 0, 20px 20px; background-size: 40px 40px;"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 pop-up text-center md:text-left">
+                <div>
+                    <h2 class="font-heading text-3xl sm:text-4xl md:text-6xl font-black text-slate-900 mb-2 sm:mb-4">Karya Pilihan</h2>
+                    <p class="text-slate-600 text-lg sm:text-xl font-medium">Bukan sekadar desain, tapi pengalaman visual.</p>
+                </div>
+            </div>
+            
+            <!-- Tempat kartu proyek akan dimuat secara dinamis -->
+            <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            </div>
+            
+            <div class="mt-12 sm:mt-16 text-center pop-up">
+                <a href="https://app.netlify.com/teams/abid200906/projects" class="brutal-btn bg-[#FFC900] text-slate-900 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-black text-lg sm:text-xl inline-flex items-center gap-2">
+                    Jelajahi Semua Portofolio <i class="ph-bold ph-folder-open"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bagian Kontak -->
+    <section id="contact" class="py-16 sm:py-24 bg-[#FF5722] relative overflow-hidden">
+        <i class="ph-bold ph-asterisk text-white opacity-20 text-[15rem] sm:text-[20rem] absolute -right-10 sm:-right-20 -top-10 sm:-top-20 animate-spin pointer-events-none" style="animation-duration: 20s;"></i>
+        
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="brutal-shadow bg-[#FFC900] rounded-3xl p-6 sm:p-8 md:p-14 pop-up">
+                
+                <div class="text-center mb-8 sm:mb-10">
+                    <h2 class="font-heading text-4xl sm:text-5xl md:text-7xl font-black text-slate-900 mb-4 sm:mb-6 uppercase tracking-tight">Mari Kolaborasi!</h2>
+                    <p class="text-slate-800 text-lg sm:text-xl font-bold max-w-lg mx-auto bg-white inline-block px-4 py-2 border-2 border-slate-900 shadow-[4px_4px_0_0_#1e293b] transform -rotate-1">
+                        Siap membuat sesuatu yang gila?
+                    </p>
+                </div>
+                
+                <!-- Form Submit akan memanggil sendToWhatsApp(event) -->
+                <form id="contactForm" class="mt-8 sm:mt-12 bg-white border-4 border-slate-900 shadow-[6px_6px_0_0_#1e293b] sm:shadow-[8px_8px_0_0_#1e293b] rounded-2xl p-5 sm:p-6 md:p-8" onsubmit="sendToWhatsApp(event)">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
+                        <div>
+                            <label class="block text-base sm:text-lg font-black text-slate-900 mb-2">Nama Kamu</label>
+                            <input type="text" id="senderName" required class="w-full bg-[#fcfbf7] border-2 sm:border-3 border-slate-900 rounded-xl px-4 py-3 text-slate-900 font-medium focus:outline-none focus:shadow-[4px_4px_0_0_#1e293b] focus:bg-[#00E5FF] transition-all" placeholder="Misal: Budi">
+                        </div>
+                        <div>
+                            <label class="block text-base sm:text-lg font-black text-slate-900 mb-2">Email Kamu</label>
+                            <input type="email" id="senderEmail" required class="w-full bg-[#fcfbf7] border-2 sm:border-3 border-slate-900 rounded-xl px-4 py-3 text-slate-900 font-medium focus:outline-none focus:shadow-[4px_4px_0_0_#1e293b] focus:bg-[#FF90E8] transition-all" placeholder="budi@email.com">
+                        </div>
+                    </div>
+                    <div class="mb-6 sm:mb-8">
+                        <label class="block text-base sm:text-lg font-black text-slate-900 mb-2">Pesan Seru</label>
+                        <textarea id="senderMessage" rows="4" required class="w-full bg-[#fcfbf7] border-2 sm:border-3 border-slate-900 rounded-xl px-4 py-3 text-slate-900 font-medium focus:outline-none focus:shadow-[4px_4px_0_0_#1e293b] focus:bg-[#FFC900] transition-all resize-none" placeholder="Ceritakan idemu di sini..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full brutal-btn bg-slate-900 text-white py-3 sm:py-4 rounded-xl font-black text-lg sm:text-xl flex items-center justify-center gap-2 hover:bg-[#22c55e] hover:text-slate-900 transition-colors duration-300">
+                        <i class="ph-bold ph-whatsapp-logo text-xl sm:text-2xl"></i> Kirim ke WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t-4 border-slate-900 pt-12 sm:pt-16 pb-8 sm:pb-12 relative overflow-hidden text-white">
+        <div class="absolute top-0 left-0 w-full overflow-hidden leading-none transform rotate-180">
+            <svg class="relative block w-[calc(100%+1.3px)] h-[30px] sm:h-[40px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="fill-[#FF5722]"></path>
+            </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 mt-8">
+            <h2 class="font-heading text-4xl sm:text-5xl font-black mb-6 sm:mb-8">
+                Abid Alaika<span class="text-[#FF90E8]">.</span>
+            </h2>
+            
+            <div class="flex justify-center gap-4 sm:gap-6 mb-10 sm:mb-12">
+                <a href="#" class="w-12 h-12 sm:w-14 sm:h-14 bg-white border-2 border-slate-900 shadow-[4px_4px_0_0_#FF90E8] rounded-xl text-slate-900 flex items-center justify-center hover:translate-y-1 hover:shadow-[2px_2px_0_0_#FF90E8] transition-all"><i class="ph-fill ph-dribbble-logo text-2xl sm:text-3xl"></i></a>
+                <a href="https://www.linkedin.com/in/abid-alaika-robbi-84187840b?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="w-12 h-12 sm:w-14 sm:h-14 bg-white border-2 border-slate-900 shadow-[4px_4px_0_0_#00E5FF] rounded-xl text-slate-900 flex items-center justify-center hover:translate-y-1 hover:shadow-[2px_2px_0_0_#00E5FF] transition-all"><i class="ph-fill ph-linkedin-logo text-2xl sm:text-3xl"></i></a>
+                <a href="https://github.com/ABID200906" class="w-12 h-12 sm:w-14 sm:h-14 bg-white border-2 border-slate-900 shadow-[4px_4px_0_0_#FFC900] rounded-xl text-slate-900 flex items-center justify-center hover:translate-y-1 hover:shadow-[2px_2px_0_0_#FFC900] transition-all"><i class="ph-fill ph-github-logo text-2xl sm:text-3xl"></i></a>
+            </div>
+            
+            <div class="inline-block bg-[#1e293b] px-4 sm:px-6 py-2 sm:py-3 rounded-full border-2 border-slate-700">
+                <p class="text-slate-300 font-bold text-xs sm:text-sm">
+                    &copy; 2026 Didesain oleh Abid Alaika. Berani tampil beda.
+                </p>
+            </div>
+        </div>
     </footer>
 
-    <script>
+    <!-- Admin Modal -->
+    <div id="admin-modal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-2 sm:p-4 overflow-hidden">
+        <div class="bg-[#fcfbf7] border-4 border-slate-900 shadow-[8px_8px_0_0_#1e293b] rounded-2xl w-full max-w-4xl h-[95vh] sm:h-auto sm:max-h-[90vh] flex flex-col relative">
+            
+            <!-- Header Modal -->
+            <div class="p-4 sm:p-6 border-b-4 border-slate-900 bg-[#FFC900] rounded-t-xl flex justify-between items-center shrink-0">
+                <h2 class="font-heading text-xl sm:text-3xl font-black text-slate-900 flex items-center gap-2">
+                    <i class="ph-bold ph-pencil-simple"></i> Mode Editor Admin
+                </h2>
+                <button onclick="closeAdminModal()" class="w-8 h-8 sm:w-10 sm:h-10 bg-white border-2 border-slate-900 shadow-[2px_2px_0_0_#1e293b] rounded-lg flex items-center justify-center hover:bg-[#FF90E8] transition-colors brutal-btn">
+                    <i class="ph-bold ph-x text-lg sm:text-xl text-slate-900"></i>
+                </button>
+            </div>
+
+            <!-- Body Modal (Scrollable) -->
+            <div id="admin-modal-body" class="p-4 sm:p-6 overflow-y-auto flex-1 space-y-6 sm:space-y-8 custom-scrollbar">
+                <!-- Form Admin akan digenerate otomatis lewat Javascript -->
+            </div>
+
+            <!-- Footer Modal -->
+            <div class="p-4 sm:p-6 border-t-4 border-slate-900 bg-white rounded-b-xl flex justify-end gap-3 sm:gap-4 shrink-0">
+                <button onclick="closeAdminModal()" class="brutal-btn bg-white text-slate-900 px-4 sm:px-6 py-2 sm:py-3 rounded-xl font-bold border-2 border-slate-900 hover:bg-slate-100 transition-colors text-sm sm:text-base">Batal</button>
+                <button id="save-admin-btn" onclick="saveAdminData()" class="brutal-btn bg-[#22c55e] text-slate-900 px-4 sm:px-8 py-2 sm:py-3 rounded-xl font-black flex items-center gap-2 hover:bg-[#16a34a] transition-colors text-sm sm:text-base">
+                    <i class="ph-bold ph-floppy-disk"></i> Simpan
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Konfigurasi Cloud yang Aman
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'portofolio-abid-app';
+        let firebaseConfig = {};
+        
+        try {
+            if (typeof __firebase_config !== 'undefined') {
+                firebaseConfig = typeof __firebase_config === 'string' ? JSON.parse(__firebase_config) : __firebase_config;
+            }
+        } catch (e) {
+            console.error("Gagal membaca konfigurasi Cloud:", e);
+        }
+        
+        let app, auth, db, docRef;
+        let isCloudActive = false;
+        
+        // Data Global Website (Bawaan)
+        let siteData = {
+            about: "Saya menggabungkan seni desain visual dengan logika coding. Tujuan saya? Membuat website yang tidak membosankan. Saya suka bermain dengan warna berani, animasi, dan tata letak di luar kebiasaan.",
+            achievements: [
+                { title: "Juara 1 Coding Website", event: "DIES NATALIES FST UIN BANTEN", desc: "Meraih posisi pertama dalam kompetisi coding website antar sekolah dan mahasiswa(umum)." },
+                { title: "Juara 1 Lomba Eco-Bot", event: "DIES NATALIES FST UIN BANTEN", desc: "Meraih posisi pertama dalam kompetisi membuat robot yang mengasah keterampilan membuat sebuah robot yang diperuntukan di lingkungan." },
+                { title: "Medalis Perak", event: "OLIMFEST 2025", desc: "Peraih Medali Perak dalam ajang OLIMFEST (Olimpiade Festival Nusantara) 2025." },
+                { title: "Semifinalis Robotik Level 4", event: "KoSSMI 2025", desc: "Terpilih sebagai semifinalis tingkat nasional dalam kompetisi robotika bergengsi yang melibatkan institusi pendidikan ternama, menunjukkan kemampuan teknis dan logika dalam bidang robotika di tingkat SMA" },
+                { title: "2nd Place Winner", event: "Mechatronics Day 2025", desc: "Berhasil meraih posisi pemenang kedua melalui tim ICHIRO dalam kompetisi teknik mekatronika yang menguji inovasi dan keterampilan teknis dalam bidang otomasi dan robotika." }
+            ],
+            projects: [
+                { title: "Sistem Kampus Pintar \"Kampus.id\"", cat: "Aplikasi Kampus Terintegrasi", desc: "Kampus.id adalah portal akademik interaktif yang mengelola administrasi kampus dan pelacakan beasiswa dalam satu platform berdesain modern dan berbasis gamifikasi.", link: "https://kampusid.netlify.app/", image: "https://placehold.co/600x400/22c55e/0f172a?font=montserrat&text=Kampus.id" },
+                { title: "Monitoring Truk Sampah \"Ecobotuin\"", cat: "Dashboard", desc: "Dashboard monitoring truk sampah pintar otonom terntegrasi.", link: "https://ecobotuin.netlify.app/", image: "https://placehold.co/600x400/00E5FF/0f172a?font=montserrat&text=Ecobotuin" },
+                { title: "Socialife \"Socialife\"", cat: "Web Apps", desc: "SociaLife adalah aplikasi sosial media yang dirancang untuk membantu pengguna membangun dan mengelola kehidupan sosial mereka secara lebih bermakna. Aplikasi ini menghubungkan pengguna dengan komunitas, event, dan aktivitas sosial di sekitar mereka, dengan fokus pada kualitas interaksi dibanding kuantitas.", link: "https://socialifev2.netlify.app/", image: "https://placehold.co/600x400/22c55e/0f172a?font=montserrat&text=Socialife" }
+            ]
+        };
+
+        const achColors = ['bg-[#FF90E8]', 'bg-[#00E5FF]', 'bg-[#FFC900]', 'bg-[#22c55e]'];
+        const achIcons = ['ph-trophy text-[#FF5722]', 'ph-medal text-[#3B82F6]', 'ph-star text-[#FF90E8]', 'ph-certificate text-[#00E5FF]'];
+        const projStyles = [
+            { bg: 'bg-[#FF90E8]', badge: 'bg-[#FFC900]', hoverText: 'hover:text-[#FF5722]', hoverBorder: 'hover:border-[#FF5722]' },
+            { bg: 'bg-[#00E5FF]', badge: 'bg-[#FF90E8]', hoverText: 'hover:text-[#3B82F6]', hoverBorder: 'hover:border-[#3B82F6]' },
+            { bg: 'bg-[#22c55e]', badge: 'bg-[#FF5722]', hoverText: 'hover:text-[#22c55e]', hoverBorder: 'hover:border-[#22c55e]' },
+            { bg: 'bg-[#FFC900]', badge: 'bg-[#00E5FF]', hoverText: 'hover:text-[#FF90E8]', hoverBorder: 'hover:border-[#FF90E8]' }
+        ];
+
         const btnMenu = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
         const icon = btnMenu.querySelector('i');
@@ -256,13 +515,313 @@
         btnMenu.addEventListener('click', () => {
             menu.classList.toggle('hidden');
             if (menu.classList.contains('hidden')) {
-                icon.classList.replace('ph-x', 'ph-list');
+                icon.classList.remove('ph-x');
+                icon.classList.add('ph-list');
                 btnMenu.classList.remove('bg-[#FFC900]');
             } else {
-                icon.classList.replace('ph-list', 'ph-x');
+                icon.classList.remove('ph-list');
+                icon.classList.add('ph-x');
                 btnMenu.classList.add('bg-[#FFC900]');
             }
         });
+
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+                icon.classList.remove('ph-x');
+                icon.classList.add('ph-list');
+                btnMenu.classList.remove('bg-[#FFC900]');
+            });
+        });
+
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    obs.unobserve(entry.target); 
+                }
+            });
+        }, observerOptions);
+
+        window.sendToWhatsApp = function(e) {
+            e.preventDefault();
+            const form = document.getElementById('contactForm');
+            const btn = form.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = '<i class="ph-bold ph-spinner-gap animate-spin text-xl sm:text-2xl"></i> Membuka WA...';
+            btn.classList.add('opacity-90', 'cursor-not-allowed');
+            
+            setTimeout(() => {
+                const name = document.getElementById('senderName').value;
+                const email = document.getElementById('senderEmail').value;
+                const message = document.getElementById('senderMessage').value;
+                const phoneNumber = "6285147252322"; // GANTI DENGAN NOMOR ASLI
+                const textMessage = `Halo Abid!👋%0A%0APerkenalkan saya *${name}* (${email}).%0A%0A${message}`;
+                
+                window.open(`https://wa.me/${phoneNumber}?text=${textMessage}`, '_blank');
+                
+                btn.innerHTML = originalText;
+                btn.classList.remove('opacity-90', 'cursor-not-allowed');
+                form.reset();
+            }, 1000);
+        };
+
+        function renderApp() {
+            const aboutTextEl = document.getElementById('about-text');
+            if (aboutTextEl) aboutTextEl.innerText = siteData.about || "";
+
+            const achContainer = document.getElementById('achievements-container');
+            if (achContainer) {
+                achContainer.innerHTML = '';
+                (siteData.achievements || []).forEach((ach, index) => {
+                    const color = achColors[index % achColors.length];
+                    const icon = achIcons[index % achIcons.length];
+                    const rotate = index % 2 === 0 ? 'hover:-rotate-1' : 'hover:rotate-1';
+                    achContainer.innerHTML += `
+                        <div class="brutal-shadow ${color} rounded-2xl p-5 sm:p-8 flex flex-col sm:flex-row gap-4 sm:gap-6 items-start transform ${rotate} transition-transform">
+                            <div class="w-14 h-14 sm:w-16 sm:h-16 bg-white border-2 border-slate-900 rounded-xl flex items-center justify-center shadow-[4px_4px_0_0_#1e293b] flex-shrink-0">
+                                <i class="ph-fill ${icon} text-3xl sm:text-4xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-heading text-xl sm:text-2xl font-black text-slate-900 mb-2">${ach.title}</h3>
+                                <p class="text-slate-900 font-bold bg-white px-2 py-1 inline-block border-2 border-slate-900 text-xs mb-3 shadow-[2px_2px_0_0_#1e293b]">${ach.event}</p>
+                                <p class="text-slate-800 font-medium leading-relaxed text-sm sm:text-base">${ach.desc}</p>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
+            const projContainer = document.getElementById('projects-container');
+            if (projContainer) {
+                projContainer.innerHTML = '';
+                (siteData.projects || []).forEach((proj, index) => {
+                    const style = projStyles[index % projStyles.length];
+                    const rotate = index % 2 === 0 ? 'group-hover:rotate-2' : 'group-hover:-rotate-2';
+                    const imageUrl = proj.image && proj.image.trim() !== '' ? proj.image : `https://placehold.co/600x400/ffffff/0f172a?font=montserrat&text=Karya+${index+1}`;
+                    
+                    projContainer.innerHTML += `
+                        <div class="brutal-shadow bg-[#fcfbf7] text-slate-900 rounded-2xl group flex flex-col h-full">
+                            <div class="h-48 sm:h-60 border-b-4 border-slate-900 relative overflow-hidden ${style.bg}">
+                                <img src="${imageUrl}" alt="${proj.title}" class="w-full h-full object-cover group-hover:scale-110 ${rotate} transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/ffffff/0f172a?font=montserrat&text=Gambar+Gagal'">
+                                <div class="absolute top-3 left-3 sm:top-4 sm:left-4 ${style.badge} text-slate-900 border-2 border-slate-900 shadow-[2px_2px_0_0_#1e293b] px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm font-bold">${proj.cat}</div>
+                            </div>
+                            <div class="p-5 sm:p-6 flex flex-col flex-grow">
+                                <h3 class="font-heading text-xl sm:text-2xl font-black mb-2 sm:mb-3">${proj.title}</h3>
+                                <p class="text-slate-600 font-medium mb-4 sm:mb-6 flex-grow text-sm sm:text-base">${proj.desc}</p>
+                                <a href="${proj.link || '#'}" target="_blank" class="inline-flex items-center gap-2 font-bold text-slate-900 border-b-2 border-slate-900 pb-1 ${style.hoverText} ${style.hoverBorder} transition-colors self-start text-sm sm:text-base">
+                                    Lihat Detail Web <i class="ph-bold ph-arrow-up-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
+            // Aktifkan ulang animasi pop up
+            document.querySelectorAll('.pop-up:not(.visible)').forEach(el => observer.observe(el));
+        }
+
+        function renderAdminForm() {
+            const adminBody = document.getElementById('admin-modal-body');
+            if(!adminBody) return;
+            
+            let html = `
+                <div class="space-y-3 sm:space-y-4">
+                    <h3 class="font-heading text-lg sm:text-xl font-black text-slate-900 border-b-2 border-slate-900 pb-2 inline-block">1. Kenalan Lebih Dekat (Tentang)</h3>
+                    <textarea id="admin-about" rows="4" class="w-full bg-white border-2 border-slate-900 rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-slate-900 font-medium focus:outline-none focus:shadow-[4px_4px_0_0_#1e293b] focus:bg-[#00E5FF] transition-all resize-y text-sm sm:text-base">${siteData.about || ""}</textarea>
+                </div>
+                <div class="space-y-3 sm:space-y-4">
+                    <div class="flex justify-between items-center border-b-2 border-slate-900 pb-2">
+                        <h3 class="font-heading text-lg sm:text-xl font-black text-slate-900">2. Prestasi & Pencapaian</h3>
+                        <button onclick="addAdminAch()" class="brutal-btn bg-[#FFC900] text-slate-900 px-3 py-1 rounded-lg font-bold text-xs sm:text-sm flex items-center gap-1"><i class="ph-bold ph-plus"></i> Tambah</button>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4">
+            `;
+
+            (siteData.achievements || []).forEach((ach, i) => {
+                html += `
+                    <div class="admin-ach-block bg-white p-3 sm:p-4 border-2 border-slate-900 rounded-xl space-y-2 sm:space-y-3 shadow-[4px_4px_0_0_#1e293b] relative mt-2 sm:mt-0">
+                        <button onclick="removeAdminAch(${i})" class="absolute -top-3 -right-3 w-7 h-7 sm:w-8 sm:h-8 bg-[#FF5722] text-white border-2 border-slate-900 rounded-full flex items-center justify-center hover:scale-110 transition-transform"><i class="ph-bold ph-trash text-sm sm:text-base"></i></button>
+                        <h4 class="font-bold text-slate-900 flex items-center gap-2 text-sm sm:text-base">Prestasi ${i+1}</h4>
+                        <input type="text" class="ach-title w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 focus:bg-[#FF90E8] focus:outline-none text-sm sm:text-base" placeholder="Judul" value="${ach.title}">
+                        <input type="text" class="ach-event w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 focus:bg-[#FF90E8] focus:outline-none text-sm sm:text-base" placeholder="Event / Tahun" value="${ach.event}">
+                        <textarea rows="3" class="ach-desc w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 focus:bg-[#FF90E8] focus:outline-none resize-none text-sm sm:text-base" placeholder="Deskripsi">${ach.desc}</textarea>
+                    </div>
+                `;
+            });
+
+            html += `</div></div><div class="space-y-3 sm:space-y-4 mt-6">
+                    <div class="flex justify-between items-center border-b-2 border-slate-900 pb-2">
+                        <h3 class="font-heading text-lg sm:text-xl font-black text-slate-900">3. Karya Pilihan</h3>
+                        <button onclick="addAdminProj()" class="brutal-btn bg-[#00E5FF] text-slate-900 px-3 py-1 rounded-lg font-bold text-xs sm:text-sm flex items-center gap-1"><i class="ph-bold ph-plus"></i> Tambah</button>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4">`;
+
+            (siteData.projects || []).forEach((proj, i) => {
+                html += `
+                    <div class="admin-proj-block bg-white p-3 sm:p-4 border-2 border-slate-900 rounded-xl space-y-2 sm:space-y-3 shadow-[4px_4px_0_0_#1e293b] relative mt-2 sm:mt-0">
+                        <button onclick="removeAdminProj(${i})" class="absolute -top-3 -right-3 w-7 h-7 sm:w-8 sm:h-8 bg-[#FF5722] text-white border-2 border-slate-900 rounded-full flex items-center justify-center hover:scale-110 transition-transform"><i class="ph-bold ph-trash text-sm sm:text-base"></i></button>
+                        <h4 class="font-bold text-slate-900 text-sm sm:text-base">Karya ${i+1}</h4>
+                        <input type="text" class="proj-title w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 focus:bg-[#22c55e] focus:outline-none text-sm sm:text-base" placeholder="Nama Karya" value="${proj.title}">
+                        <input type="text" class="proj-cat w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 focus:bg-[#22c55e] focus:outline-none text-sm sm:text-base" placeholder="Kategori" value="${proj.cat}">
+                        <input type="text" class="proj-link w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 focus:bg-[#22c55e] focus:outline-none text-sm sm:text-base" placeholder="Link Web (https://...)" value="${proj.link}">
+                        <input type="text" class="proj-img w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 focus:bg-[#22c55e] focus:outline-none text-sm sm:text-base" placeholder="URL Gambar (misal: https://imgur.com/x.png)" value="${proj.image || ''}">
+                        <textarea rows="3" class="proj-desc w-full bg-[#fcfbf7] border-2 border-slate-900 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 focus:bg-[#22c55e] focus:outline-none resize-none text-sm sm:text-base" placeholder="Deskripsi">${proj.desc}</textarea>
+                    </div>
+                `;
+            });
+
+            html += `</div></div>`;
+            adminBody.innerHTML = html;
+        }
+
+        function syncAdminInputsToData() {
+            const aboutInput = document.getElementById('admin-about');
+            if(aboutInput) siteData.about = aboutInput.value || "";
+            
+            const achBlocks = document.querySelectorAll('.admin-ach-block');
+            siteData.achievements = Array.from(achBlocks).map(b => ({
+                title: b.querySelector('.ach-title')?.value || "",
+                event: b.querySelector('.ach-event')?.value || "",
+                desc: b.querySelector('.ach-desc')?.value || ""
+            }));
+
+            const projBlocks = document.querySelectorAll('.admin-proj-block');
+            siteData.projects = Array.from(projBlocks).map(b => ({
+                title: b.querySelector('.proj-title')?.value || "",
+                cat: b.querySelector('.proj-cat')?.value || "",
+                link: b.querySelector('.proj-link')?.value || "",
+                image: b.querySelector('.proj-img')?.value || "",
+                desc: b.querySelector('.proj-desc')?.value || ""
+            }));
+        }
+
+        window.addAdminAch = () => { 
+            syncAdminInputsToData(); 
+            siteData.achievements.push({ title: "Judul Baru", event: "Tahun", desc: "Deskripsi..." }); 
+            renderAdminForm(); 
+        };
+        window.removeAdminAch = (i) => { 
+            syncAdminInputsToData(); 
+            siteData.achievements.splice(i, 1); 
+            renderAdminForm(); 
+        };
+        window.addAdminProj = () => { 
+            syncAdminInputsToData(); 
+            siteData.projects.push({ title: "Karya Baru", cat: "Kategori", link: "https://", image: "", desc: "Deskripsi..." }); 
+            renderAdminForm(); 
+        };
+        window.removeAdminProj = (i) => { 
+            syncAdminInputsToData(); 
+            siteData.projects.splice(i, 1); 
+            renderAdminForm(); 
+        };
+
+        const adminModal = document.getElementById('admin-modal');
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && e.altKey && e.key.toLowerCase() === 'a') {
+                e.preventDefault(); 
+                window.openAdminModal();
+            }
+        });
+
+        window.openAdminModal = () => {
+            renderAdminForm(); 
+            adminModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        };
+
+        window.closeAdminModal = () => {
+            adminModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        };
+
+        window.saveAdminData = async () => {
+            syncAdminInputsToData(); // Ambil data terakhir dari input
+            const btn = document.getElementById('save-admin-btn');
+            const originalText = btn.innerHTML;
+            
+            try {
+                btn.innerHTML = '<i class="ph-bold ph-spinner-gap animate-spin"></i> Menyimpan...';
+                
+                // Membersihkan data sebelum dilempar ke Firebase untuk mencegah error object
+                const cleanData = JSON.parse(JSON.stringify(siteData));
+
+                if (isCloudActive && docRef && auth.currentUser) {
+                    await setDoc(docRef, cleanData);
+                    console.log("Sukses menyimpan secara permanen ke Cloud!");
+                } else {
+                    console.warn("Penyimpanan Cloud tidak aktif. Hanya merubah tampilan saat ini.");
+                }
+                
+                // Segera update tampilan web
+                renderApp();
+                
+                btn.innerHTML = '<i class="ph-bold ph-check"></i> Tersimpan!';
+                btn.classList.replace('bg-[#22c55e]', 'bg-[#FFC900]');
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.classList.replace('bg-[#FFC900]', 'bg-[#22c55e]');
+                    window.closeAdminModal();
+                }, 1000); 
+                
+            } catch (error) {
+                console.error("Gagal menyimpan ke Cloud:", error);
+                btn.innerHTML = '<i class="ph-bold ph-x"></i> Gagal Simpan';
+                setTimeout(() => btn.innerHTML = originalText, 2500);
+            }
+        };
+
+        async function initFirebase() {
+            try {
+                if (Object.keys(firebaseConfig).length > 0) {
+                    app = initializeApp(firebaseConfig);
+                    auth = getAuth(app);
+                    db = getFirestore(app);
+                    docRef = doc(db, 'artifacts', appId, 'public', 'data', 'portfolioData', 'main');
+
+                    let userCredential;
+                    if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                        userCredential = await signInWithCustomToken(auth, __initial_auth_token);
+                    } else {
+                        userCredential = await signInAnonymously(auth);
+                    }
+
+                    if (userCredential && userCredential.user) {
+                        isCloudActive = true;
+                        
+                        onSnapshot(docRef, (snapshot) => {
+                            if (snapshot.exists()) {
+                                siteData = snapshot.data();
+                            } else {
+                                // Jika dokumen cloud belum ada, kita injeksi data awal kita
+                                setDoc(docRef, JSON.parse(JSON.stringify(siteData)))
+                                    .catch(e => console.error("Gagal menaruh data awal:", e));
+                            }
+                            renderApp();
+                        }, (error) => {
+                            console.error("Snapshot error:", error);
+                            renderApp(); // Fallback lokal jika terputus
+                        });
+                    } else {
+                        renderApp();
+                    }
+                } else {
+                    console.log("Mode Database Offline");
+                    renderApp(); 
+                }
+            } catch (e) {
+                console.error("Firebase Gagal Dimuat:", e);
+                renderApp(); 
+            }
+        }
+
+        // Mulai aplikasi
+        initFirebase();
     </script>
 </body>
 </html>
